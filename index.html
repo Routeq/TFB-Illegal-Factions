@@ -1324,13 +1324,17 @@ let activeSub = 'All';
 let acquired = [];
 let spinning = false;
 
-/* ---------- helpers ---------- */
-function tick(ms){ return new Promise(r=> setTimeout(r,ms)); }
-function rand(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
-function loadCfg(){ try{return JSON.parse(localStorage.getItem('qc_cfg')||'{}')}catch(e){return{}} }
-function saveCfg(c){ localStorage.setItem('qc_cfg', JSON.stringify(c)); }
-function getWeights(){ const c = loadCfg(); return c.weights || DEFAULT_WEIGHTS; }
-function setWeights(w){ const c = loadCfg(); c.weights = w; saveCfg(c); }
+/* ---------- helpers & optimization ---------- */
+const tick = ms => new Promise(r=> setTimeout(r,ms));
+const rand = arr => arr[Math.floor(Math.random()*arr.length)];
+const loadCfg = () => { try{return JSON.parse(localStorage.getItem('qc_cfg')||'{}')}catch(e){return{}} };
+const saveCfg = c => localStorage.setItem('qc_cfg', JSON.stringify(c));
+const getWeights = () => { const c = loadCfg(); return c.weights || DEFAULT_WEIGHTS; };
+const setWeights = w => { const c = loadCfg(); c.weights = w; saveCfg(c); };
+
+/* Debounce/Throttle utilities */
+const debounce = (fn, ms) => { let t; return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), ms); } };
+const throttle = (fn, ms) => { let last = 0; return (...a) => { const now = Date.now(); if (now - last >= ms) { fn(...a); last = now; } } };
 
 /* ============= SUPABASE DATABASE FUNCTIONS ============= */
 async function getThreadsFromDB() {
@@ -1352,72 +1356,11 @@ async function getThreadsFromDB() {
   }
 }
 
-async function saveThreadToDB(thread) {
-  if (!useSupabase) {
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    threads.push(thread);
-    localStorage.setItem('forum_threads', JSON.stringify(threads));
-    return thread;
-  }
-  
-  try {
-    const { data, error } = await supabase
-      .from('threads')
-      .insert([{
-        id: thread.id,
-        title: thread.title,
-        scheme_type: thread.schemeType,
-        thread_type: thread.threadType,
-        author: thread.author,
-        video_url: thread.videoUrl,
-        video_type: thread.videoType,
-        comments: thread.comments || [],
-        created_at: thread.date
-      }])
-      .select()
-      .single();
-    
-    if (error) throw error;
-    return data;
-  } catch (e) {
-    console.error('Error saving thread:', e);
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    threads.push(thread);
-    localStorage.setItem('forum_threads', JSON.stringify(threads));
-    threadCache = null; // Clear cache
-    return thread;
-  }
-}
+// Forums are read-only - no save/update operations needed
 
 async function updateThreadInDB(threadId, updates) {
-  if (!useSupabase) {
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    const idx = threads.findIndex(t => t.id === threadId);
-    if (idx !== -1) {
-      threads[idx] = { ...threads[idx], ...updates };
-      localStorage.setItem('forum_threads', JSON.stringify(threads));
-      threadCache = null; // Clear cache
-    }
-    return;
-  }
-  
-  try {
-    const { error } = await supabase
-      .from('threads')
-      .update(updates)
-      .eq('id', threadId);
-    
-    if (error) throw error;
-  } catch (e) {
-    console.error('Error updating thread:', e);
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    const idx = threads.findIndex(t => t.id === threadId);
-    if (idx !== -1) {
-      threads[idx] = { ...threads[idx], ...updates };
-      localStorage.setItem('forum_threads', JSON.stringify(threads));
-      threadCache = null; // Clear cache
-    }
-  }
+  // Read-only forums - no updates
+  return;
 }
 
 async function deleteThreadFromDB(threadId) {
@@ -1512,41 +1455,23 @@ const SUBTABS = {
   roe: ['All']
 };
 function renderSubtabs(tab){
-  subtabsEl.innerHTML = '';
   const arr = SUBTABS[tab] || ['All'];
-  arr.forEach((s,i)=>{
+  const fragment = document.createDocumentFragment();
+  const arrLen = arr.length;
+  for(let i = 0; i < arrLen; i++){
+    const s = arr[i];
     const el = document.createElement('div');
-    el.className = 'sub' + (i===0 ? ' active' : '');
+    el.className = i === 0 ? 'sub active' : 'sub';
     el.textContent = s;
     el.dataset.sub = s;
-    el.addEventListener('click', ()=> {
-      document.querySelectorAll('.subtabs .sub').forEach(x=> x.classList.remove('active'));
-      el.classList.add('active');
-      activeSub = s;
-      renderGrid();
-    });
-    subtabsEl.appendChild(el);
-  });
+    fragment.appendChild(el);
+  }
+  subtabsEl.innerHTML = '';
+  subtabsEl.appendChild(fragment);
   activeSub = arr[0];
   
-  // Update filter dropdown based on tab
-  if(tab === 'testdrops') {
-    filterSelect.innerHTML = `
-      <option value="all">All</option>
-      <option value="common">Common</option>
-      <option value="uncommon">Uncommon</option>
-      <option value="rare">Rare</option>
-      <option value="epic">Epic</option>
-    `;
-  } else if(tab === 'drugs') {
-    filterSelect.innerHTML = `
-      <option value="all">All</option>
-      <option value="common">Common</option>
-      <option value="uncommon">Uncommon</option>
-      <option value="rare">Rare</option>
-      <option value="epic">Epic</option>
-    `;
-  } else {
+  // Update filter dropdown (same options for all tabs)
+  if(filterSelect.children.length === 0) {
     filterSelect.innerHTML = `
       <option value="all">All</option>
       <option value="common">Common</option>
@@ -1559,17 +1484,23 @@ function renderSubtabs(tab){
 
 /* ---------- filtering ---------- */
 function itemsForTab(tab){
-  const all = (ITEMS[tab] || []).slice();
+  const all = ITEMS[tab];
+  if(!all || all.length === 0) return [];
+  
   const filter = filterSelect.value;
+  const subLower = activeSub ? activeSub.toLowerCase() : 'all';
+  
   let res = all;
-  if(filter !== 'all') res = res.filter(i => i.rarity === filter);
-  if(activeSub && activeSub !== 'All'){
+  if(filter !== 'all') {
+    res = res.filter(i => i.rarity === filter);
+  }
+  
+  if(subLower !== 'all'){
     res = res.filter(i=>{
       const cat = (i.category||'').toLowerCase();
-      const s = activeSub.toLowerCase();
-      if(s === 'smg') return cat.includes('smg');
-      if(s === 'pistols') return cat.includes('pist');
-      return cat.includes(s);
+      if(subLower === 'smg') return cat.includes('smg');
+      if(subLower === 'pistols') return cat.includes('pist');
+      return cat.includes(subLower);
     });
   }
   return res;
@@ -1844,13 +1775,13 @@ async function renderGrid(forceRefresh = false){
       renderGrid();
     });
 
-
-    // Thread click handlers
-    document.querySelectorAll('.thread-card').forEach(card => {
-      card.addEventListener('click', () => {
+    // Thread click handlers - use event delegation
+    contentArea.addEventListener('click', (e) => {
+      const card = e.target.closest('.thread-card');
+      if(card) {
         const idx = parseInt(card.dataset.idx);
         showThreadModal(allThreads[idx]);
-      });
+      }
     });
 
     return;
@@ -2656,51 +2587,91 @@ function closeWeaponPopup(){
 
 /* fallback stats modal close */
 closeStats.addEventListener('click', ()=> { statsModal.classList.remove('open'); statsModal.style.display = 'none'; });
-document.getElementById('statsModal').addEventListener('click', (e)=> { if(e.target.id === 'statsModal'){ statsModal.classList.remove('open'); statsModal.style.display = 'none'; } });
+statsModal.addEventListener('click', (e)=> { if(e.target === statsModal){ statsModal.classList.remove('open'); statsModal.style.display = 'none'; } });
 
-/* topnav click handler (robust) */
-document.querySelectorAll('.topnav .cat').forEach(el=>{
-  el.addEventListener('click', ()=> {
-    document.querySelectorAll('.topnav .cat').forEach(x=> x.classList.remove('active'));
-    el.classList.add('active');
-    activeTab = el.dataset.tab;
-    renderSubtabs(activeTab);
-    renderGrid();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+/* topnav click handler with delegation */
+document.querySelector('.topnav').addEventListener('click', (e) => {
+  const cat = e.target.closest('.cat');
+  if(!cat) return;
+  document.querySelectorAll('.topnav .cat').forEach(x=> x.classList.remove('active'));
+  cat.classList.add('active');
+  activeTab = cat.dataset.tab;
+  renderSubtabs(activeTab);
+  renderGrid();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-/* filter */
-filterSelect.addEventListener('change', ()=> renderGrid());
+/* subtabs event delegation */
+subtabsEl.addEventListener('click', (e) => {
+  const sub = e.target.closest('.sub');
+  if(!sub) return;
+  const active = subtabsEl.querySelector('.sub.active');
+  if(active) active.classList.remove('active');
+  sub.classList.add('active');
+  activeSub = sub.dataset.sub;
+  renderGrid();
+});
+
+/* filter with debounce */
+filterSelect.addEventListener('change', debounce(() => renderGrid(), 100));
 
 /* music toggle */
+const musicIcon = musicToggle.querySelector('i');
 function setMusicOn(on){
   localStorage.setItem('qc_music_on', on ? '1':'0');
-  if(on){ musicToggle.classList.add('on'); musicLabel.textContent = 'Music: On'; musicToggle.querySelector('i').className='fa-solid fa-volume-high'; bgm.play().catch(()=>{}); }
-  else { musicToggle.classList.remove('on'); musicLabel.textContent = 'Music: Off'; musicToggle.querySelector('i').className='fa-solid fa-volume-xmark'; bgm.pause(); }
+  if(on){ 
+    musicToggle.classList.add('on'); 
+    musicLabel.textContent = 'Music: On'; 
+    musicIcon.className='fa-solid fa-volume-high'; 
+    bgm.play().catch(()=>{}); 
+  } else { 
+    musicToggle.classList.remove('on'); 
+    musicLabel.textContent = 'Music: Off'; 
+    musicIcon.className='fa-solid fa-volume-xmark'; 
+    bgm.pause(); 
+  }
 }
 musicToggle.addEventListener('click', ()=> {
   const current = localStorage.getItem('qc_music_on') === '1';
   setMusicOn(!current);
 });
-function enableBGM(){ function start(){ if(bgm){ bgm.play().catch(()=>{}); } document.removeEventListener('click', start); document.removeEventListener('touchstart', start); } document.addEventListener('click', start); document.addEventListener('touchstart', start); }
+// Lazy audio init on first interaction
+let audioInitialized = false;
+function enableBGM(){ 
+  function start(){ 
+    if(!audioInitialized && bgm){ 
+      bgm.play().catch(()=>{}); 
+      audioInitialized = true;
+    } 
+    document.removeEventListener('click', start); 
+    document.removeEventListener('touchstart', start); 
+  } 
+  document.addEventListener('click', start, { once: true, passive: true }); 
+  document.addEventListener('touchstart', start, { once: true, passive: true }); 
+}
 enableBGM();
 setTimeout(()=> { const mp = localStorage.getItem('qc_music_on'); setMusicOn(mp !== '0'); }, 100);
 
 /* spinner modal logic: 1 second spin with easing */
 function renderSpinStrip(){
-  spinStrip.innerHTML = '';
-  const pool = (ITEMS[activeTab]||[]).slice();
-  if(pool.length === 0){ spinStrip.innerHTML = '<div style="color:var(--muted)">No items in this category.</div>'; return; }
+  const pool = ITEMS[activeTab];
+  if(!pool || pool.length === 0){ 
+    spinStrip.innerHTML = '<div style="color:var(--muted)">No items in this category.</div>'; 
+    return; 
+  }
   const fragment = document.createDocumentFragment();
+  const poolLen = pool.length;
+  const tileStyle = 'min-width:140px;height:120px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(255,255,255,0));border:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;contain:layout style paint;';
+  
   for(let i=0;i<15;i++){
-    const it = rand(pool);
+    const it = pool[Math.floor(Math.random() * poolLen)];
     const tile = document.createElement('div');
     tile.className = 'spin-tile';
-    tile.style.cssText = 'min-width:140px;height:120px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(255,255,255,0));border:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;contain:layout style paint;';
+    tile.style.cssText = tileStyle;
     tile.innerHTML = `<div style="font-weight:900;color:var(--muted);margin-bottom:6px;">${it.name}</div><img src="${it.img}" style="max-width:100%;max-height:64px;object-fit:contain" loading="eager" onerror="this.src='${FALLBACK}'">`;
     fragment.appendChild(tile);
   }
+  spinStrip.innerHTML = '';
   spinStrip.appendChild(fragment);
 }
 
@@ -2765,54 +2736,40 @@ spinStartBtn.addEventListener('click', async ()=>{
   playSFX('spin');
   landedGunDisplay.style.display = 'none';
   
-  // Determine how many items to drop based on tier
-  let itemCount = 2; // Default for testdrops
-  if(activeTab === 'drugs') itemCount = 2;
-  if(activeTab === 'tier1') itemCount = 4;
-  if(activeTab === 'tier2') itemCount = 6;
-  
+  // Determine drop count
+  const itemCount = activeTab === 'tier1' ? 4 : activeTab === 'tier2' ? 6 : 2;
   const pickedItems = [];
+  const steps = 15;
+  const duration = 1000;
+  const delays = computeDelays(duration, steps);
   
-  // Spin for each item individually
+  // Spin for each item
   for(let spinIndex = 0; spinIndex < itemCount; spinIndex++) {
-    // Hide landed gun display before spinning
     landedGunDisplay.style.display = 'none';
     
-    // Pick the item for this spin
     const item = pickWeightedItem(activeTab);
     pickedItems.push(item);
     addAcquired(item);
     
-    // Render new spin strip
     renderSpinStrip();
     
-    const steps = 15;
-    const duration = 1000; // 1 second per spin
-    const delays = computeDelays(duration, steps);
-    
-    // Animate the wheel
+    // Animate wheel
     for (let i = 0; i < steps; i++){
       const first = spinStrip.firstElementChild;
       if(first) spinStrip.appendChild(first);
       await tick(delays[i]);
     }
     
-    // Show what gun was landed on
+    // Show landed item
     landedGunImage.src = item.img || FALLBACK;
     landedGunName.textContent = item.name;
     landedGunRarity.textContent = (item.rarity || 'common').toUpperCase();
     landedGunRarity.style.color = getRarityColor(item.rarity);
     landedGunDisplay.style.display = 'block';
     
-    // Pause to show the landed gun (800ms) before next spin
-    if(spinIndex < itemCount - 1) {
-      await tick(800);
-    } else {
-      await tick(500);
-    }
+    await tick(spinIndex < itemCount - 1 ? 800 : 500);
   }
   
-  // After all spins complete, show all items won
   sendWebhook({ action:'spin', tier:activeTab, result:`${itemCount} items`, ts:new Date().toISOString() });
   playSFX('win');
   closeSpinModal();
@@ -2925,15 +2882,22 @@ function addAcquired(item){
   while(acquiredGrid.children.length > 120) acquiredGrid.removeChild(acquiredGrid.lastChild);
 }
 
-/* SFX */
-const audioCtx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext||window.webkitAudioContext)() : null;
+/* SFX - Lazy init audio context on first interaction */
+let audioCtx = null;
+const initAudioCtx = () => {
+  if(audioCtx) return audioCtx;
+  audioCtx = (window.AudioContext || window.webkitAudioContext) ? new (window.AudioContext||window.webkitAudioContext)() : null;
+  return audioCtx;
+};
 function playTone(freq,len=0.08,type='sine',gain=0.06){
-  if(!audioCtx) return;
-  try{ const o = audioCtx.createOscillator(); const g = audioCtx.createGain(); o.type=type; o.frequency.value=freq; o.connect(g); g.connect(audioCtx.destination); const now = audioCtx.currentTime; g.gain.value=0; g.gain.linearRampToValueAtTime(gain, now+0.01); o.start(now); g.gain.exponentialRampToValueAtTime(0.0001, now+len); o.stop(now+len+0.02); }catch(e){}
+  const ctx = initAudioCtx();
+  if(!ctx) return;
+  try{ const o = ctx.createOscillator(); const g = ctx.createGain(); o.type=type; o.frequency.value=freq; o.connect(g); g.connect(ctx.destination); const now = ctx.currentTime; g.gain.value=0; g.gain.linearRampToValueAtTime(gain, now+0.01); o.start(now); g.gain.exponentialRampToValueAtTime(0.0001, now+len); o.stop(now+len+0.02); }catch(e){}
 }
 function playSFX(name){
-  if(!audioCtx) return;
-  if(audioCtx.state === 'suspended') audioCtx.resume().catch(()=>{});
+  const ctx = initAudioCtx();
+  if(!ctx) return;
+  if(ctx.state === 'suspended') ctx.resume().catch(()=>{});
   if(name === 'click') playTone(880,0.06,'square',0.05);
   if(name === 'spin') playTone(240,0.12,'sawtooth',0.12);
   if(name === 'win'){ playTone(880,0.08,'sine',0.12); setTimeout(()=>playTone(1320,0.12,'sine',0.11),120); setTimeout(()=>playTone(1760,0.16,'sine',0.09),260); }
@@ -3038,8 +3002,8 @@ function init(){
   // music pref
   const mp = localStorage.getItem('qc_music_on');
   setTimeout(()=> setMusicOn(mp !== '0'), 60);
-  // allow audio context resume on first interaction
-  document.addEventListener('click', ()=> { if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume().catch(()=>{}); }, { passive: true });
+  // Allow audio context resume on first interaction
+  document.addEventListener('click', ()=> { const ctx = initAudioCtx(); if(ctx && ctx.state === 'suspended') ctx.resume().catch(()=>{}); }, { passive: true });
   console.log('TFB Illegal Factions system ready');
 }
 
