@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TFB Illegal Factions - Combined System</title>
+  <title>Illegal Faction - Weapons & Narcotics</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700;800;900&display=swap" rel="stylesheet">
@@ -12,15 +12,12 @@
     :root {
       --primary-black: #0a0a0a;
       --secondary-black: #1a1a1a;
-      --primary-red: #dc143c;
+      --primary-red: #ff0000;
       --dark-red: #8b0000;
-      --bright-red: #ff4757;
-      --primary-yellow: #ffd700;
-      --light-yellow: #ffed4e;
       --text-white: #ffffff;
-      --text-gray: #b0b8c0;
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --max-width: 1400px;
+      --text-gray: #666666;
+      --text-light-gray: #999999;
+      --border-red: rgba(255, 0, 0, 0.3);
     }
 
     * {
@@ -32,7 +29,7 @@
     html, body {
       height: 100%;
       font-family: 'Rajdhani', sans-serif;
-      background: linear-gradient(135deg, var(--primary-black) 0%, #1a0a0a 100%);
+      background: var(--primary-black);
       color: var(--text-white);
       -webkit-font-smoothing: antialiased;
     }
@@ -41,135 +38,181 @@
       padding: 20px;
     }
 
-    /* Background Effects */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: radial-gradient(ellipse at 20% 50%, rgba(220, 20, 60, 0.1) 0%, transparent 50%),
-                  radial-gradient(ellipse at 80% 80%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
     .wrapper {
-      max-width: var(--max-width);
+      max-width: 1600px;
       margin: 0 auto;
       position: relative;
       z-index: 1;
     }
 
-    /* Header Styling */
+    /* Header */
     .header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      margin-bottom: 40px;
-      padding: 30px 40px;
-      border-bottom: 3px solid;
-      border-image: linear-gradient(90deg, var(--primary-red) 0%, var(--primary-yellow) 100%) 1;
-      position: relative;
-    }
-
-    .header::after {
-      content: '';
-      position: absolute;
-      bottom: -3px;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: radial-gradient(ellipse at center, var(--primary-red) 0%, transparent 80%);
-      filter: drop-shadow(0 0 10px var(--primary-red));
+      align-items: flex-start;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--border-red);
     }
 
     .header-left {
       flex: 1;
-      text-align: center;
     }
 
     .logo-title {
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 900;
-      background: linear-gradient(135deg, var(--bright-red) 0%, var(--primary-yellow) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 10px;
-      text-shadow: 0 0 30px rgba(220, 20, 60, 0.5);
-      letter-spacing: 2px;
+      color: var(--primary-red);
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .logo-subtitle {
-      font-size: 18px;
-      color: var(--primary-yellow);
+      font-size: 14px;
+      color: var(--text-light-gray);
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: flex-end;
+    }
+
+    .music-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-red);
+      border-radius: 8px;
+      color: var(--text-light-gray);
+      font-size: 12px;
       font-weight: 700;
-      letter-spacing: 3px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .music-toggle:hover {
+      border-color: var(--primary-red);
+      color: var(--primary-red);
+    }
+
+    .user-profile {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      background: rgba(0, 0, 0, 0.6);
+      border: 1px solid var(--border-red);
+      border-radius: 8px;
+      color: var(--text-light-gray);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .user-profile:hover {
+      border-color: var(--primary-red);
+      color: var(--primary-red);
     }
 
     .logo-image {
-      width: 80px;
-      height: 80px;
+      width: 100px;
+      height: 100px;
+      border: 3px solid var(--primary-red);
+      border-radius: 12px;
       object-fit: contain;
-      filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.5));
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.8);
       transition: all 0.3s ease;
     }
 
     .logo-image:hover {
-      transform: scale(1.1) rotateZ(-5deg);
-      filter: drop-shadow(0 0 30px rgba(220, 20, 60, 0.8));
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+      transform: scale(1.05);
     }
 
-    /* Navigation Tabs */
-    .nav-tabs {
+    /* Main Navigation Tabs */
+    .main-nav {
       display: flex;
+      gap: 30px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-red);
+      padding-bottom: 0;
       flex-wrap: wrap;
-      gap: 12px;
-      justify-content: center;
-      margin-bottom: 40px;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--glass-border);
-      border-radius: 15px;
-      backdrop-filter: blur(10px);
     }
 
-    .nav-tab {
-      padding: 12px 24px;
-      border: 2px solid transparent;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--text-gray);
-      border-radius: 8px;
+    .main-tab {
+      padding: 12px 0;
+      color: var(--text-light-gray);
+      border: none;
+      background: none;
       cursor: pointer;
       font-weight: 700;
-      font-size: 14px;
-      transition: all 0.3s ease;
-      letter-spacing: 1px;
+      font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      position: relative;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
-    .nav-tab:hover {
-      border-color: var(--primary-yellow);
-      color: var(--primary-yellow);
-      box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-      transform: translateY(-2px);
+    .main-tab:hover {
+      color: var(--primary-red);
     }
 
-    .nav-tab.active {
-      background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
-      border-color: var(--primary-yellow);
-      color: var(--text-white);
-      box-shadow: 0 0 20px rgba(220, 20, 60, 0.6), 0 0 40px rgba(255, 215, 0, 0.2);
+    .main-tab.active {
+      color: var(--primary-red);
+      border-bottom: 2px solid var(--primary-red);
+    }
+
+    /* Subtabs */
+    .subtabs {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+    }
+
+    .subtab {
+      padding: 8px 16px;
+      background: rgba(255, 0, 0, 0.15);
+      border: 1px solid var(--border-red);
+      color: var(--text-light-gray);
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .subtab:hover {
+      background: rgba(255, 0, 0, 0.25);
+      color: var(--primary-red);
+      border-color: var(--primary-red);
+    }
+
+    .subtab.active {
+      background: var(--primary-red);
+      border-color: var(--primary-red);
+      color: var(--primary-black);
     }
 
     /* Content Area */
     .content-area {
-      background: linear-gradient(135deg, rgba(20, 20, 30, 0.9) 0%, rgba(30, 10, 20, 0.9) 100%);
-      border: 2px solid var(--glass-border);
-      border-radius: 15px;
-      padding: 40px;
-      backdrop-filter: blur(10px);
+      background: transparent;
       min-height: 500px;
-      animation: fadeIn 0.5s ease;
+      animation: fadeIn 0.3s ease;
     }
 
     @keyframes fadeIn {
@@ -183,40 +226,116 @@
       }
     }
 
-    /* Section Titles */
+    /* Section Title */
     .section-title {
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 900;
-      background: linear-gradient(135deg, var(--bright-red) 0%, var(--primary-yellow) 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
+      color: var(--primary-red);
+      margin-bottom: 25px;
       text-transform: uppercase;
       letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .section-title i {
-      font-size: 36px;
-      color: var(--primary-yellow);
-      filter: drop-shadow(0 0 10px var(--primary-red));
+      font-size: 32px;
     }
 
-    /* Grid Layout */
+    /* Controls */
+    .controls {
+      display: flex;
+      gap: 15px;
+      margin-bottom: 25px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .filter-group {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .filter-group label {
+      color: var(--text-light-gray);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    select {
+      padding: 8px 12px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-red);
+      color: var(--text-white);
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 12px;
+      transition: all 0.3s ease;
+    }
+
+    select:hover {
+      border-color: var(--primary-red);
+    }
+
+    select option {
+      background: var(--secondary-black);
+      color: var(--text-white);
+    }
+
+    /* Buttons */
+    .btn {
+      padding: 10px 20px;
+      border: 1px solid var(--border-red);
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 6px;
+      color: var(--text-light-gray);
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn:hover {
+      background: rgba(255, 0, 0, 0.1);
+      border-color: var(--primary-red);
+      color: var(--primary-red);
+    }
+
+    .btn-drop {
+      background: linear-gradient(135deg, var(--primary-red), rgba(255, 0, 0, 0.7));
+      border-color: var(--primary-red);
+      color: var(--text-white);
+      padding: 12px 24px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .btn-drop:hover {
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+
+    /* Grid */
     .items-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 20px;
-      margin-top: 30px;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
     .item-card {
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
-      border: 2px solid var(--glass-border);
-      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.8), rgba(30, 30, 30, 0.8));
+      border: 1px solid var(--border-red);
+      border-radius: 10px;
       padding: 15px;
       text-align: center;
       cursor: pointer;
@@ -229,16 +348,16 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+      background: radial-gradient(ellipse at center, var(--primary-red), transparent);
       opacity: 0;
       transition: opacity 0.3s ease;
       z-index: -1;
     }
 
     .item-card:hover {
-      border-color: var(--primary-yellow);
+      border-color: var(--primary-red);
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4), 0 0 20px rgba(255, 215, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3), inset 0 0 20px rgba(255, 0, 0, 0.05);
     }
 
     .item-card:hover::before {
@@ -246,21 +365,21 @@
     }
 
     .item-image {
-      width: 140px;
-      height: 140px;
+      width: 120px;
+      height: 120px;
       object-fit: contain;
       margin: 0 auto 12px;
-      filter: drop-shadow(0 4px 12px rgba(220, 20, 60, 0.3));
+      filter: drop-shadow(0 2px 8px rgba(255, 0, 0, 0.3));
       transition: filter 0.3s ease;
     }
 
     .item-card:hover .item-image {
-      filter: drop-shadow(0 4px 20px rgba(255, 215, 0, 0.5));
+      filter: drop-shadow(0 4px 15px rgba(255, 0, 0, 0.6));
     }
 
     .item-name {
       font-weight: 900;
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-white);
       margin-bottom: 8px;
       text-transform: uppercase;
@@ -270,122 +389,194 @@
 
     .item-rarity {
       display: inline-block;
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 10px;
       font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
     }
 
     .rarity-common {
-      background: rgba(139, 115, 85, 0.5);
+      background: rgba(100, 80, 60, 0.6);
       color: #d4a574;
       border: 1px solid #8b7355;
     }
 
     .rarity-uncommon {
-      background: rgba(76, 175, 80, 0.5);
-      color: #a5d6a7;
+      background: rgba(0, 100, 0, 0.6);
+      color: #90ee90;
       border: 1px solid #4caf50;
     }
 
     .rarity-rare {
-      background: rgba(33, 150, 243, 0.5);
+      background: rgba(0, 50, 150, 0.6);
       color: #64b5f6;
       border: 1px solid #2196f3;
     }
 
     .rarity-epic {
-      background: rgba(156, 39, 176, 0.5);
+      background: rgba(100, 0, 150, 0.6);
       color: #ce93d8;
       border: 1px solid #9c27b0;
     }
 
     .rarity-legendary {
-      background: rgba(255, 152, 0, 0.5);
+      background: rgba(255, 100, 0, 0.6);
       color: #ffb74d;
       border: 1px solid #ff9800;
     }
 
-    /* Control Panel */
-    .controls {
-      display: flex;
-      gap: 15px;
+    /* Spin Wheel */
+    .spin-section {
       margin-bottom: 30px;
-      flex-wrap: wrap;
-      align-items: center;
       padding: 20px;
-      background: rgba(0, 0, 0, 0.3);
+      background: linear-gradient(135deg, rgba(50, 10, 10, 0.5), rgba(20, 20, 20, 0.5));
+      border: 1px solid var(--border-red);
       border-radius: 10px;
-      border: 1px solid var(--glass-border);
     }
 
-    .filter-group {
+    .spin-title {
+      color: var(--primary-red);
+      font-size: 16px;
+      font-weight: 900;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+    }
+
+    .spin-strip {
       display: flex;
       gap: 10px;
-      align-items: center;
-    }
-
-    .filter-group label {
-      color: var(--text-gray);
-      font-weight: 700;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    select {
-      padding: 10px 15px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 2px solid var(--glass-border);
-      color: var(--text-white);
+      overflow: hidden;
+      width: 100%;
+      height: 120px;
+      padding: 8px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-red);
       border-radius: 8px;
-      cursor: pointer;
-      font-weight: 700;
-      transition: all 0.3s ease;
+      position: relative;
+      margin-bottom: 15px;
     }
 
-    select:hover {
-      border-color: var(--primary-yellow);
-    }
-
-    .btn {
-      padding: 12px 24px;
-      border: none;
+    .spin-item {
+      min-width: 120px;
+      height: 100px;
       border-radius: 8px;
-      cursor: pointer;
-      font-weight: 900;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      transition: all 0.3s ease;
+      overflow: hidden;
+      background: rgba(20, 20, 20, 0.9);
+      border: 1px solid rgba(255, 0, 0, 0.3);
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 8px;
+      justify-content: center;
+      padding: 6px;
+      flex-shrink: 0;
     }
 
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary-red) 0%, var(--dark-red) 100%);
+    .spin-item img {
+      max-width: 100%;
+      max-height: 50px;
+      object-fit: contain;
+      margin-bottom: 4px;
+    }
+
+    .spin-item-name {
+      font-size: 10px;
+      font-weight: 700;
+      text-align: center;
       color: var(--text-white);
-      border: 2px solid var(--primary-yellow);
-      box-shadow: 0 0 20px rgba(220, 20, 60, 0.5);
     }
 
-    .btn-primary:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(220, 20, 60, 0.7), 0 0 30px rgba(255, 215, 0, 0.3);
+    .spin-indicator {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 4px;
+      height: 100px;
+      background: linear-gradient(180deg, var(--primary-red), rgba(255, 0, 0, 0.5));
+      border-radius: 2px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+      pointer-events: none;
+      z-index: 10;
     }
 
-    .btn-secondary {
-      background: rgba(255, 255, 255, 0.1);
+    .landed-display {
+      padding: 15px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-red);
+      border-radius: 8px;
+      text-align: center;
+      display: none;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 15px;
+    }
+
+    .landed-display.active {
+      display: flex;
+    }
+
+    .landed-image {
+      max-width: 80px;
+      max-height: 60px;
+      object-fit: contain;
+    }
+
+    .landed-info {
+      text-align: left;
+    }
+
+    .landed-label {
+      font-weight: 900;
+      color: var(--primary-red);
+      margin-bottom: 4px;
+      font-size: 12px;
+    }
+
+    .landed-name {
+      font-weight: 900;
+      font-size: 14px;
       color: var(--text-white);
-      border: 2px solid var(--primary-yellow);
     }
 
-    .btn-secondary:hover {
-      background: var(--primary-yellow);
-      color: var(--primary-black);
+    .landed-rarity {
+      font-weight: 700;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .spin-controls {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-spin {
+      padding: 12px 30px;
+      background: linear-gradient(135deg, var(--primary-red), rgba(255, 0, 0, 0.7));
+      color: var(--text-white);
+      border: 1px solid var(--primary-red);
+      border-radius: 8px;
+      font-weight: 900;
+      font-size: 12px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    }
+
+    .btn-spin:hover:not(:disabled) {
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
+      transform: translateY(-2px);
+    }
+
+    .btn-spin:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
     }
 
     /* Modal */
@@ -396,7 +587,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.95);
       z-index: 1000;
       align-items: center;
       justify-content: center;
@@ -407,15 +598,15 @@
     }
 
     .modal-content {
-      background: linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 10, 26, 0.95) 100%);
-      border: 2px solid var(--primary-yellow);
-      border-radius: 15px;
-      padding: 40px;
-      max-width: 600px;
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(30, 20, 20, 0.95));
+      border: 2px solid var(--primary-red);
+      border-radius: 12px;
+      padding: 30px;
+      max-width: 500px;
       width: 90%;
       max-height: 80vh;
       overflow-y: auto;
-      box-shadow: 0 0 50px rgba(220, 20, 60, 0.6), inset 0 0 30px rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.5), inset 0 0 30px rgba(255, 0, 0, 0.1);
     }
 
     .modal-header {
@@ -423,277 +614,31 @@
       justify-content: space-between;
       align-items: center;
       margin-bottom: 20px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--primary-yellow);
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--border-red);
     }
 
     .modal-title {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 900;
-      color: var(--primary-yellow);
+      color: var(--primary-red);
+      text-transform: uppercase;
     }
 
     .close-btn {
       background: none;
       border: none;
-      color: var(--primary-yellow);
-      font-size: 28px;
+      color: var(--primary-red);
+      font-size: 24px;
       cursor: pointer;
       transition: all 0.3s ease;
     }
 
     .close-btn:hover {
       transform: rotate(90deg);
-      color: var(--bright-red);
     }
 
-    /* Text Content */
-    .content-text {
-      color: var(--text-gray);
-      line-height: 1.8;
-      font-size: 15px;
-      margin-bottom: 20px;
-    }
-
-    .content-text strong {
-      color: var(--primary-yellow);
-    }
-
-    .section-subtitle {
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--primary-yellow);
-      margin-top: 30px;
-      margin-bottom: 15px;
-    }
-
-    ul, ol {
-      margin-left: 20px;
-      color: var(--text-gray);
-    }
-
-    li {
-      margin-bottom: 10px;
-      line-height: 1.6;
-    }
-
-    /* Acquired Items */
-    .acquired-section {
-      margin-top: 40px;
-      padding-top: 30px;
-      border-top: 2px solid var(--glass-border);
-    }
-
-    .acquired-grid {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-top: 15px;
-    }
-
-    .acquired-item {
-      padding: 8px 12px;
-      background: rgba(255, 215, 0, 0.1);
-      border: 1px solid var(--primary-yellow);
-      border-radius: 8px;
-      font-size: 12px;
-      color: var(--primary-yellow);
-      font-weight: 700;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .logo-title {
-        font-size: 32px;
-      }
-
-      .content-area {
-        padding: 20px;
-      }
-
-      .items-grid {
-        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-        gap: 15px;
-      }
-
-      .nav-tabs {
-        gap: 8px;
-      }
-
-      .nav-tab {
-        padding: 10px 16px;
-        font-size: 12px;
-      }
-
-      .section-title {
-        font-size: 24px;
-      }
-
-      .controls {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .modal-content {
-        padding: 20px;
-      }
-    }
-
-    /* Hidden class */
-    .hidden {
-      display: none !important;
-    }
-
-    /* Spin Wheel Styles */
-    .spin-section {
-      margin-top: 30px;
-      padding: 30px;
-      background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(255, 215, 0, 0.05) 100%);
-      border: 2px solid var(--primary-red);
-      border-radius: 15px;
-    }
-
-    .spin-wheel-container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
-    }
-
-    .spin-strip {
-      display: flex;
-      gap: 12px;
-      overflow: hidden;
-      width: 100%;
-      height: 140px;
-      padding: 10px;
-      background: rgba(0, 0, 0, 0.5);
-      border-radius: 10px;
-      border: 2px solid var(--glass-border);
-      position: relative;
-    }
-
-    .spin-item {
-      min-width: 140px;
-      height: 120px;
-      border-radius: 10px;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 0));
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 8px;
-      flex-shrink: 0;
-    }
-
-    .spin-indicator {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 6px;
-      height: 120px;
-      background: linear-gradient(180deg, var(--primary-red), var(--dark-red));
-      border-radius: 3px;
-      box-shadow: 0 0 30px rgba(255, 0, 0, 0.8), 0 0 15px rgba(255, 0, 0, 1);
-      pointer-events: none;
-      z-index: 10;
-    }
-
-    .spin-item img {
-      max-width: 100%;
-      max-height: 60px;
-      object-fit: contain;
-      margin-bottom: 4px;
-    }
-
-    .spin-item-name {
-      font-size: 11px;
-      font-weight: 700;
-      text-align: center;
-      color: var(--text-white);
-    }
-
-    .landed-display {
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.6);
-      border: 2px solid var(--primary-red);
-      border-radius: 10px;
-      text-align: center;
-      display: none;
-      gap: 16px;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .landed-display.active {
-      display: flex;
-    }
-
-    .landed-image {
-      max-width: 100px;
-      max-height: 80px;
-      object-fit: contain;
-    }
-
-    .landed-info {
-      text-align: left;
-    }
-
-    .landed-label {
-      font-weight: 900;
-      color: var(--primary-yellow);
-      margin-bottom: 8px;
-    }
-
-    .landed-name {
-      font-weight: 900;
-      font-size: 18px;
-      color: white;
-    }
-
-    .landed-rarity {
-      font-weight: 700;
-      font-size: 14px;
-      margin-top: 4px;
-    }
-
-    .spin-controls {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* Better Button Styles */
-    .btn-spin {
-      padding: 15px 40px;
-      background: linear-gradient(135deg, var(--primary-red) 0%, var(--bright-red) 100%);
-      color: var(--text-white);
-      border: 2px solid var(--primary-yellow);
-      border-radius: 10px;
-      font-weight: 900;
-      font-size: 14px;
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      transition: all 0.3s ease;
-      box-shadow: 0 0 30px rgba(220, 20, 60, 0.6);
-    }
-
-    .btn-spin:hover:not(:disabled) {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 40px rgba(220, 20, 60, 0.8), 0 0 40px rgba(255, 215, 0, 0.4);
-    }
-
-    .btn-spin:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-
+    /* Victory Modal */
     .victory-modal {
       display: none;
       position: fixed;
@@ -701,7 +646,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.95);
+      background: rgba(0, 0, 0, 0.98);
       z-index: 2000;
       align-items: center;
       justify-content: center;
@@ -712,56 +657,56 @@
     }
 
     .victory-card {
-      background: linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 10, 26, 0.95) 100%);
+      background: linear-gradient(135deg, rgba(30, 10, 10, 0.95), rgba(10, 10, 30, 0.95));
       border: 3px solid var(--primary-red);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 800px;
+      border-radius: 15px;
+      padding: 35px;
+      max-width: 700px;
       width: 90%;
       text-align: center;
-      box-shadow: 0 0 60px rgba(220, 20, 60, 0.7), inset 0 0 40px rgba(255, 215, 0, 0.1);
+      box-shadow: 0 0 60px rgba(255, 0, 0, 0.7), inset 0 0 40px rgba(255, 0, 0, 0.1);
     }
 
     .victory-header {
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid var(--primary-yellow);
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--primary-red);
     }
 
     .victory-title {
-      font-size: 42px;
+      font-size: 36px;
       font-weight: 900;
-      color: var(--primary-yellow);
+      color: var(--primary-red);
       text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
     }
 
     .victory-count {
-      font-size: 18px;
-      color: var(--text-gray);
+      font-size: 14px;
+      color: var(--text-light-gray);
       font-weight: 700;
     }
 
     .victory-items {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 15px;
-      margin-bottom: 30px;
+      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+      gap: 12px;
+      margin-bottom: 25px;
     }
 
     .victory-item {
-      padding: 15px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 2px solid var(--primary-yellow);
-      border-radius: 12px;
+      padding: 12px;
+      background: rgba(0, 0, 0, 0.8);
+      border: 1px solid var(--border-red);
+      border-radius: 8px;
       animation: victoryPop 0.4s ease-out backwards;
     }
 
     @keyframes victoryPop {
       from {
         opacity: 0;
-        transform: scale(0.5);
+        transform: scale(0.3);
       }
       to {
         opacity: 1;
@@ -770,26 +715,101 @@
     }
 
     .victory-item img {
-      max-width: 80px;
-      max-height: 80px;
+      max-width: 70px;
+      max-height: 70px;
       object-fit: contain;
-      margin: 0 auto 10px;
+      margin: 0 auto 8px;
       display: block;
     }
 
     .victory-item-name {
       font-weight: 700;
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-white);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
     }
 
     .victory-item-rarity {
       display: inline-block;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-size: 10px;
+      padding: 3px 6px;
+      border-radius: 3px;
+      font-size: 9px;
       font-weight: 700;
+    }
+
+    /* Text Content */
+    .content-text {
+      color: var(--text-light-gray);
+      line-height: 1.7;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .content-text strong {
+      color: var(--primary-red);
+    }
+
+    .section-subtitle {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary-red);
+      margin-top: 25px;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    ul, ol {
+      margin-left: 20px;
+      color: var(--text-light-gray);
+    }
+
+    li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: flex-start;
+      }
+
+      .logo-title {
+        font-size: 28px;
+      }
+
+      .logo-image {
+        width: 80px;
+        height: 80px;
+      }
+
+      .items-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 12px;
+      }
+
+      .main-nav {
+        gap: 15px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .modal-content, .victory-card {
+        padding: 20px;
+      }
+    }
+
+    .hidden {
+      display: none !important;
     }
   </style>
 </head>
@@ -798,33 +818,25 @@
     <!-- Header -->
     <div class="header">
       <div class="header-left">
-        <div class="logo-title">TFB ILLEGAL</div>
-        <div class="logo-subtitle">FACTIONS NETWORK</div>
+        <h1 class="logo-title">Illegal Faction</h1>
+        <div class="logo-subtitle">United Weapons & Narcotics Network</div>
       </div>
-      <img src="TFB.png" alt="TFB Logo" class="logo-image" onerror="this.style.display='none'">
+      <div class="header-right">
+        <div class="music-toggle" onclick="toggleMusic()">
+          <i class="fas fa-volume-high"></i> <span id="musicLabel">MUSIC: OFF</span>
+        </div>
+        <div class="user-profile">
+          <i class="fas fa-user-circle"></i> <span>user</span>
+        </div>
+        <img src="TFB.png" alt="Faction Logo" class="logo-image" onerror="this.style.display='none'">
+      </div>
     </div>
 
-    <!-- Navigation -->
-    <div class="nav-tabs">
-      <div class="nav-tab active" data-tab="test-drops">
-        <i class="fas fa-bullseye"></i> Test Drops
-      </div>
-      <div class="nav-tab" data-tab="tier1">
-        <i class="fas fa-gun"></i> Tier 1 Drops
-      </div>
-      <div class="nav-tab" data-tab="tier2">
-        <i class="fas fa-shield"></i> Tier 2 Drops
-      </div>
-      <div class="nav-tab" data-tab="drugs">
-        <i class="fas fa-capsules"></i> Drugs
-      </div>
-      <div class="nav-tab" data-tab="forums">
-        <i class="fas fa-comments"></i> Forums
-      </div>
-      <div class="nav-tab" data-tab="roe">
-        <i class="fas fa-book"></i> ROE
-      </div>
-    </div>
+    <!-- Main Navigation -->
+    <div class="main-nav" id="mainNav"></div>
+
+    <!-- Subtabs -->
+    <div class="subtabs" id="subtabs"></div>
 
     <!-- Content Area -->
     <div class="content-area">
@@ -832,7 +844,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+  <!-- Item Modal -->
   <div id="itemModal" class="modal">
     <div class="modal-content">
       <div class="modal-header">
@@ -856,49 +868,40 @@
   </div>
 
   <script>
-    // Color Scheme
-    const COLORS = {
-      primary: '#dc143c',
-      secondary: '#ffd700',
-      dark: '#0a0a0a'
-    };
-
-    // Weapon Data - TFB Guns with Images
+    // Weapon Data with Stats
     const WEAPONS = {
       testDrops: [
-        { name: 'Beretta', rarity: 'common', category: 'Pistols', img: 'images/Beretta.png' },
-        { name: 'G26', rarity: 'common', category: 'Pistols', img: 'images/G26.png' },
-        { name: 'G2C T1', rarity: 'common', category: 'Pistols', img: 'images/G2C_T1.png' },
-        { name: 'G41 Tier 1', rarity: 'common', category: 'Pistols', img: 'images/G41_Tier1.png' },
-        { name: 'G43', rarity: 'common', category: 'Pistols', img: 'images/G43.png' },
-        { name: 'S XD9', rarity: 'common', category: 'Pistols', img: 'images/S_XD9.png' },
-        { name: 'TP9', rarity: 'common', category: 'Pistols', img: 'images/TP9.png' },
-        { name: 'Taurus Civilian', rarity: 'common', category: 'Pistols', img: 'images/Taurus_Civilian.png' }
+        { name: 'Beretta', rarity: 'common', category: 'Pistols', img: 'images/Beretta.png', damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 30 },
+        { name: 'G26', rarity: 'common', category: 'Pistols', img: 'images/G26.png', damage: 25, fire: 740, ammo: '9mm', magStd: 10, magExt: 20 },
+        { name: 'G2C T1', rarity: 'common', category: 'Pistols', img: 'images/G2C_T1.png', damage: 25, fire: 750, ammo: '9mm', magStd: 12, magExt: 24 },
+        { name: 'G41 Tier 1', rarity: 'common', category: 'Pistols', img: 'images/G41_Tier1.png', damage: 25, fire: 760, ammo: '.45 ACP', magStd: 13, magExt: 26 },
+        { name: 'G43', rarity: 'common', category: 'Pistols', img: 'images/G43.png', damage: 25, fire: 710, ammo: '9mm', magStd: 10, magExt: 20 },
+        { name: 'S XD9', rarity: 'common', category: 'Pistols', img: 'images/S_XD9.png', damage: 25, fire: 730, ammo: '9mm', magStd: 16, magExt: 32 },
+        { name: 'TP9', rarity: 'common', category: 'Pistols', img: 'images/TP9.png', damage: 25, fire: 740, ammo: '9mm', magStd: 18, magExt: 36 },
+        { name: 'Taurus Civilian', rarity: 'common', category: 'Pistols', img: 'images/Taurus_Civilian.png', damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 }
       ],
       tier1: [
-        { name: '.38 Special', rarity: 'common', category: 'Pistols', img: 'images/38_special.png' },
-        { name: 'Ghost Glock 17', rarity: 'common', category: 'Pistols', img: 'images/ghost_glock17.png' },
-        { name: 'Beretta M9', rarity: 'common', category: 'Pistols', img: 'images/beretta_m9.png' },
-        { name: 'G23', rarity: 'uncommon', category: 'Pistols', img: 'images/g23.png' },
-        { name: 'G43', rarity: 'uncommon', category: 'Pistols', img: 'images/g43x.png' },
-        { name: 'Fn509', rarity: 'uncommon', category: 'Pistols', img: 'images/fn509.png' },
-        { name: 'G19x', rarity: 'uncommon', category: 'Pistols', img: 'images/g19x.png' },
-        { name: 'G19 MOS', rarity: 'rare', category: 'Pistols', img: 'images/g19_mos.png' },
-        { name: 'G17B', rarity: 'epic', category: 'Pistols', img: 'images/g17b.png' },
-        { name: 'G40', rarity: 'epic', category: 'Pistols', img: 'images/g40.png' }
+        { name: '.38 Special', rarity: 'common', category: 'Pistols', img: 'images/38_special.png', damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 33 },
+        { name: 'Ghost Glock 17', rarity: 'common', category: 'Pistols', img: 'images/ghost_glock17.png', damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 33 },
+        { name: 'Beretta M9', rarity: 'common', category: 'Pistols', img: 'images/beretta_m9.png', damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 30 },
+        { name: 'G23', rarity: 'uncommon', category: 'Pistols', img: 'images/g23.png', damage: 28, fire: 750, ammo: '9mm', magStd: 16, magExt: 32 },
+        { name: 'Fn509', rarity: 'uncommon', category: 'Pistols', img: 'images/fn509.png', damage: 28, fire: 780, ammo: '9mm', magStd: 17, magExt: 34 },
+        { name: 'G19x', rarity: 'uncommon', category: 'Pistols', img: 'images/g19x.png', damage: 28, fire: 790, ammo: '9mm', magStd: 19, magExt: 38 },
+        { name: 'G19 MOS', rarity: 'rare', category: 'Pistols', img: 'images/g19_mos.png', damage: 30, fire: 900, ammo: '5.7x28', magStd: 50, magExt: 100 },
+        { name: 'G17B', rarity: 'epic', category: 'Pistols', img: 'images/g17b.png', damage: 35, fire: 920, ammo: '9mm', magStd: 17, magExt: 34 },
+        { name: 'G40', rarity: 'epic', category: 'Pistols', img: 'images/g40.png', damage: 35, fire: 880, ammo: '10mm', magStd: 15, magExt: 30 }
       ],
       tier2: [
-        { name: 'AK-47', rarity: 'legendary', category: 'ARs', img: 'images/ak47.png' },
-        { name: 'HELLPUP DRACO', rarity: 'legendary', category: 'ARs', img: 'images/hellpup.png' },
-        { name: 'All Black Draco', rarity: 'legendary', category: 'ARs', img: 'images/all_black_draco.png' },
-        { name: 'ZPAP M92', rarity: 'legendary', category: 'ARs', img: 'images/ZPAP_M92.png' },
-        { name: 'Deagle', rarity: 'legendary', category: 'Pistols', img: 'images/deagle.png' },
-        { name: 'G18c', rarity: 'legendary', category: 'Pistols', img: 'images/g18c.png' },
-        { name: 'XDM-Elite', rarity: 'legendary', category: 'Pistols', img: 'images/xdm_elite.png' },
-        { name: 'P90', rarity: 'legendary', category: 'SMG', img: 'images/p90.png' },
-        { name: 'MP5A3', rarity: 'legendary', category: 'SMG', img: 'images/mp5_a3.png' },
-        { name: 'M16A1', rarity: 'legendary', category: 'ARs', img: 'images/m16a1.png' },
-        { name: 'Red Draco', rarity: 'legendary', category: 'ARs', img: 'images/red_draco.png' }
+        { name: 'AK-47', rarity: 'legendary', category: 'ARs', img: 'images/ak47.png', damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+        { name: 'HELLPUP DRACO', rarity: 'legendary', category: 'ARs', img: 'images/hellpup.png', damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+        { name: 'All Black Draco', rarity: 'legendary', category: 'ARs', img: 'images/all_black_draco.png', damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+        { name: 'ZPAP M92', rarity: 'legendary', category: 'ARs', img: 'images/ZPAP_M92.png', damage: 36, fire: 780, ammo: '7.62x39', magStd: 30, magExt: 60 },
+        { name: 'Deagle', rarity: 'legendary', category: 'Pistols', img: 'images/deagle.png', damage: 36, fire: 600, ammo: '.50 AE', magStd: 7, magExt: 14 },
+        { name: 'G18c', rarity: 'legendary', category: 'Pistols', img: 'images/g18c.png', damage: 36, fire: 1200, ammo: '9mm', magStd: 17, magExt: 34 },
+        { name: 'P90', rarity: 'legendary', category: 'SMG', img: 'images/p90.png', damage: 36, fire: 1100, ammo: '5.7x28', magStd: 50, magExt: 100 },
+        { name: 'MP5A3', rarity: 'legendary', category: 'SMG', img: 'images/mp5_a3.png', damage: 36, fire: 950, ammo: '9mm', magStd: 30, magExt: 60 },
+        { name: 'M16A1', rarity: 'legendary', category: 'ARs', img: 'images/m16a1.png', damage: 36, fire: 800, ammo: '5.56x45', magStd: 30, magExt: 60 },
+        { name: 'Red Draco', rarity: 'legendary', category: 'ARs', img: 'images/red_draco.png', damage: 35, fire: 830, ammo: '7.62x39', magStd: 30, magExt: 60 }
       ],
       drugs: [
         { name: 'Weed', rarity: 'common', category: 'Common', price: '$200–$750' },
@@ -914,105 +917,174 @@
       ]
     };
 
-    let currentTab = 'test-drops';
+    // Weapon Stats Reference
+    const WEAPON_STATS = {
+      'Beretta': { damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 30 },
+      'G26': { damage: 25, fire: 740, ammo: '9mm', magStd: 10, magExt: 20 },
+      'G2C T1': { damage: 25, fire: 750, ammo: '9mm', magStd: 12, magExt: 24 },
+      'G41 Tier 1': { damage: 25, fire: 760, ammo: '.45 ACP', magStd: 13, magExt: 26 },
+      'G43': { damage: 25, fire: 710, ammo: '9mm', magStd: 10, magExt: 20 },
+      'S XD9': { damage: 25, fire: 730, ammo: '9mm', magStd: 16, magExt: 32 },
+      'TP9': { damage: 25, fire: 740, ammo: '9mm', magStd: 18, magExt: 36 },
+      'Taurus Civilian': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
+      '.38 Special': { damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 33 },
+      'Ghost Glock 17': { damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 33 },
+      'Beretta M9': { damage: 25, fire: 750, ammo: '9mm', magStd: 15, magExt: 30 },
+      'G23': { damage: 28, fire: 750, ammo: '9mm', magStd: 16, magExt: 32 },
+      'Fn509': { damage: 28, fire: 780, ammo: '9mm', magStd: 17, magExt: 34 },
+      'G19x': { damage: 28, fire: 790, ammo: '9mm', magStd: 19, magExt: 38 },
+      'G19 MOS': { damage: 30, fire: 900, ammo: '5.7x28', magStd: 50, magExt: 100 },
+      'G17B': { damage: 35, fire: 920, ammo: '9mm', magStd: 17, magExt: 34 },
+      'G40': { damage: 35, fire: 880, ammo: '10mm', magStd: 15, magExt: 30 },
+      'AK-47': { damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+      'HELLPUP DRACO': { damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+      'All Black Draco': { damage: 36, fire: 750, ammo: '5.56x45', magStd: 30, magExt: 60 },
+      'ZPAP M92': { damage: 36, fire: 780, ammo: '7.62x39', magStd: 30, magExt: 60 },
+      'Deagle': { damage: 36, fire: 600, ammo: '.50 AE', magStd: 7, magExt: 14 },
+      'G18c': { damage: 36, fire: 1200, ammo: '9mm', magStd: 17, magExt: 34 },
+      'P90': { damage: 36, fire: 1100, ammo: '5.7x28', magStd: 50, magExt: 100 },
+      'MP5A3': { damage: 36, fire: 950, ammo: '9mm', magStd: 30, magExt: 60 },
+      'M16A1': { damage: 36, fire: 800, ammo: '5.56x45', magStd: 30, magExt: 60 },
+      'Red Draco': { damage: 35, fire: 830, ammo: '7.62x39', magStd: 30, magExt: 60 }
+    };
+
+    const SUBTABS = {
+      testDrops: ['All', 'Pistols', 'SMG'],
+      tier1: ['All', 'Pistols', 'SMG'],
+      tier2: ['All', 'ARs', 'Snipers', 'LMGs'],
+      drugs: ['All', 'Common', 'Rare'],
+      forums: ['All'],
+      roe: ['All']
+    };
+
+    const TABS = [
+      { id: 'testDrops', name: 'Test Drops', icon: 'fa-bullseye' },
+      { id: 'tier1', name: 'Tier 1 Drops', icon: 'fa-gun' },
+      { id: 'tier2', name: 'Tier 2 Drops', icon: 'fa-shield' },
+      { id: 'drugs', name: 'Drugs', icon: 'fa-capsules' },
+      { id: 'roe', name: 'ROE', icon: 'fa-book' },
+      { id: 'forums', name: 'Forums', icon: 'fa-comments' }
+    ];
+
+    let currentTab = 'testDrops';
     let currentFilter = 'all';
+    let currentSubtab = 'All';
     let isSpinning = false;
     let acquiredItems = [];
 
-    // Tab Switching
-    document.querySelectorAll('.nav-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
-        this.classList.add('active');
-        currentTab = this.dataset.tab;
-        currentFilter = 'all';
-        renderContent();
-      });
-    });
+    // Initialize Navigation
+    function initNav() {
+      const mainNav = document.getElementById('mainNav');
+      mainNav.innerHTML = TABS.map(tab => `
+        <button class="main-tab ${tab.id === currentTab ? 'active' : ''}" data-tab="${tab.id}" onclick="switchTab('${tab.id}')">
+          <i class="fas ${tab.icon}"></i> ${tab.name}
+        </button>
+      `).join('');
+    }
+
+    // Switch Tab
+    function switchTab(tabId) {
+      currentTab = tabId;
+      currentFilter = 'all';
+      currentSubtab = SUBTABS[tabId][0];
+      document.querySelectorAll('.main-tab').forEach(t => t.classList.remove('active'));
+      document.querySelector(`[data-tab="${tabId}"]`).classList.add('active');
+      renderSubtabs();
+      renderContent();
+    }
+
+    // Render Subtabs
+    function renderSubtabs() {
+      const subtabs = document.getElementById('subtabs');
+      const tabs = SUBTABS[currentTab] || [];
+      subtabs.innerHTML = tabs.map(tab => `
+        <button class="subtab ${tab === currentSubtab ? 'active' : ''}" onclick="setSubtab('${tab}')">
+          ${tab}
+        </button>
+      `).join('');
+    }
+
+    function setSubtab(tab) {
+      currentSubtab = tab;
+      document.querySelectorAll('.subtab').forEach(t => t.classList.remove('active'));
+      event.target.classList.add('active');
+      renderContent();
+    }
 
     // Render Content
     function renderContent() {
       const content = document.getElementById('content');
       
-      if (currentTab === 'test-drops') {
-        renderWeapons('testDrops', 'Test Drops - Quaker City', 'fa-bullseye');
+      if (currentTab === 'testDrops') {
+        renderWeapons('testDrops', 'Test Drops');
       } else if (currentTab === 'tier1') {
-        renderWeapons('tier1', 'Tier 1 Drops - Quaker City', 'fa-gun');
+        renderWeapons('tier1', 'Tier 1 Drops');
       } else if (currentTab === 'tier2') {
-        renderWeapons('tier2', 'Tier 2 Drops - Quaker City', 'fa-shield');
+        renderWeapons('tier2', 'Tier 2 Drops');
       } else if (currentTab === 'drugs') {
         renderDrugs();
-      } else if (currentTab === 'forums') {
-        renderForums();
       } else if (currentTab === 'roe') {
         renderROE();
+      } else if (currentTab === 'forums') {
+        renderForums();
       }
     }
 
-    function renderWeapons(category, title, icon) {
+    // Render Weapons
+    function renderWeapons(category, title) {
       const content = document.getElementById('content');
       const weapons = WEAPONS[category] || [];
       
-      let html = `
-        <div class="section-title">
-          <i class="fas ${icon}"></i> ${title}
+      let html = `<div class="section-title"><i class="fas fa-gun"></i> ${title}</div>`;
+      html += `<div class="controls">
+        <div class="filter-group">
+          <label>Rarity:</label>
+          <select onchange="currentFilter = this.value; renderContent()">
+            <option value="all">All</option>
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+          </select>
         </div>
-        <div class="controls">
-          <div class="filter-group">
-            <label>Filter by Rarity:</label>
-            <select onchange="currentFilter = this.value; renderContent();">
-              <option value="all">All</option>
-              <option value="common">Common</option>
-              <option value="uncommon">Uncommon</option>
-              <option value="rare">Rare</option>
-              <option value="epic">Epic</option>
-              <option value="legendary">Legendary</option>
-            </select>
-          </div>
-          <button class="btn btn-primary" onclick="initiateSpin('${category}')">
-            <i class="fas fa-dice"></i> SPIN WHEEL
-          </button>
-        </div>
-      `;
+        <button class="btn btn-drop" onclick="executeSpinWheel('${category}')">
+          <i class="fas fa-dice"></i> DROP
+        </button>
+      </div>`;
 
       if (category === 'testDrops') {
         html += `
           <div class="spin-section">
-            <h3 style="color: var(--primary-yellow); margin-bottom: 15px;">
-              <i class="fas fa-spinner"></i> Test Drop Spin Wheel
-            </h3>
-            <div class="spin-wheel-container">
-              <div class="spin-strip" id="spinStrip"></div>
-              <div class="landed-display" id="landedDisplay">
-                <img id="landedImage" class="landed-image" src="" alt="">
-                <div class="landed-info">
-                  <div class="landed-label">YOU GOT:</div>
-                  <div class="landed-name" id="landedName"></div>
-                  <div class="landed-rarity" id="landedRarity"></div>
-                </div>
+            <div class="spin-title"><i class="fas fa-spinner"></i> Spin Wheel</div>
+            <div class="spin-strip" id="spinStrip"></div>
+            <div class="spin-indicator"></div>
+            <div class="landed-display" id="landedDisplay">
+              <img id="landedImage" class="landed-image" src="" alt="">
+              <div class="landed-info">
+                <div class="landed-label">YOU GOT:</div>
+                <div class="landed-name" id="landedName"></div>
+                <div class="landed-rarity" id="landedRarity"></div>
               </div>
-              <div class="spin-controls">
-                <button class="btn-spin" id="spinBtn" onclick="executeSpinWheel('testDrops')">
-                  <i class="fas fa-spinner"></i> START SPIN
-                </button>
-              </div>
+            </div>
+            <div class="spin-controls">
+              <button class="btn-spin" id="spinBtn" onclick="executeSpinWheel('${category}')">
+                <i class="fas fa-spinner"></i> SPIN
+              </button>
             </div>
           </div>
         `;
       }
 
-      html += `
-        <div class="items-grid">
-      `;
+      html += `<div class="items-grid">`;
       
       const filtered = weapons.filter(w => currentFilter === 'all' || w.rarity === currentFilter);
-      
       filtered.forEach(weapon => {
         html += `
           <div class="item-card" onclick="showItemDetails('${weapon.name}', '${weapon.rarity}')">
-            <img src="${weapon.img}" alt="${weapon.name}" class="item-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22140%22 height=%22140%22%3E%3Crect fill=%22%23333%22 width=%22140%22 height=%22140%22/%3E%3C/svg%3E'">
+            <img src="${weapon.img}" alt="${weapon.name}" class="item-image" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Crect fill=%23222%22 width=%22120%22 height=%22120%22/%3E%3C/svg%3E'">
             <div class="item-name">${weapon.name}</div>
-            <div class="item-rarity rarity-${weapon.rarity}">${weapon.rarity.toUpperCase()}</div>
+            <div class="item-rarity rarity-${weapon.rarity}">${weapon.rarity}</div>
           </div>
         `;
       });
@@ -1020,35 +1092,42 @@
       html += `</div>`;
       content.innerHTML = html;
 
-      // Initialize spin wheel if on test drops
       if (category === 'testDrops') {
         renderSpinStrip('testDrops');
       }
     }
 
+    // Render Drugs
     function renderDrugs() {
       const content = document.getElementById('content');
       const drugs = WEAPONS.drugs || [];
       
-      let html = `
-        <div class="section-title">
-          <i class="fas fa-capsules"></i> Drug Market - TFB
+      let html = `<div class="section-title"><i class="fas fa-capsules"></i> Drugs</div>`;
+      html += `<div class="content-text">Current market prices for all available substances in the network.</div>`;
+      html += `<div class="controls">
+        <div class="filter-group">
+          <label>Rarity:</label>
+          <select onchange="currentFilter = this.value; renderDrugs()">
+            <option value="all">All</option>
+            <option value="common">Common</option>
+            <option value="uncommon">Uncommon</option>
+            <option value="rare">Rare</option>
+            <option value="epic">Epic</option>
+            <option value="legendary">Legendary</option>
+          </select>
         </div>
-        <div class="content-text">
-          <strong>Current Market Prices:</strong> Below is the latest pricing information for all available narcotics in the TFB network.
-        </div>
-        <div class="items-grid">
-      `;
+      </div>`;
+
+      html += `<div class="items-grid">`;
       
       const filtered = drugs.filter(d => currentFilter === 'all' || d.rarity === currentFilter);
-      
       filtered.forEach(drug => {
         html += `
           <div class="item-card" onclick="showDrugDetails('${drug.name}', '${drug.price}', '${drug.rarity}')">
-            <i class="fas fa-droplet" style="font-size: 48px; color: var(--primary-yellow); margin-bottom: 12px;"></i>
+            <i class="fas fa-droplet" style="font-size: 40px; color: #ff0000; margin-bottom: 10px;"></i>
             <div class="item-name">${drug.name}</div>
-            <div class="item-rarity rarity-${drug.rarity}">${drug.rarity.toUpperCase()}</div>
-            <div class="content-text" style="margin-top: 10px; font-size: 12px;">${drug.price}</div>
+            <div class="item-rarity rarity-${drug.rarity}">${drug.rarity}</div>
+            <div style="color: #999; font-size: 11px; margin-top: 8px;">${drug.price}</div>
           </div>
         `;
       });
@@ -1057,163 +1136,234 @@
       content.innerHTML = html;
     }
 
-    function renderForums() {
-      const content = document.getElementById('content');
-      content.innerHTML = `
-        <div class="section-title">
-          <i class="fas fa-comments"></i> Forums - TFB Community
-        </div>
-        <div class="content-text">
-          Welcome to the TFB Forums. This is where members discuss operations, share strategies, and coordinate activities.
-        </div>
+    // Render ROE
+    function renderROE() {
+      document.getElementById('content').innerHTML = `
+        <div class="section-title"><i class="fas fa-book"></i> TFB 3.5 — Official Faction Roleplay Guidelines</div>
+        <div class="content-text"><strong>Welcome to TFB 3.5</strong>, a serious roleplay server focused on high-quality faction roleplay.<br>By engaging in faction RP, you acknowledge and agree to all rules listed below.<br>Breaking any rule may result in punishment or faction strikes.</div>
         
-        <div class="section-subtitle">Forum Categories</div>
+        <div class="section-subtitle" style="color: #ff6b6b;">🔴 FACTION ATTACK RULES</div>
+        
+        <div style="color: var(--primary-red); font-weight: 700; margin-top: 15px; margin-bottom: 8px;">General Attack Limits</div>
+        <ul>
+          <li>Max 4 attackers per faction (unless defending on your own turf)</li>
+          <li>No attacks or robberies in the first/last 15 minutes of a server restart</li>
+          <li>Minimum 3 negative interactions (fights, robbery, stabbing) are required before initiating a shootout</li>
+          <li>Entering the death script = active attack</li>
+          <li>Attacks must escalate realistically and organically</li>
+          <li>Shooting in the air for RP is allowed, but no one can be injured</li>
+        </ul>
+
+        <div style="color: var(--primary-red); font-weight: 700; margin-top: 15px; margin-bottom: 8px;">Kill Limits & Deathmatching</div>
+        <ul>
+          <li>If 4+ people are on a turf, you may perform a deathmatching attack (no pinpointing)</li>
+          <li>Maximum intentional kills per attack: 3 (marked in red)</li>
+          <li>Unintentional extra kills: last victim is revived, no refunds</li>
+          <li>If you shoot back, you lose protection</li>
+        </ul>
+
+        <div style="color: var(--primary-red); font-weight: 700; margin-top: 15px; margin-bottom: 8px;">Identification</div>
+        <ul>
+          <li>Tog names count as pinpointing only if unmasked</li>
+          <li>If a masked user is avoiding RP, they may be attacked</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #ffa94d;">🟠 MISCELLANEOUS FACTION RULES</div>
+        <ul>
+          <li>All attackers must be inside the gang menu</li>
+          <li>Non-members cannot participate in faction attacks</li>
+          <li>Reloading during an attack is prohibited</li>
+          <li>Double attacking is only allowed if the enemy hasn't slid back within 72 hours</li>
+          <li>You cannot attack during cooldowns</li>
+          <li>Attacks from supercars are restricted to Tier 2+ factions</li>
+          <li>Solo attacks are allowed only against solo targets with valid RP</li>
+          <li>If shot but not placed in death script, you may RP injuries</li>
+          <li>Entering death script from gunfire = mandatory character kill</li>
+          <li>Tier 2+ factions may attack every 12 hours</li>
+          <li>Robbery cooldown: 4 hours</li>
+          <li>Robbery requires 2 interactions unless strong reason exists (flashing money/guns/drugs)</li>
+          <li>Robbing on a turf = faction attack</li>
+          <li>Probationary factions cannot backdoor</li>
+          <li>At least 3 interactions are required before any backdoor action</li>
+          <li>All conflict must be built through RP, not excuses</li>
+          <li>If someone avoids RP on another faction's turf, you may kill them</li>
+          <li>Failure to fear RP = punishments</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #ffd93d;">🟡 ILLEGAL CIVILIAN RULES</div>
+        <ul>
+          <li>Illegal civilians may roleplay from a hood but cannot participate in faction beef unless joining that faction</li>
+          <li>Must have positive interactions to defend a faction</li>
+          <li>Illegal civs should have their own storylines, not live on blocks all day</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #b19cd9;">🟣 POOR ESCALATION / FORBIDDEN ACTIONS</div>
+        <ul>
+          <li>Attacks from EVs, motorcycles, dirt bikes are forbidden (mopeds allowed)</li>
+          <li>Poor escalation leads to punishments</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #90ee90;">🟩 MUTUAL COMBAT RULES</div>
+        <ul>
+          <li>When 5+ members from two factions meet in a hostile situation, it can escalate into faction conflict even in greenzones</li>
+          <li>Max 8 members per faction (including allies) in brawls</li>
+          <li>Do not linger on a turf for more than 10 minutes</li>
+          <li>Hiding weapons with emotes = playing to win</li>
+          <li>Non-participating faction members may not scout or spin enemy turf</li>
+          <li>No beefing or shooting at public, promoted events</li>
+          <li>Crosshair usage = immediate termination if proven</li>
+          <li>Metagaming (Discord, streams, clips) = punishments or faction strikes</li>
+          <li>Must stay in server 30 minutes after initiating an attack</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #64b5f6;">🔵 ROLEPLAY DEVELOPMENT RULES</div>
+        <ul>
+          <li>No faction activity until your faction has a thread</li>
+          <li>Poor portrayal can lead to punishment</li>
+          <li>No unnecessary local OOC</li>
+          <li>Characters must be 72 hours old before participating in attacks</li>
+          <li>You may only take clothes/shoes, not inventory items, after knocking someone out</li>
+          <li>Hackers/hitbox users in a faction will lead to consequences</li>
+          <li>Public OOC toxicity = punishments</li>
+          <li>Repeated turf provoking or greenzone provoking = strikes/closure</li>
+        </ul>
+
+        <div class="section-subtitle" style="color: #ff6b6b;">🔫 ENGAGEMENT & SHOOTOUT GUIDELINES</div>
+        <ul>
+          <li>No speed boosting or "100k or die" shooting</li>
+          <li>Shooter POV with sound and 3 minutes must be provided if asked</li>
+          <li>Must be recorded with GeForce/AMD, or Twitch/Kick VOD showing desktop/taskbar</li>
+        </ul>
+
+        <div class="section-subtitle">🌊 WATER EVADING</div>
+        <ul>
+          <li>No using water to escape police, factions, or to remove GSR</li>
+        </ul>
+
+        <div class="section-subtitle">📄 FACTION REPORTS</div>
+        <ul>
+          <li>Reports must be made within 48 hours</li>
+          <li>No revenge-motivated reports</li>
+          <li>If you have an active report, do not interact negatively with that faction</li>
+          <li>Factions under report review may be banned from selling guns/drugs</li>
+        </ul>
+
+        <div class="section-subtitle">🗃 WEAPON LOGGING & REFILL POLICY</div>
+        <ul>
+          <li>Logged faction guns can be respawned after 3 days (not for test factions)</li>
+          <li>All guns must be logged. Unlogged firearms = bans/strikes</li>
+        </ul>
+      `;
+    }
+
+    // Render Forums
+    function renderForums() {
+      document.getElementById('content').innerHTML = `
+        <div class="section-title"><i class="fas fa-comments"></i> Forums</div>
+        <div class="content-text">Community discussion board for all faction members. Share strategies and coordinate operations.</div>
+        
         <div class="items-grid" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
           <div class="item-card">
-            <i class="fas fa-comments" style="font-size: 48px; color: var(--primary-yellow); margin-bottom: 12px;"></i>
+            <i class="fas fa-comments" style="font-size: 40px; color: #ff0000; margin-bottom: 10px;"></i>
             <div class="item-name">General Discussion</div>
-            <div class="content-text" style="font-size: 12px;">Share ideas and discuss operations</div>
+            <div style="color: #999; font-size: 12px; margin-top: 8px;">Share ideas and discuss operations</div>
           </div>
           <div class="item-card">
-            <i class="fas fa-users" style="font-size: 48px; color: var(--primary-yellow); margin-bottom: 12px;"></i>
+            <i class="fas fa-users" style="font-size: 40px; color: #ff0000; margin-bottom: 10px;"></i>
             <div class="item-name">Member Introductions</div>
-            <div class="content-text" style="font-size: 12px;">New members introduce themselves</div>
+            <div style="color: #999; font-size: 12px; margin-top: 8px;">New members introduce themselves</div>
           </div>
           <div class="item-card">
-            <i class="fas fa-map-marker-alt" style="font-size: 48px; color: var(--primary-yellow); margin-bottom: 12px;"></i>
+            <i class="fas fa-map-marker-alt" style="font-size: 40px; color: #ff0000; margin-bottom: 10px;"></i>
             <div class="item-name">Territory Updates</div>
-            <div class="content-text" style="font-size: 12px;">Faction territory information</div>
+            <div style="color: #999; font-size: 12px; margin-top: 8px;">Faction territory information</div>
           </div>
           <div class="item-card">
-            <i class="fas fa-bell" style="font-size: 48px; color: var(--primary-yellow); margin-bottom: 12px;"></i>
+            <i class="fas fa-bell" style="font-size: 40px; color: #ff0000; margin-bottom: 10px;"></i>
             <div class="item-name">Announcements</div>
-            <div class="content-text" style="font-size: 12px;">Important network updates</div>
+            <div style="color: #999; font-size: 12px; margin-top: 8px;">Important faction updates</div>
           </div>
         </div>
 
         <div class="section-subtitle">Forum Rules</div>
-        <div class="content-text">
-          <ul>
-            <li><strong>Respect all members</strong> - No disrespect or harassment</li>
-            <li><strong>No snitching</strong> - Do not share sensitive information</li>
-            <li><strong>Keep it relevant</strong> - Stay on topic in each forum</li>
-            <li><strong>No spam</strong> - Quality over quantity</li>
-            <li><strong>Follow hierarchy</strong> - Respect leadership decisions</li>
-          </ul>
-        </div>
+        <ul>
+          <li>Respect all members - No disrespect or harassment</li>
+          <li>No snitching - Do not share sensitive information</li>
+          <li>Keep it relevant - Stay on topic</li>
+          <li>No spam - Quality over quantity</li>
+          <li>Follow hierarchy - Respect leadership</li>
+        </ul>
       `;
     }
 
-    function renderROE() {
-      const content = document.getElementById('content');
-      content.innerHTML = `
-        <div class="section-title">
-          <i class="fas fa-book"></i> Rules of Engagement - ROE
-        </div>
-        <div class="content-text">
-          The Rules of Engagement govern all interactions within the TFB Illegal Factions network. Adherence is mandatory.
-        </div>
-
-        <div class="section-subtitle">Combat Rules</div>
-        <div class="content-text">
-          <ul>
-            <li><strong>Initiation Required:</strong> Proper roleplay initiation before combat</li>
-            <li><strong>Escalation Protocol:</strong> Follow realistic escalation procedures</li>
-            <li><strong>No Drivebys from Exotics:</strong> Strictly prohibited</li>
-            <li><strong>Surveillance:</strong> Proper intel gathering before actions</li>
-            <li><strong>Video Evidence:</strong> All claims require video proof via Nvidia</li>
-          </ul>
-        </div>
-
-        <div class="section-subtitle">Territory Rights</div>
-        <div class="content-text">
-          <ul>
-            <li><strong>Tier 1 Members:</strong> 2 attacks per week</li>
-            <li><strong>Tier 2 Members:</strong> 3 attacks per week</li>
-            <li><strong>Territory Protection:</strong> Full rights to defend claimed turf</li>
-            <li><strong>Alliance Support:</strong> All factions must support allies in need</li>
-            <li><strong>Neutral Zones:</strong> Certain areas are off-limits for conflicts</li>
-          </ul>
-        </div>
-
-        <div class="section-subtitle">Weapon Restrictions</div>
-        <div class="content-text">
-          <ul>
-            <li><strong>No Explosives:</strong> Heavy ordinance forbidden in populated areas</li>
-            <li><strong>Realistic Usage:</strong> All weapons must be used realistically</li>
-            <li><strong>Placement Rules:</strong> Weapons must be placed logically</li>
-            <li><strong>Ammo Limits:</strong> Reasonable ammunition quantities only</li>
-          </ul>
-        </div>
-
-        <div class="section-subtitle">Consequences</div>
-        <div class="content-text">
-          <strong style="color: var(--bright-red);">Failure to comply with ROE results in:</strong>
-          <ul>
-            <li>First Offense: Warning and 24-hour suspension</li>
-            <li>Second Offense: 7-day faction ban</li>
-            <li>Third Offense: Permanent removal from TFB</li>
-            <li>Severe Violations: Immediate permanent ban</li>
-          </ul>
-        </div>
-      `;
-    }
-
+    // Show Item Details
     function showItemDetails(name, rarity) {
       const modal = document.getElementById('itemModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalBody = document.getElementById('modalBody');
-
-      modalTitle.textContent = name;
-      modalBody.innerHTML = `
+      const stats = WEAPON_STATS[name] || {};
+      document.getElementById('modalTitle').textContent = name;
+      
+      let statsHtml = '';
+      if(stats.damage) {
+        statsHtml += `
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0;">
+            <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid var(--border-red);">
+              <div style="color: var(--text-light-gray); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Damage</div>
+              <div style="color: var(--primary-red); font-size: 24px; font-weight: 900;">${stats.damage}</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid var(--border-red);">
+              <div style="color: var(--text-light-gray); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Fire Rate</div>
+              <div style="color: var(--primary-red); font-size: 24px; font-weight: 900;">${stats.fire} RPM</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid var(--border-red);">
+              <div style="color: var(--text-light-gray); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Ammo</div>
+              <div style="color: var(--primary-red); font-size: 18px; font-weight: 900;">${stats.ammo || '-'}</div>
+            </div>
+            <div style="background: rgba(0,0,0,0.5); padding: 12px; border-radius: 8px; border: 1px solid var(--border-red);">
+              <div style="color: var(--text-light-gray); font-size: 11px; font-weight: 700; text-transform: uppercase; margin-bottom: 8px;">Magazine</div>
+              <div style="color: var(--primary-red); font-size: 16px; font-weight: 900;">Reg: ${stats.magStd || '-'} | Ext: ${stats.magExt || '-'}</div>
+            </div>
+          </div>
+        `;
+      }
+      
+      document.getElementById('modalBody').innerHTML = `
         <div class="content-text">
-          <strong>Rarity:</strong> <span class="item-rarity rarity-${rarity}">${rarity.toUpperCase()}</span>
+          <strong>Rarity:</strong> <span class="item-rarity rarity-${rarity}">${rarity}</span>
         </div>
-        <div class="content-text">
+        ${statsHtml}
+        <div class="content-text" style="margin-top: 15px;">
           <strong>Status:</strong> Available in inventory
         </div>
-        <button class="btn btn-primary" onclick="closeModal()" style="margin-top: 20px; width: 100%;">
-          Close
+        <button class="btn btn-drop" onclick="closeModal()" style="margin-top: 20px; width: 100%;">
+          CLOSE
         </button>
       `;
-
       modal.classList.add('active');
     }
 
     function showDrugDetails(name, price, rarity) {
       const modal = document.getElementById('itemModal');
-      const modalTitle = document.getElementById('modalTitle');
-      const modalBody = document.getElementById('modalBody');
-
-      modalTitle.textContent = name;
-      modalBody.innerHTML = `
+      document.getElementById('modalTitle').textContent = name;
+      document.getElementById('modalBody').innerHTML = `
         <div class="content-text">
-          <strong>Current Market Price:</strong> ${price}
+          <strong>Market Price:</strong> ${price}
         </div>
         <div class="content-text">
-          <strong>Rarity:</strong> <span class="item-rarity rarity-${rarity}">${rarity.toUpperCase()}</span>
+          <strong>Rarity:</strong> <span class="item-rarity rarity-${rarity}">${rarity}</span>
         </div>
         <div class="content-text">
           <strong>Availability:</strong> In stock
         </div>
-        <button class="btn btn-primary" onclick="closeModal()" style="margin-top: 20px; width: 100%;">
-          Close
+        <button class="btn btn-drop" onclick="closeModal()" style="margin-top: 20px; width: 100%;">
+          CLOSE
         </button>
       `;
-
       modal.classList.add('active');
     }
 
     function closeModal() {
       document.getElementById('itemModal').classList.remove('active');
     }
-
-    // Close modal when clicking outside
-    document.getElementById('itemModal').addEventListener('click', function(e) {
-      if (e.target === this) {
-        closeModal();
-      }
-    });
 
     // Spin Wheel Functions
     function renderSpinStrip(category) {
@@ -1228,7 +1378,7 @@
         const tile = document.createElement('div');
         tile.className = 'spin-item';
         tile.innerHTML = `
-          <img src="${weapon.img}" alt="${weapon.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Crect fill=%22%23333%22 width=%2240%22 height=%2240%22/%3E%3C/svg%3E'">
+          <img src="${weapon.img}" alt="${weapon.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2240%22 height=%2240%22%3E%3Crect fill=%23222%22 width=%2240%22 height=%2240%22/%3E%3C/svg%3E'">
           <div class="spin-item-name">${weapon.name}</div>
         `;
         spinStrip.appendChild(tile);
@@ -1242,52 +1392,43 @@
       const spinBtn = document.getElementById('spinBtn');
       const spinStrip = document.getElementById('spinStrip');
       const landedDisplay = document.getElementById('landedDisplay');
+      
+      if (!spinStrip) return;
+      
       const weapons = WEAPONS[category] || [];
-      
       if (spinBtn) spinBtn.disabled = true;
-      landedDisplay.classList.remove('active');
+      if (landedDisplay) landedDisplay.classList.remove('active');
       
-      // Spin animation
       const spinDuration = 2000;
       const startTime = Date.now();
       const weaponCount = spinStrip.children.length;
-      let selectedWeapon = null;
       
       const spinAnimation = setInterval(() => {
         const elapsed = Date.now() - startTime;
         const progress = Math.min(elapsed / spinDuration, 1);
-        
-        // Easing function for deceleration
         const easeProgress = 1 - Math.pow(1 - progress, 3);
         const positions = Math.floor(easeProgress * weaponCount * 3);
         
-        // Move strip
-        const first = spinStrip.firstElementChild;
-        for (let i = 0; i < positions % weaponCount; i++) {
+        let first = spinStrip.firstElementChild;
+        for (let i = 0; i < (positions % weaponCount); i++) {
           if (first) spinStrip.appendChild(spinStrip.removeChild(first));
+          first = spinStrip.firstElementChild;
         }
         
         if (progress === 1) {
           clearInterval(spinAnimation);
-          
-          // Get the centered weapon
-          selectedWeapon = weapons[Math.floor(Math.random() * weapons.length)];
-          
-          // Show landed display
-          document.getElementById('landedImage').src = selectedWeapon.img;
-          document.getElementById('landedName').textContent = selectedWeapon.name;
-          document.getElementById('landedRarity').textContent = selectedWeapon.rarity.toUpperCase();
-          document.getElementById('landedRarity').className = `landed-rarity rarity-${selectedWeapon.rarity}`;
-          landedDisplay.classList.add('active');
-          
-          // Add to acquired items
+          const selectedWeapon = weapons[Math.floor(Math.random() * weapons.length)];
           acquiredItems.push(selectedWeapon);
           
-          // Show victory modal with 1 second delay
-          setTimeout(() => {
-            showVictoryModal([selectedWeapon]);
-          }, 1000);
+          if (landedDisplay) {
+            document.getElementById('landedImage').src = selectedWeapon.img;
+            document.getElementById('landedName').textContent = selectedWeapon.name;
+            document.getElementById('landedRarity').textContent = selectedWeapon.rarity.toUpperCase();
+            document.getElementById('landedRarity').className = `landed-rarity rarity-${selectedWeapon.rarity}`;
+            landedDisplay.classList.add('active');
+          }
           
+          setTimeout(() => showVictoryModal([selectedWeapon]), 1000);
           isSpinning = false;
           if (spinBtn) spinBtn.disabled = false;
         }
@@ -1302,9 +1443,9 @@
       victoryCount.textContent = `${items.length} ITEM${items.length > 1 ? 'S' : ''}`;
       victoryItems.innerHTML = items.map((item, idx) => `
         <div class="victory-item" style="animation-delay: ${idx * 0.1}s;">
-          <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect fill=%22%23333%22 width=%2280%22 height=%2280%22/%3E%3C/svg%3E'">
+          <img src="${item.img}" alt="${item.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2270%22 height=%2270%22%3E%3Crect fill=%23222%22 width=%2270%22 height=%2270%22/%3E%3C/svg%3E'">
           <div class="victory-item-name">${item.name}</div>
-          <div class="victory-item-rarity rarity-${item.rarity}">${item.rarity.toUpperCase()}</div>
+          <div class="victory-item-rarity rarity-${item.rarity}">${item.rarity}</div>
         </div>
       `).join('');
       
@@ -1315,12 +1456,27 @@
       document.getElementById('victoryModal').classList.remove('active');
     }
 
-    function initiateSpin(category) {
-      // Just a reference to execute spin with the category
-      executeSpinWheel(category);
+    function toggleMusic() {
+      const label = document.getElementById('musicLabel');
+      if (label.textContent === 'MUSIC: OFF') {
+        label.textContent = 'MUSIC: ON';
+      } else {
+        label.textContent = 'MUSIC: OFF';
+      }
     }
 
+    // Modal click outside
+    document.getElementById('itemModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+
+    document.getElementById('victoryModal').addEventListener('click', function(e) {
+      if (e.target === this) closeVictory();
+    });
+
     // Initialize
+    initNav();
+    renderSubtabs();
     renderContent();
   </script>
 </body>
