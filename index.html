@@ -15,21 +15,21 @@
 <style>
 :root{
   --bg:#0a0a0a;
-  --bg-secondary:#121212;
-  --bg-tertiary:#1a1a1a;
-  --accent:#ff0000;
-  --accent-2:#ff0033;
-  --accent-hover:#ff3333;
-  --accent-2-hover:#ff0055;
-  --muted:#9e9e9e;
+  --bg-secondary:#0d1117;
+  --bg-tertiary:#161b22;
+  --accent:#1e90ff;
+  --accent-2:#4169e1;
+  --accent-hover:#4682b4;
+  --accent-2-hover:#5a9fd4;
+  --muted:#8b949e;
   --text:#ffffff;
-  --text-secondary:#e0e0e0;
-  --glass-border: rgba(255,0,0,.15);
-  --glass-border-blue: rgba(255,0,51,.15);
+  --text-secondary:#c9d1d9;
+  --glass-border: rgba(30,144,255,.15);
+  --glass-border-blue: rgba(65,105,225,.15);
   --maxw:1400px;
-  --kill-glow: 0 8px 32px rgba(255,0,0,0.4);
+  --kill-glow: 0 8px 32px rgba(30,144,255,0.4);
   --shadow: 0 4px 16px rgba(0,0,0,.4);
-  --card-bg: linear-gradient(135deg, rgba(26,26,26,.95) 0%, rgba(18,18,18,.95) 100%);
+  --card-bg: linear-gradient(135deg, rgba(22,27,34,.95) 0%, rgba(13,17,23,.95) 100%);
 }
 
 /* base */
@@ -86,7 +86,7 @@ img { will-change: auto; transform: translateZ(0); }
   border-radius:20px; 
   padding:32px; 
   border:2px solid var(--glass-border); 
-  box-shadow:var(--shadow), 0 0 0 1px rgba(220,20,60,.1); 
+  box-shadow:var(--shadow), 0 0 0 1px rgba(30,144,255,.1); 
   position:relative;
   overflow:hidden;
 }
@@ -178,8 +178,8 @@ img { will-change: auto; transform: translateZ(0); }
 }
 .topnav .cat.active{ 
   color:var(--text); 
-  background: linear-gradient(135deg, rgba(220,20,60,.2), rgba(0,71,171,.2)); 
-  box-shadow: inset 0 0 20px rgba(220,20,60,.2); 
+  background: linear-gradient(135deg, rgba(30,144,255,.2), rgba(13,17,23,.2)); 
+  box-shadow: inset 0 0 20px rgba(30,144,255,.2); 
 }
 .topnav .cat.active::after{
   transform:scaleX(1);
@@ -214,7 +214,7 @@ img { will-change: auto; transform: translateZ(0); }
 .subtabs .sub.active{ 
   color:#fff; 
   background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
-  box-shadow: 0 4px 16px rgba(220,20,60,.4); 
+  box-shadow: 0 4px 16px rgba(30,144,255,.4); 
   border-color:transparent; 
   transform:translateY(-2px); 
 }
@@ -231,7 +231,7 @@ img { will-change: auto; transform: translateZ(0); }
   justify-content:center; 
   border:3px solid var(--accent); 
   background: var(--card-bg); 
-  box-shadow: 0 8px 30px rgba(220,20,60,.3), 0 0 0 1px rgba(220,20,60,.2); 
+  box-shadow: 0 8px 30px rgba(30,144,255,.3), 0 0 0 1px rgba(30,144,255,.2); 
   transition:all .3s;
   position:relative;
 }
@@ -239,14 +239,14 @@ img { will-change: auto; transform: translateZ(0); }
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg, rgba(220,20,60,.1) 0%, rgba(0,71,171,.1) 100%);
+  background:linear-gradient(135deg, rgba(30,144,255,.1) 0%, rgba(13,17,23,.1) 100%);
   opacity:0;
   transition:opacity .3s;
 }
 .logo:hover{
   transform:scale(1.05) rotate(2deg);
   border-color:var(--accent-hover);
-  box-shadow: 0 12px 40px rgba(220,20,60,.5);
+  box-shadow: 0 12px 40px rgba(30,144,255,.5);
 }
 .logo:hover::before{
   opacity:1;
@@ -256,7 +256,7 @@ img { will-change: auto; transform: translateZ(0); }
   height:90%; 
   object-fit:contain; 
   display:block; 
-  filter: drop-shadow(0 4px 12px rgba(220,20,60,.4)); 
+  filter: drop-shadow(0 4px 12px rgba(30,144,255,.4)); 
   position:relative;
   z-index:1;
 }
@@ -291,7 +291,7 @@ select:hover{
 select:focus{
   outline:none;
   border-color:var(--accent);
-  box-shadow:0 0 0 3px rgba(220,20,60,.2);
+  box-shadow:0 0 0 3px rgba(30,144,255,.2);
 }
 
 .drop-actions{ display:flex; gap:12px; align-items:center; }
@@ -333,13 +333,13 @@ select:focus{
 }
 .btn.drop{ 
   background: linear-gradient(135deg, var(--accent), var(--accent-2)); 
-  box-shadow: 0 4px 16px rgba(220,20,60,.4); 
+  box-shadow: 0 4px 16px rgba(30,144,255,.4); 
   color:white; 
   border-color:transparent;
 }
 .btn.drop:hover{
   background: linear-gradient(135deg, var(--accent-hover), var(--accent-2-hover)); 
-  box-shadow: 0 6px 24px rgba(220,20,60,.6); 
+  box-shadow: 0 6px 24px rgba(30,144,255,.6); 
 }
 
 /* music toggle - Modern Switch */
@@ -365,9 +365,9 @@ select:focus{
 }
 .music-toggle.on{ 
   color:var(--accent); 
-  background:rgba(220,20,60,.1);
+  background:rgba(30,144,255,.1);
   border-color:var(--accent);
-  box-shadow: 0 4px 16px rgba(220,20,60,.3); 
+  box-shadow: 0 4px 16px rgba(30,144,255,.3); 
 }
 
 /* grid - Modern Forum Cards Container */
@@ -417,14 +417,14 @@ select:focus{
   content:'';
   position:absolute;
   inset:0;
-  background:linear-gradient(135deg, rgba(220,20,60,.05), rgba(0,71,171,.05));
+  background:linear-gradient(135deg, rgba(30,144,255,.05), rgba(13,17,23,.05));
   opacity:0;
   transition:opacity .3s;
 }
 .card:hover{
   transform:translateY(-8px) scale(1.02);
   border-color:var(--accent);
-  box-shadow:0 12px 40px rgba(220,20,60,.3), 0 0 0 1px var(--accent);
+  box-shadow:0 12px 40px rgba(30,144,255,.3), 0 0 0 1px var(--accent);
 }
 .card:hover::before{
   transform:scaleX(1);
@@ -477,7 +477,7 @@ select:focus{
   position:absolute; 
   left:16px; 
   bottom:16px; 
-  background:linear-gradient(135deg, rgba(220,20,60,.8), rgba(0,71,171,.8)); 
+  background:linear-gradient(135deg, rgba(30,144,255,.8), rgba(13,17,23,.8)); 
   padding:8px 14px; 
   border-radius:8px; 
   font-weight:900; 
@@ -538,7 +538,7 @@ select:focus{
 .victory-overlay {
   position: fixed;
   inset: 0;
-  background: radial-gradient(ellipse at center, rgba(220, 20, 60, 0.15) 0%, rgba(0, 0, 0, 0.97) 70%);
+  background: radial-gradient(ellipse at center, rgba(30, 144, 255, 0.15) 0%, rgba(0, 0, 0, 0.97) 70%);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
@@ -561,7 +561,7 @@ select:focus{
   max-width: 1000px;
   width: 95%;
   text-align: center;
-  box-shadow: 0 20px 80px rgba(220, 20, 60, 0.4), 0 0 2px rgba(220, 20, 60, 0.8), inset 0 0 40px rgba(220, 20, 60, 0.08);
+  box-shadow: 0 20px 80px rgba(30, 144, 255, 0.4), 0 0 2px rgba(30, 144, 255, 0.8), inset 0 0 40px rgba(30, 144, 255, 0.08);
   animation: victoryScale 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   overflow: hidden;
   max-height: 90vh;
@@ -574,7 +574,7 @@ select:focus{
   inset: 0;
   padding: 3px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%);
+  background: linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -595,10 +595,10 @@ select:focus{
 }
 
 .victory-header {
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.3) 0%, rgba(0, 71, 171, 0.2) 50%, rgba(220, 20, 60, 0.3) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.3) 0%, rgba(13, 17, 23, 0.2) 50%, rgba(30, 144, 255, 0.3) 100%);
   padding: 24px;
   border-bottom: 2px solid transparent;
-  border-image: linear-gradient(90deg, #dc143c 0%, #0047ab 50%, #dc143c 100%) 1;
+  border-image: linear-gradient(90deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%) 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -609,7 +609,7 @@ select:focus{
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.1), rgba(0, 71, 171, 0.05));
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.1), rgba(13, 17, 23, 0.05));
   pointer-events: none;
 }
 
@@ -617,7 +617,7 @@ select:focus{
   margin: 0;
   font-size: 42px;
   font-weight: 900;
-  background: linear-gradient(135deg, #ff4757 0%, #0084ff 50%, #ff4757 100%);
+  background: linear-gradient(135deg, #4a9eff 0%, #4682b4 50%, #4a9eff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -669,7 +669,7 @@ select:focus{
   inset: 0;
   padding: 2px;
   border-radius: 16px;
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.4) 0%, rgba(0, 71, 171, 0.4) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.4) 0%, rgba(13, 17, 23, 0.4) 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -697,11 +697,11 @@ select:focus{
 
 .victory-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(220, 20, 60, 0.5), 0 0 20px rgba(0, 71, 171, 0.3);
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.5), 0 0 20px rgba(13, 17, 23, 0.3);
 }
 
 .victory-item:hover::before {
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.7) 0%, rgba(0, 71, 171, 0.7) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.7) 0%, rgba(13, 17, 23, 0.7) 100%);
 }
 
 .victory-image-container {
@@ -709,13 +709,13 @@ select:focus{
   width: 180px;
   height: 180px;
   margin-bottom: 15px;
-  background: linear-gradient(135deg, rgba(220, 20, 60, 0.2) 0%, rgba(0, 71, 171, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.2) 100%);
   border: 2px solid transparent;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 25px rgba(220, 20, 60, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   animation: victoryImagePulse 2s ease-in-out infinite;
   overflow: hidden;
 }
@@ -726,7 +726,7 @@ select:focus{
   inset: 0;
   padding: 2px;
   border-radius: 16px;
-  background: linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%);
+  background: linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%);
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -736,10 +736,10 @@ select:focus{
 
 @keyframes victoryImagePulse {
   0%, 100% {
-    box-shadow: 0 0 25px rgba(220, 20, 60, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 25px rgba(30, 144, 255, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 35px rgba(220, 20, 60, 0.6), 0 0 20px rgba(0, 71, 171, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0 35px rgba(30, 144, 255, 0.6), 0 0 20px rgba(13, 17, 23, 0.4), inset 0 0 30px rgba(0, 0, 0, 0.3);
   }
 }
 
@@ -798,17 +798,17 @@ select:focus{
 }
 
 .victory-item-rarity.special {
-  background: linear-gradient(135deg, #ff6b35, #dc143c);
+  background: linear-gradient(135deg, #ff6b35, #1e90ff);
   color: #ffffff;
   animation: rarityGlow 1.5s ease-in-out infinite;
 }
 
 @keyframes rarityGlow {
   0%, 100% {
-    box-shadow: 0 4px 15px rgba(220, 20, 60, 0.5);
+    box-shadow: 0 4px 15px rgba(30, 144, 255, 0.5);
   }
   50% {
-    box-shadow: 0 4px 25px rgba(220, 20, 60, 0.9);
+    box-shadow: 0 4px 25px rgba(30, 144, 255, 0.9);
   }
 }
 
@@ -826,7 +826,7 @@ select:focus{
   padding: 18px;
   font-size: 20px;
   font-weight: 900;
-  background: linear-gradient(135deg, #dc143c, #ff4757);
+  background: linear-gradient(135deg, #1e90ff, #4a9eff);
   color: #ffffff;
   border: none;
   border-radius: 12px;
@@ -834,13 +834,13 @@ select:focus{
   text-transform: uppercase;
   letter-spacing: 3px;
   transition: all 0.3s ease;
-  box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
+  box-shadow: 0 6px 20px rgba(30, 144, 255, 0.5);
 }
 
 .victory-collect-btn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(220, 20, 60, 0.7);
-  background: linear-gradient(135deg, #ff4757, #dc143c);
+  box-shadow: 0 10px 30px rgba(30, 144, 255, 0.7);
+  background: linear-gradient(135deg, #4a9eff, #1e90ff);
 }
 
 .victory-collect-btn:active {
@@ -1016,11 +1016,11 @@ select:focus{
 
       <div style="position:relative; margin-top:12px;">
         <div id="spinStrip" style="height:140px; display:flex; gap:12px; align-items:center; overflow:hidden; padding:10px;"></div>
-        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:6px; height:120px; border-radius:6px; background:linear-gradient(180deg, #ff0000, #dc143c); box-shadow: 0 0 30px rgba(255,0,0,.8), 0 0 15px rgba(255,0,0,1); pointer-events:none;"></div>
+        <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:6px; height:120px; border-radius:6px; background:linear-gradient(180deg, #ff0000, #1e90ff); box-shadow: 0 0 30px rgba(255,0,0,.8), 0 0 15px rgba(255,0,0,1); pointer-events:none;"></div>
       </div>
 
       <!-- Display for landed gun -->
-      <div id="landedGunDisplay" style="display:none; margin-top:16px; padding:16px; background:rgba(0,0,0,.6); border:2px solid rgba(220,20,60,.5); border-radius:10px; text-align:center;">
+      <div id="landedGunDisplay" style="display:none; margin-top:16px; padding:16px; background:rgba(0,0,0,.6); border:2px solid rgba(30,144,255,.5); border-radius:10px; text-align:center;">
         <div style="font-weight:900; color:var(--accent); margin-bottom:8px;">YOU GOT:</div>
         <div style="display:flex; align-items:center; justify-content:center; gap:16px;">
           <img id="landedGunImage" src="" style="max-width:100px; max-height:80px; object-fit:contain;">
@@ -1720,7 +1720,7 @@ async function renderGrid(forceRefresh = false){
         <!-- Forum Categories Grid -->
         <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; margin-bottom:40px;">
           <!-- General Discussion -->
-          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%); border:2px solid rgba(220, 20, 60, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'; this.style.boxShadow='0 12px 40px rgba(220, 20, 60, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(220, 20, 60, 0.3)'; this.style.boxShadow='none';">
+          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%); border:2px solid rgba(30, 144, 255, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='var(--accent)'; this.style.boxShadow='0 12px 40px rgba(30, 144, 255, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(30, 144, 255, 0.3)'; this.style.boxShadow='none';">
             <div style="position:absolute; top:-20px; right:-20px; font-size:100px; opacity:0.1; color:var(--accent);">
               <i class="fa-solid fa-messages"></i>
             </div>
@@ -1738,8 +1738,8 @@ async function renderGrid(forceRefresh = false){
           </div>
 
           <!-- Illegal Schemes -->
-          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(0, 71, 171, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%); border:2px solid rgba(0, 71, 171, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#0047ab'; this.style.boxShadow='0 12px 40px rgba(0, 71, 171, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(0, 71, 171, 0.3)'; this.style.boxShadow='none';">
-            <div style="position:absolute; top:-20px; right:-20px; font-size:100px; opacity:0.1; color:#0047ab;">
+          <div class="forum-category-card" style="background:linear-gradient(135deg, rgba(13, 17, 23, 0.15) 0%, rgba(26, 26, 26, 0.95) 100%); border:2px solid rgba(13, 17, 23, 0.3); border-radius:16px; padding:24px; cursor:pointer; transition:all .3s; position:relative; overflow:hidden;" onmouseover="this.style.transform='translateY(-4px)'; this.style.borderColor='#0d1117'; this.style.boxShadow='0 12px 40px rgba(13, 17, 23, 0.4)';" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(13, 17, 23, 0.3)'; this.style.boxShadow='none';">
+            <div style="position:absolute; top:-20px; right:-20px; font-size:100px; opacity:0.1; color:#0d1117;">
               <i class="fa-solid fa-mask"></i>
             </div>
             <div style="position:relative; z-index:1;">
@@ -1794,7 +1794,7 @@ async function renderGrid(forceRefresh = false){
 
         <!-- Recent Threads -->
         <div style="margin-top:40px;">
-          <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:20px; border-bottom:2px solid rgba(220, 20, 60, 0.3); padding-bottom:12px;">
+          <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:20px; border-bottom:2px solid rgba(30, 144, 255, 0.3); padding-bottom:12px;">
             <i class="fa-solid fa-clock"></i> Recent Threads
           </h3>
           <div id="threadList">
@@ -1805,13 +1805,13 @@ async function renderGrid(forceRefresh = false){
                 <div style="margin-top:8px;">Be the first to create a thread!</div>
               </div>
             ` : allThreads.slice(0, 10).map((thread, idx) => `
-              <div class="thread-card" data-idx="${idx}" style="background:linear-gradient(180deg,rgba(30,30,30,.8),rgba(20,20,20,.9)); border:1px solid var(--glass-border); border-radius:12px; padding:20px; margin-bottom:16px; cursor:pointer; transition:all .2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 16px rgba(220, 20, 60, 0.3)';" onmouseout="this.style.borderColor='var(--glass-border)'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
+              <div class="thread-card" data-idx="${idx}" style="background:linear-gradient(180deg,rgba(30,30,30,.8),rgba(20,20,20,.9)); border:1px solid var(--glass-border); border-radius:12px; padding:20px; margin-bottom:16px; cursor:pointer; transition:all .2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 16px rgba(30, 144, 255, 0.3)';" onmouseout="this.style.borderColor='var(--glass-border)'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
                 <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:12px;">
                   <div>
                     <h3 style="color:var(--text); font-weight:900; font-size:20px; margin:0 0 8px 0;">${thread.title}</h3>
                     <div style="display:flex; gap:12px; flex-wrap:wrap;">
-                      <span style="background:rgba(220,20,60,.2); color:var(--accent); padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-tag"></i> ${thread.schemeType}</span>
-                      <span style="background:rgba(0,71,171,.2); color:#4a9eff; padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-folder"></i> ${thread.threadType}</span>
+                      <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-tag"></i> ${thread.schemeType}</span>
+                      <span style="background:rgba(13,17,23,.2); color:#4a9eff; padding:4px 12px; border-radius:6px; font-size:12px; font-weight:700;"><i class="fa-solid fa-folder"></i> ${thread.threadType}</span>
                     </div>
                   </div>
                   <div style="text-align:right;">
@@ -1854,15 +1854,15 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'schemes'){
     contentArea.innerHTML = `
       <div style="max-width:1000px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(220, 20, 60, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
-          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #ff4757 0%, #0084ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(220, 20, 60, 0.5)); position:relative; z-index:1;">
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(30, 144, 255, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5)); position:relative; z-index:1;">
             <i class="fa-solid fa-file-pen"></i> Illegal Faction Scheme Submission Guidelines
           </h2>
           
           <div style="color:var(--text); line-height:1.8; font-size:16px;">
-            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 71, 171, 0.15) 100%); border:2px solid transparent; border-radius:12px; padding:24px; margin-bottom:28px; position:relative; overflow:hidden;">
-              <div style="position:absolute; inset:0; padding:2px; border-radius:12px; background:linear-gradient(135deg, rgba(220, 20, 60, 0.6) 0%, rgba(0, 71, 171, 0.6) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:2px solid transparent; border-radius:12px; padding:24px; margin-bottom:28px; position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; padding:2px; border-radius:12px; background:linear-gradient(135deg, rgba(30, 144, 255, 0.6) 0%, rgba(13, 17, 23, 0.6) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
               <p style="margin:0 0 16px 0; font-weight:700; font-size:18px; position:relative; z-index:1;">
                 Welcome to the thread submission channel for your illegal faction schemes! This is where all <strong style="color:var(--accent);">Scammer</strong>, <strong style="color:var(--accent);">Racer</strong>, and <strong style="color:var(--accent);">Drug Dealer</strong> threads must begin.
               </p>
@@ -1935,7 +1935,7 @@ async function renderGrid(forceRefresh = false){
               </ul>
             </div>
 
-            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.2) 0%, rgba(0, 71, 171, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px; position:relative; z-index:1;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px; position:relative; z-index:1;">
               <p style="margin:0; font-weight:700; font-size:18px;">
                 <i class="fa-solid fa-lightbulb"></i> <strong>Reminder:</strong>
               </p>
@@ -1955,15 +1955,15 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'spot'){
     contentArea.innerHTML = `
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:40px; backdrop-filter:blur(16px); box-shadow: 0 10px 40px rgba(220,20,60,0.3), inset 0 0 50px rgba(0,0,0,0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:40px; backdrop-filter:blur(16px); box-shadow: 0 10px 40px rgba(30,144,255,0.3), inset 0 0 50px rgba(0,0,0,0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
           
           <!-- Header Section -->
           <div style="text-align:center; margin-bottom:36px; border-bottom:2px solid transparent; border-image:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding-bottom:28px; position:relative; z-index:1;">
             <div style="font-size:14px; color:var(--accent); font-weight:800; letter-spacing:3px; margin-bottom:12px;">
               <i class="fa-solid fa-bullhorn"></i> OFFICIAL ANNOUNCEMENT
             </div>
-            <h2 style="color:var(--text); font-weight:900; font-size:42px; margin:0; background:linear-gradient(135deg, #ff4757 0%, #0084ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(220, 20, 60, 0.5));">
+            <h2 style="color:var(--text); font-weight:900; font-size:42px; margin:0; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5));">
               <i class="fa-solid fa-location-dot" style="color:var(--accent);"></i> The Spot
             </h2>
             <div style="color:var(--muted); font-size:18px; margin-top:12px; font-weight:700;">
@@ -1996,7 +1996,7 @@ async function renderGrid(forceRefresh = false){
                 <i class="fa-solid fa-fire"></i> What Is The Spot?
               </h3>
               
-              <div style="background:rgba(220,20,60,0.08); border:2px solid rgba(220,20,60,0.3); border-radius:12px; padding:24px; margin-bottom:20px;">
+              <div style="background:rgba(30,144,255,0.08); border:2px solid rgba(30,144,255,0.3); border-radius:12px; padding:24px; margin-bottom:20px;">
                 <p style="margin:0 0 16px 0; font-weight:700; font-size:18px; color:var(--text);">
                   <strong style="color:var(--accent);">The Spot is a fully player-run system.</strong>
                 </p>
@@ -2010,29 +2010,29 @@ async function renderGrid(forceRefresh = false){
               </p>
 
               <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:12px; margin-bottom:20px;">
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(220,20,60,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-map" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Street knowledge</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(220,20,60,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-users" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Networking</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(220,20,60,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-user-secret" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Low-key movement</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(220,20,60,0.2);">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2);">
                   <i class="fa-solid fa-comments" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>IC interactions</strong>
                 </div>
-                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(220,20,60,0.2); grid-column:1/-1;">
+                <div style="background:rgba(0,0,0,0.4); padding:14px; border-radius:10px; border:1px solid rgba(30,144,255,0.2); grid-column:1/-1;">
                   <i class="fa-solid fa-brain" style="color:var(--accent); margin-right:8px;"></i>
                   <strong>Smart roleplay</strong>
                 </div>
               </div>
 
-              <div style="background:rgba(220,20,60,0.15); border-left:4px solid var(--accent); padding:16px; border-radius:8px;">
+              <div style="background:rgba(30,144,255,0.15); border-left:4px solid var(--accent); padding:16px; border-radius:8px;">
                 <p style="margin:0; font-weight:700; color:var(--text);">
                   Nothing is handed out. Everything must be earned.
                 </p>
@@ -2045,7 +2045,7 @@ async function renderGrid(forceRefresh = false){
                 <i class="fa-solid fa-theater-masks"></i> Serious RP Only
               </h3>
               
-              <div style="background:rgba(0,71,171,0.1); border:2px solid rgba(0,71,171,0.4); border-radius:12px; padding:24px;">
+              <div style="background:rgba(13,17,23,0.1); border:2px solid rgba(13,17,23,0.4); border-radius:12px; padding:24px;">
                 <p style="margin:0 0 16px 0; color:var(--muted);">
                   To keep quality high, <strong style="color:var(--accent);">The Spot is only available to players who consistently show strong, serious roleplay.</strong>
                 </p>
@@ -2092,7 +2092,7 @@ async function renderGrid(forceRefresh = false){
                 </div>
               </div>
 
-              <div style="background:rgba(220,20,60,0.1); border:2px solid rgba(220,20,60,0.3); border-radius:10px; padding:18px;">
+              <div style="background:rgba(30,144,255,0.1); border:2px solid rgba(30,144,255,0.3); border-radius:10px; padding:18px;">
                 <p style="margin:0; color:var(--muted); line-height:1.7;">
                   There are no automatic alerts, no scripted locations, and no guaranteed catches.<br>
                   <strong style="color:var(--accent);">If civilians slip up IC, they get caught. If they move smart, they stay safe.</strong>
@@ -2120,9 +2120,9 @@ async function renderGrid(forceRefresh = false){
             </div>
 
             <!-- Closing Statement -->
-            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 71, 171, 0.15) 100%); border:3px solid transparent; border-radius:16px; padding:32px; text-align:center; box-shadow:0 10px 30px rgba(220,20,60,0.3); position:relative; overflow:hidden;">
-              <div style="position:absolute; inset:0; padding:3px; border-radius:16px; background:linear-gradient(135deg, rgba(220, 20, 60, 0.7) 0%, rgba(0, 71, 171, 0.7) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
-              <h2 style="background:linear-gradient(135deg, #ff4757 0%, #0084ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(220, 20, 60, 0.6)); font-weight:900; font-size:32px; margin:0 0 20px 0; position:relative; z-index:1;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.15) 0%, rgba(13, 17, 23, 0.15) 100%); border:3px solid transparent; border-radius:16px; padding:32px; text-align:center; box-shadow:0 10px 30px rgba(30,144,255,0.3); position:relative; overflow:hidden;">
+              <div style="position:absolute; inset:0; padding:3px; border-radius:16px; background:linear-gradient(135deg, rgba(30, 144, 255, 0.7) 0%, rgba(13, 17, 23, 0.7) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
+              <h2 style="background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.6)); font-weight:900; font-size:32px; margin:0 0 20px 0; position:relative; z-index:1;">
                 Welcome to The Spot
               </h2>
               <div style="font-size:19px; color:var(--text); font-weight:700; line-height:1.8; margin-bottom:24px;">
@@ -2146,15 +2146,15 @@ async function renderGrid(forceRefresh = false){
   if(activeTab === 'roe'){
     contentArea.innerHTML = `
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
-        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(220, 20, 60, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+        <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(30, 144, 255, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #0d1117 50%, #1e90ff 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
           
-          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #ff4757 0%, #0084ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(220, 20, 60, 0.5)); position:relative; z-index:1;">
+          <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #4a9eff 0%, #4682b4 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(30, 144, 255, 0.5)); position:relative; z-index:1;">
             <i class="fa-solid fa-scale-balanced"></i> TFB 4.0 — Official Faction Roleplay Guidelines
           </h2>
           
           <div style="color:var(--text); line-height:1.8; font-size:15px; position:relative; z-index:1;">
-            <div style="background:rgba(220, 20, 60, 0.1); border-left:4px solid var(--accent); padding:16px; border-radius:8px; margin-bottom:28px;">
+            <div style="background:rgba(30, 144, 255, 0.1); border-left:4px solid var(--accent); padding:16px; border-radius:8px; margin-bottom:28px;">
               <p style="margin:0; color:var(--text); font-weight:700;">Welcome to TFB 4.0, a serious roleplay server focused on high-quality faction roleplay.</p>
               <p style="margin:8px 0 0 0; color:var(--muted);">By engaging in faction RP, you acknowledge and agree to all rules listed below. Breaking any rule may result in punishment or faction strikes.</p>
             </div>
@@ -2507,7 +2507,7 @@ async function renderGrid(forceRefresh = false){
               </ul>
             </div>
 
-            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.2) 0%, rgba(0, 71, 171, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px;">
+            <div style="background:linear-gradient(135deg, rgba(30, 144, 255, 0.2) 0%, rgba(13, 17, 23, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px;">
               <p style="margin:0; font-weight:700; font-size:18px;">
                 <i class="fa-solid fa-triangle-exclamation"></i> <strong>Remember:</strong>
               </p>
@@ -2528,9 +2528,9 @@ async function renderGrid(forceRefresh = false){
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
         <!-- Christmas Spin Section -->
         <div style="background:linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(0, 100, 0, 0.3) 100%); border:3px solid rgba(255, 215, 0, 0.4); border-radius:20px; padding:32px; margin-bottom:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #dc143c 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
           
-          <h2 style="color:#ffd700; font-weight:900; font-size:32px; margin-bottom:20px; text-align:center; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(220, 20, 60, 0.3); position:relative; z-index:1;">
+          <h2 style="color:#ffd700; font-weight:900; font-size:32px; margin-bottom:20px; text-align:center; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(30, 144, 255, 0.3); position:relative; z-index:1;">
             <i class="fa-solid fa-gift"></i> Christmas Spin
           </h2>
           
@@ -2561,7 +2561,7 @@ async function renderGrid(forceRefresh = false){
             </div>
           </div>
           
-          <button onclick="startChristmasSpin()" class="btn drop" style="width:100%; padding:16px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #dc143c 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700; position:relative; z-index:1;">
+          <button onclick="startChristmasSpin()" class="btn drop" style="width:100%; padding:16px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700; position:relative; z-index:1;">
             <i class="fa-solid fa-snowflake"></i> SPIN FOR CHRISTMAS GUN
           </button>
         </div>
@@ -2719,7 +2719,7 @@ async function startChristmasSpin(){
   modal.style.cssText = 'position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);';
   modal.innerHTML = `
     <div style="background:linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 100, 0, 0.95) 100%); border:3px solid #ffd700; border-radius:24px; padding:48px; max-width:600px; text-align:center; box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5); position:relative; overflow:hidden;">
-      <div style="position:absolute; inset:0; padding:3px; border-radius:24px; background:linear-gradient(135deg, #dc143c 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.8; pointer-events:none;"></div>
+      <div style="position:absolute; inset:0; padding:3px; border-radius:24px; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.8; pointer-events:none;"></div>
       
       <div style="position:relative; z-index:1;">
         <div style="font-size:64px; margin-bottom:16px;">🎄</div>
@@ -2729,7 +2729,7 @@ async function startChristmasSpin(){
         <img src="${wonGun.img}" alt="${wonGun.name}" style="width:100%; max-width:300px; height:200px; object-fit:contain; margin:24px auto; border-radius:12px; background:rgba(0,0,0,0.3); padding:16px;" onerror="this.src='${FALLBACK}'">
         <div style="color:#fff; font-size:28px; font-weight:800; margin-bottom:8px;">${wonGun.name}</div>
         <div style="color:#ff0000; font-size:20px; font-weight:700; margin-bottom:32px;">LEGENDARY CHRISTMAS EDITION</div>
-        <button onclick="this.closest('.victory-overlay').remove(); spinning=false;" class="btn drop" style="padding:16px 32px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #dc143c 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700;">
+        <button onclick="this.closest('.victory-overlay').remove(); spinning=false;" class="btn drop" style="padding:16px 32px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700;">
           <i class="fa-solid fa-check"></i> CLAIM WEAPON
         </button>
       </div>
@@ -2762,6 +2762,8 @@ spinStartBtn.addEventListener('click', async ()=>{
   // Determine how many items to drop based on tier
   let itemCount = 2; // Default for testdrops
   if(activeTab === 'drugs') itemCount = 2;
+  if(activeTab === 'tier1') itemCount = 4;
+  if(activeTab === 'tier2') itemCount = 6;
   
   const pickedItems = [];
   
@@ -2961,7 +2963,7 @@ async function showUserProfileModal(user) {
         <button class="btn" id="closeProfileModal"><i class="fa-solid fa-xmark"></i></button>
       </div>
 
-      <div style="background:linear-gradient(180deg,rgba(220,20,60,.1),rgba(0,71,171,.05)); border:2px solid var(--glass-border); border-radius:12px; padding:24px; margin-bottom:20px;">
+      <div style="background:linear-gradient(180deg,rgba(30,144,255,.1),rgba(13,17,23,.05)); border:2px solid var(--glass-border); border-radius:12px; padding:24px; margin-bottom:20px;">
         <h4 style="color:var(--accent); font-weight:800; font-size:18px; margin:0 0 16px 0;">
           <i class="fa-solid fa-chart-simple"></i> Statistics
         </h4>
@@ -2990,7 +2992,7 @@ async function showUserProfileModal(user) {
           <div style="padding:12px; background:rgba(255,255,255,.02); border-radius:8px; margin-bottom:8px; border-left:3px solid var(--accent);">
             <div style="font-weight:700; color:var(--text); margin-bottom:4px;">${thread.title}</div>
             <div style="font-size:12px; color:var(--muted);">
-              <span style="background:rgba(220,20,60,.2); color:var(--accent); padding:2px 8px; border-radius:4px; margin-right:6px;">${thread.schemeType}</span>
+              <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:2px 8px; border-radius:4px; margin-right:6px;">${thread.schemeType}</span>
               ${new Date(thread.date).toLocaleDateString()}
             </div>
           </div>
@@ -2998,7 +3000,7 @@ async function showUserProfileModal(user) {
       </div>
 
       <div style="display:flex; gap:12px; justify-content:flex-end;">
-        <button class="btn" id="profileLogout" style="background:rgba(220,20,60,.2); border-color:var(--accent);">
+        <button class="btn" id="profileLogout" style="background:rgba(30,144,255,.2); border-color:var(--accent);">
           <i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout
         </button>
         <button class="btn drop" id="closeProfileBtn">Close</button>
@@ -3217,10 +3219,10 @@ async function showThreadModal(thread) {
         <div style="flex:1;">
           <h3 style="color:var(--accent); font-weight:900; font-size:28px; margin:0 0 12px 0;">${thread.title}</h3>
           <div style="display:flex; gap:12px; flex-wrap:wrap; margin-bottom:12px;">
-            <span style="background:rgba(220,20,60,.2); color:var(--accent); padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
+            <span style="background:rgba(30,144,255,.2); color:var(--accent); padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
               <i class="fa-solid fa-tag"></i> ${thread.schemeType}
             </span>
-            <span style="background:rgba(0,71,171,.2); color:#4a9eff; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
+            <span style="background:rgba(13,17,23,.2); color:#4a9eff; padding:6px 14px; border-radius:6px; font-size:13px; font-weight:700;">
               <i class="fa-solid fa-users"></i> ${thread.threadType}
             </span>
           </div>
@@ -3230,7 +3232,7 @@ async function showThreadModal(thread) {
         </div>
         <div style="display:flex; gap:8px;">
           ${currentUser && currentUser.username === thread.author ? `
-            <button class="btn" id="deleteThread" style="background:rgba(220,20,60,.3); border:1px solid var(--accent);" title="Delete Thread">
+            <button class="btn" id="deleteThread" style="background:rgba(30,144,255,.3); border:1px solid var(--accent);" title="Delete Thread">
               <i class="fa-solid fa-trash"></i>
             </button>
           ` : ''}
@@ -3300,7 +3302,7 @@ async function showThreadModal(thread) {
             </div>
           </div>
         ` : `
-          <div style="background:rgba(220,20,60,.1); border:1px solid var(--accent); border-radius:8px; padding:16px; text-align:center; color:var(--muted); margin-bottom:20px;">
+          <div style="background:rgba(30,144,255,.1); border:1px solid var(--accent); border-radius:8px; padding:16px; text-align:center; color:var(--muted); margin-bottom:20px;">
             <i class="fa-solid fa-lock" style="margin-right:8px;"></i>
             Please login to join the discussion
           </div>
@@ -3325,7 +3327,7 @@ async function showThreadModal(thread) {
                 ${currentUser && currentUser.username === comment.author ? `
                   <div style="display:flex; gap:8px;">
                     <button class="btn" style="padding:6px 12px; font-size:12px;" onclick="editComment('${thread.id}', ${idx})"><i class="fa-solid fa-edit"></i> Edit</button>
-                    <button class="btn" style="padding:6px 12px; font-size:12px; background:rgba(220,20,60,.2);" onclick="deleteComment('${thread.id}', ${idx})"><i class="fa-solid fa-trash"></i> Delete</button>
+                    <button class="btn" style="padding:6px 12px; font-size:12px; background:rgba(30,144,255,.2);" onclick="deleteComment('${thread.id}', ${idx})"><i class="fa-solid fa-trash"></i> Delete</button>
                   </div>
                 ` : ''}
               </div>
