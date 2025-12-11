@@ -1724,7 +1724,6 @@ async function renderGrid(forceRefresh = false){
             <div style="color:var(--muted); margin-top:8px;">Welcome, <strong style="color:var(--accent);">${currentUser.username}</strong></div>
           </div>
           <div style="display:flex; gap:12px;">
-            <button class="btn drop" id="newThreadBtn"><i class="fa-solid fa-plus"></i>&nbsp;New Thread</button>
             <button class="btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i>&nbsp;Logout</button>
           </div>
         </div>
@@ -1814,7 +1813,6 @@ async function renderGrid(forceRefresh = false){
               <div style="background:rgba(80,80,80,.5); border:1px solid var(--glass-border); border-radius:12px; padding:40px; text-align:center; color:var(--muted);">
                 <i class="fa-solid fa-inbox" style="font-size:48px; margin-bottom:16px; display:block;"></i>
                 <div style="font-size:18px; font-weight:700;">No threads yet</div>
-                <div style="margin-top:8px;">Be the first to create a thread!</div>
               </div>
             ` : allThreads.slice(0, 10).map((thread, idx) => `
               <div class="thread-card" data-idx="${idx}" style="background:linear-gradient(180deg,rgba(30,30,30,.8),rgba(20,20,20,.9)); border:1px solid var(--glass-border); border-radius:12px; padding:20px; margin-bottom:16px; cursor:pointer; transition:all .2s;" onmouseover="this.style.borderColor='var(--accent)'; this.style.transform='translateX(4px)'; this.style.boxShadow='0 4px 16px rgba(30, 144, 255, 0.3)';" onmouseout="this.style.borderColor='var(--glass-border)'; this.style.transform='translateX(0)'; this.style.boxShadow='none';">
@@ -1846,10 +1844,6 @@ async function renderGrid(forceRefresh = false){
       renderGrid();
     });
 
-    // New thread button
-    document.getElementById('newThreadBtn').addEventListener('click', () => {
-      showNewThreadModal(currentUser.username);
-    });
 
     // Thread click handlers
     document.querySelectorAll('.thread-card').forEach(card => {
@@ -3243,11 +3237,6 @@ async function showThreadModal(thread) {
           </div>
         </div>
         <div style="display:flex; gap:8px;">
-          ${currentUser && currentUser.username === thread.author ? `
-            <button class="btn" id="deleteThread" style="background:rgba(30,144,255,.3); border:1px solid var(--accent);" title="Delete Thread">
-              <i class="fa-solid fa-trash"></i>
-            </button>
-          ` : ''}
           <button class="btn" id="closeViewThread"><i class="fa-solid fa-xmark"></i></button>
         </div>
       </div>
