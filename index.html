@@ -1155,20 +1155,18 @@ const IMAGES = {
   'Taurus Civilian': 'images/Taurus Civilian.png',
   
   /* -------------------- TIER 2 LEGENDARY GUNS -------------------- */
-  'Deagle': 'images/Deagle.png',
-  'G18c': 'images/G18c.png',
-  'P90': 'images/P90.png',
-  'MP5A3': 'images/MP5A3.png',
-  'AK-47': 'images/AK-47.png',
-  'M16A1': 'images/M16A1.png',
-  'HELLPUP DRACO': 'images/HELLPUP DRACO.png',
-  'Red Draco': 'images/Red Draco.png',
+  'T2 PMR': 'images/T2 PMR.png',
+  'Tec 9': 'images/Tec 9.png',
+  'G17 Switch': 'images/G17 Switch.png',
+  'T2 G40': 'images/T2 G40.png',
+  'Gflex': 'images/Gflex.png',
+  'MPA 30': 'images/MPA 30.png',
   
   /* -------------------- CHRISTMAS GUNS -------------------- */
-  'Her Tec': 'images/Her Tec.png',
-  'G17B': 'images/G17B.png',
-  'XmasFNX45': 'images/XmasFNX45.png',
-  'BinaryG17': 'images/BinaryG17.png'
+  'Tec 9': 'images/Tec 9.png',
+  'T2 PMR': 'images/T2 PMR.png',
+  'G17 Switch': 'images/G17 Switch.png',
+  'T2 G40': 'images/T2 G40.png'
 };
 
 const FALLBACK = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="240"%3E%3Crect fill="%23333" width="400" height="240"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999"%3ENo Image%3C/text%3E%3C/svg%3E';
@@ -1186,20 +1184,18 @@ const WEAPON_STATS = {
   'Taurus Civilian': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
   
   /* ---------------- TIER 2 LEGENDARY GUNS ---------------- */
-  'Deagle': { damage: 36, fire: 600, ammo: '.50 AE', magStd: 7, magExt: 14 },
-  'G18c': { damage: 30, fire: 1200, ammo: '9mm', magStd: 17, magExt: 33 },
-  'P90': { damage: 28, fire: 900, ammo: '5.7x28mm', magStd: 50, magExt: 50 },
-  'MP5A3': { damage: 28, fire: 800, ammo: '9mm', magStd: 30, magExt: 30 },
-  'AK-47': { damage: 35, fire: 600, ammo: '7.62x39mm', magStd: 30, magExt: 40 },
-  'M16A1': { damage: 33, fire: 700, ammo: '5.56x45mm', magStd: 30, magExt: 30 },
-  'HELLPUP DRACO': { damage: 34, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 40 },
-  'Red Draco': { damage: 34, fire: 650, ammo: '7.62x39mm', magStd: 30, magExt: 40 },
+  'T2 PMR': { damage: 33, fire: 800, ammo: '9mm', magStd: 15, magExt: 30 },
+  'Tec 9': { damage: 32, fire: 950, ammo: '9mm', magStd: 32, magExt: 50 },
+  'G17 Switch': { damage: 30, fire: 1200, ammo: '9mm', magStd: 17, magExt: 33 },
+  'T2 G40': { damage: 34, fire: 750, ammo: '.40 S&W', magStd: 15, magExt: 30 },
+  'Gflex': { damage: 31, fire: 850, ammo: '9mm', magStd: 22, magExt: 33 },
+  'MPA 30': { damage: 29, fire: 900, ammo: '9mm', magStd: 30, magExt: 35 },
   
   /* ---------------- CHRISTMAS GUNS ---------------- */
-  'Her Tec': { damage: 30, fire: 1100, ammo: '9mm', magStd: 32, magExt: 50 },
-  'G17B': { damage: 28, fire: 850, ammo: '9mm', magStd: 17, magExt: 33 },
-  'XmasFNX45': { damage: 32, fire: 700, ammo: '.45 ACP', magStd: 15, magExt: 30 },
-  'BinaryG17': { damage: 29, fire: 900, ammo: '9mm', magStd: 17, magExt: 33 }
+  'Tec 9': { damage: 32, fire: 950, ammo: '9mm', magStd: 32, magExt: 50 },
+  'T2 PMR': { damage: 33, fire: 800, ammo: '9mm', magStd: 15, magExt: 30 },
+  'G17 Switch': { damage: 30, fire: 1200, ammo: '9mm', magStd: 17, magExt: 33 },
+  'T2 G40': { damage: 34, fire: 750, ammo: '.40 S&W', magStd: 15, magExt: 30 }
 };
 
 /* ---------------- DRUG PRICES ---------------- */
@@ -1251,20 +1247,23 @@ const ITEMS = {
     { name:'Taurus Civilian', rarity:'common', category:'Pistols', img:IMAGES['Taurus Civilian'] || FALLBACK }
   ],
   tier2: [
-    { name:'Deagle', rarity:'legendary', category:'Pistols', img:IMAGES['Deagle'] || FALLBACK },
-    { name:'G18c', rarity:'legendary', category:'Pistols', img:IMAGES['G18c'] || FALLBACK },
-    { name:'P90', rarity:'legendary', category:'SMG', img:IMAGES['P90'] || FALLBACK },
-    { name:'MP5A3', rarity:'legendary', category:'SMG', img:IMAGES['MP5A3'] || FALLBACK },
-    { name:'AK-47', rarity:'legendary', category:'Rifles', img:IMAGES['AK-47'] || FALLBACK },
-    { name:'M16A1', rarity:'legendary', category:'Rifles', img:IMAGES['M16A1'] || FALLBACK },
-    { name:'HELLPUP DRACO', rarity:'legendary', category:'Rifles', img:IMAGES['HELLPUP DRACO'] || FALLBACK },
-    { name:'Red Draco', rarity:'legendary', category:'Rifles', img:IMAGES['Red Draco'] || FALLBACK }
+    { name:'T2 PMR', rarity:'legendary', category:'Pistols', img:IMAGES['T2 PMR'] || FALLBACK },
+    { name:'Tec 9', rarity:'legendary', category:'SMG', img:IMAGES['Tec 9'] || FALLBACK },
+    { name:'G17 Switch', rarity:'legendary', category:'Pistols', img:IMAGES['G17 Switch'] || FALLBACK },
+    { name:'T2 G40', rarity:'legendary', category:'Pistols', img:IMAGES['T2 G40'] || FALLBACK },
+    { name:'Gflex', rarity:'legendary', category:'Pistols', img:IMAGES['Gflex'] || FALLBACK },
+    { name:'MPA 30', rarity:'legendary', category:'SMG', img:IMAGES['MPA 30'] || FALLBACK },
+    { name:'Beretta', rarity:'common', category:'Pistols', img:IMAGES['Beretta'] || FALLBACK },
+    { name:'G26', rarity:'common', category:'Pistols', img:IMAGES['G26'] || FALLBACK },
+    { name:'G43', rarity:'common', category:'Pistols', img:IMAGES['G43'] || FALLBACK }
   ]
 };
 
 /* weights */
 const DEFAULT_WEIGHTS = {
   testdrops: { common:100 },
+  tier1: { common:100 },
+  tier2: { legendary:100 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
 
@@ -2146,103 +2145,374 @@ async function renderGrid(forceRefresh = false){
   // Handle ROE tab
   if(activeTab === 'roe'){
     contentArea.innerHTML = `
-      <div style="max-width:1000px; margin:0 auto; padding:24px;">
+      <div style="max-width:1100px; margin:0 auto; padding:24px;">
         <div style="background:linear-gradient(135deg, rgba(26, 10, 10, 0.95) 0%, rgba(10, 5, 20, 0.95) 50%, rgba(10, 10, 26, 0.95) 100%); border:3px solid transparent; border-radius:20px; padding:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(220, 20, 60, 0.3), inset 0 0 50px rgba(0, 0, 0, 0.5); position:relative; overflow:hidden;">
           <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #dc143c 0%, #0047ab 50%, #dc143c 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
+          
           <h2 style="color:var(--text); font-weight:900; font-size:32px; margin-bottom:24px; text-align:center; background:linear-gradient(135deg, #ff4757 0%, #0084ff 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; filter:drop-shadow(0 0 15px rgba(220, 20, 60, 0.5)); position:relative; z-index:1;">
-            <i class="fa-solid fa-scale-balanced"></i> TFB:RP Illegal Faction Rules of Engagement
+            <i class="fa-solid fa-scale-balanced"></i> TFB 4.0 — Official Faction Roleplay Guidelines
           </h2>
           
-          <div style="color:var(--text); line-height:1.8; font-size:16px;">
-            <div style="margin-bottom:24px;">
+          <div style="color:var(--text); line-height:1.8; font-size:15px; position:relative; z-index:1;">
+            <div style="background:rgba(220, 20, 60, 0.1); border-left:4px solid var(--accent); padding:16px; border-radius:8px; margin-bottom:28px;">
+              <p style="margin:0; color:var(--text); font-weight:700;">Welcome to TFB 4.0, a serious roleplay server focused on high-quality faction roleplay.</p>
+              <p style="margin:8px 0 0 0; color:var(--muted);">By engaging in faction RP, you acknowledge and agree to all rules listed below. Breaking any rule may result in punishment or faction strikes.</p>
+            </div>
+
+            <!-- FACTION ATTACK RULES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-crosshairs"></i> FACTION ATTACK RULES
+              </h3>
+              
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">General Attack Limits</h4>
+              <ul style="list-style:none; padding:0; margin:0 0 20px 0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Max 4 attackers per faction (unless defending on your own turf).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No attacks or robberies in the first/last 15 minutes of a server restart.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Minimum 3 negative interactions (fights, robbery, stabbing) are required before initiating a shootout.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Entering the death script = active attack.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Attacks must escalate realistically and organically.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Shooting in the air for RP is allowed, but no one can be injured.
+                </li>
+              </ul>
+
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Kill Limits & Deathmatching</h4>
+              <ul style="list-style:none; padding:0; margin:0 0 20px 0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  If 4+ people are on a turf, you may perform a deathmatching attack (no pinpointing).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Maximum intentional kills per attack: 3 (marked in red).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Unintentional extra kills: last victim is revived, no refunds.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  If you shoot back, you lose protection.
+                </li>
+              </ul>
+
+              <h4 style="color:#4a9eff; font-weight:800; font-size:18px; margin:20px 0 12px 0;">Identification</h4>
               <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Legal/Illegal Faction members must clearly identify the exact player you plan to engage with/attack if your target is inside a faction turf and or inside of a faction, ensure there are at least four faction members present (Including your target) before taking action. T1(Tier1) members get two attacks per week, and T2(Tier2) members get three, unless defending yourself or using an approved attack upgrade.
+                  Tog names count as pinpointing only if unmasked.
                 </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Before attempting a kill, you must have a minimum of eight meaningful negative interactions with the character unless there is already established shooting beef. All attacks must be backed with Strong, Realistic escalation that Legal Civilian Management can confirm and approve.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  If a player disrespects your deceased associates, on the first interaction, you may only escalate to a robbery at that moment. <strong style="color:var(--accent);">(if you want BUT YOU CANNOT SHOOT)</strong> A kill is only allowed after eight+ neg interactions and enough story driven roleplay that makes the conflict deep and believable, simple insults alone are not considered proper escalation.
+                  If a masked user is avoiding RP, they may be attacked.
                 </li>
               </ul>
             </div>
 
-            <div style="margin-bottom:28px; background:linear-gradient(135deg, rgba(220, 20, 60, 0.15) 0%, rgba(0, 71, 171, 0.15) 100%); border:2px solid transparent; border-radius:12px; padding:20px; position:relative; overflow:hidden;">
-              <div style="position:absolute; inset:0; padding:2px; border-radius:12px; background:linear-gradient(135deg, rgba(220, 20, 60, 0.6) 0%, rgba(0, 71, 171, 0.6) 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events:none;"></div>
-              <h3 style="color:var(--accent); font-weight:800; font-size:20px; margin-bottom:14px; position:relative; z-index:1;">
-                <i class="fa-solid fa-bullseye"></i> Attack Limits
+            <!-- MISCELLANEOUS FACTION RULES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-list-check"></i> MISCELLANEOUS FACTION RULES
               </h3>
               <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:10px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-star" style="position:absolute; left:8px; top:6px; font-size:8px; color:var(--accent);"></i>
-                  <strong>Tier 1 Illegal Faction Members</strong> = 2 attacks per week.
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  All attackers must be inside the gang menu.
                 </li>
-                <li style="margin-bottom:10px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-star" style="position:absolute; left:8px; top:6px; font-size:8px; color:var(--accent);"></i>
-                  <strong>Tier 2 Illegal Faction Members</strong> = 3 attacks per week.
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Non-members cannot participate in faction attacks.
                 </li>
-                <li style="padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-star" style="position:absolute; left:8px; top:6px; font-size:8px; color:var(--accent);"></i>
-                  All actions must be logged properly and checked off by <strong>(Illegal Civ Team)</strong> inside your thread.
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Reloading during an attack is prohibited.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Double attacking is only allowed if the enemy hasn't slid back within 72 hours.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  You cannot attack during cooldowns.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Attacks from supercars are restricted to Tier 2+ factions.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Solo attacks are allowed only against solo targets with valid RP.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  If shot but not placed in death script, you may RP injuries.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Entering death script from gunfire = mandatory character kill.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Tier 2+ factions may attack every 12 hours.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Robbery cooldown: 4 hours.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Robbery requires 2 interactions unless strong reason exists (flashing money/guns/drugs).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Robbing on a turf = faction attack.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Probationary factions cannot backdoor.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  At least 3 interactions are required before any backdoor action.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  All conflict must be built through RP, not excuses.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  If someone avoids RP on another faction's turf, you may kill them.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Failure to fear RP = punishments.
                 </li>
               </ul>
             </div>
 
-            <div style="margin-bottom:24px; position:relative; z-index:1;">
-              <h3 style="color:var(--accent); font-weight:800; font-size:22px; margin-bottom:16px; border-bottom:2px solid transparent; border-image:linear-gradient(90deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding-bottom:8px;">
-                <i class="fa-solid fa-exclamation-triangle"></i> Important Rules
+            <!-- ILLEGAL CIVILIAN RULES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-user-secret"></i> ILLEGAL CIVILIAN RULES
               </h3>
               <ul style="list-style:none; padding:0; margin:0;">
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Every kill, shooting, and robbery, must be clipped and pinpointed. <strong style="color:var(--accent);">No clip = Situation may be voided.</strong> (if the player report's)
+                  Illegal civilians may roleplay from a hood but cannot participate in faction beef unless joining that faction.
                 </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  You may attack solo or alongside other approved faction members. Only those accepted into the Illegal Factions scheme may participate in group attacks with you.
+                  Must have positive interactions to defend a faction.
                 </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
                   <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Any hostile weapon interaction, including firing in someone's direction counts as an attack. <strong style="color:var(--accent);">( Each attack must be recorded with nvidia in your thread )</strong>
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  All attacks require a strong roleplay foundation, Poor or rushed escalation will result in punishments, including potential removal from the scheme. If you believe your death lacked escalation, you're free to submit a report.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Driveby attacks from exotic vehicles, <strong>(Lambroghinis, Ferraris, ect.)</strong> are strictly blocked.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  All weapon usage must be portrayed realistically, Low effort or sloppy gun roleplay will not be tolerated.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Legal Civilians may not act as "defense" for a faction on their turf. If the roleplay doesn't naturally justify your presence, you shouldn't be on their turf waiting for someone to spin. Legal Civilian Groups shouldn't camp turfs after being warned.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  If you join faction members in an attack, it still counts toward your weekly attack limit. Again only approved Legal Civilians can attack with factions.
-                </li>
-                <li style="margin-bottom:16px; padding-left:24px; position:relative;">
-                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
-                  Shooting Strictly For Roleplay, <strong>(Shooting Into The Sky)</strong> counts as a negative interaction, not an attack. But if you fire towards a player, it becomes an official attack.
+                  Illegal civs should have their own storylines, not live on blocks all day.
                 </li>
               </ul>
             </div>
 
-            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.2) 0%, rgba(0, 71, 171, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px; position:relative; z-index:1;">
+            <!-- POOR ESCALATION / FORBIDDEN ACTIONS -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-ban"></i> POOR ESCALATION / FORBIDDEN ACTIONS
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Attacks from EVs, motorcycles, dirt bikes are forbidden (mopeds allowed).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Poor escalation leads to punishments.
+                </li>
+              </ul>
+            </div>
+
+            <!-- MUTUAL COMBAT RULES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-handshake-slash"></i> MUTUAL COMBAT RULES
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  When 5+ members from two factions meet in a hostile situation, it can escalate into faction conflict even in greenzones.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Max 8 members per faction (including allies) in brawls.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Do not linger on a turf for more than 10 minutes.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Hiding weapons with emotes = playing to win.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Non-participating faction members may not scout or spin enemy turf.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No beefing or shooting at public, promoted events.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Crosshair usage = immediate termination if proven.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Metagaming (Discord, streams, clips) = punishments or faction strikes.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Must stay in server 30 minutes after initiating an attack.
+                </li>
+              </ul>
+            </div>
+
+            <!-- ROLEPLAY DEVELOPMENT RULES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-book-open"></i> ROLEPLAY DEVELOPMENT RULES
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No faction activity until your faction has a thread.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Poor portrayal can lead to punishment.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No unnecessary local OOC.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Characters must be 72 hours old before participating in attacks.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  You may only take clothes/shoes, not inventory items, after knocking someone out.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Hackers/hitbox users in a faction will lead to consequences.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Public OOC toxicity = punishments.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Repeated turf provoking or greenzone provoking = strikes/closure.
+                </li>
+              </ul>
+            </div>
+
+            <!-- ENGAGEMENT & SHOOTOUT GUIDELINES -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-gun"></i> ENGAGEMENT & SHOOTOUT GUIDELINES
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No speed boosting or "100k or die" shooting.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Shooter POV with sound and 3 minutes must be provided if asked.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Must be recorded with GeForce/AMD, or Twitch/Kick VOD showing desktop/taskbar.
+                </li>
+              </ul>
+            </div>
+
+            <!-- WATER EVADING -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-water"></i> WATER EVADING
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No using water to escape police, factions, or to remove GSR.
+                </li>
+              </ul>
+            </div>
+
+            <!-- FACTION REPORTS -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-flag"></i> FACTION REPORTS
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Reports must be made within 48 hours.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  No revenge-motivated reports.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  If you have an active report, do not interact negatively with that faction.
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Factions under report review may be banned from selling guns/drugs.
+                </li>
+              </ul>
+            </div>
+
+            <!-- WEAPON LOGGING & REFILL POLICY -->
+            <div style="margin-bottom:32px;">
+              <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:16px; display:flex; align-items:center; gap:12px;">
+                <i class="fa-solid fa-clipboard-list"></i> WEAPON LOGGING & REFILL POLICY
+              </h3>
+              <ul style="list-style:none; padding:0; margin:0;">
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  Logged faction guns can be respawned after 3 days (not for test factions).
+                </li>
+                <li style="margin-bottom:12px; padding-left:24px; position:relative;">
+                  <i class="fa-solid fa-circle" style="position:absolute; left:8px; top:8px; font-size:6px; color:var(--accent);"></i>
+                  All guns must be logged. Unlogged firearms = bans/strikes.
+                </li>
+              </ul>
+            </div>
+
+            <div style="background:linear-gradient(135deg, rgba(220, 20, 60, 0.2) 0%, rgba(0, 71, 171, 0.15) 100%); border-left:4px solid transparent; border-image:linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%) 1; padding:20px; border-radius:8px; margin-top:32px;">
               <p style="margin:0; font-weight:700; font-size:18px;">
                 <i class="fa-solid fa-triangle-exclamation"></i> <strong>Remember:</strong>
               </p>
               <p style="margin:8px 0 0 0; color:var(--muted);">
-                All rules must be followed strictly. Failure to comply will result in punishments up to and including removal from the Illegal Factions scheme. 
-                Keep all clips organized and submit them as required. Quality roleplay and proper escalation are mandatory.
+                All rules must be followed strictly. Failure to comply will result in punishment or faction strikes. Quality roleplay and proper escalation are mandatory at all times.
               </p>
             </div>
           </div>
@@ -2270,23 +2540,23 @@ async function renderGrid(forceRefresh = false){
           
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; position:relative; z-index:1;">
             <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['Her Tec'] || FALLBACK}" alt="Her Tec" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">Her Tec</div>
+              <img src="${IMAGES['Tec 9'] || FALLBACK}" alt="Tec 9" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
+              <div style="color:#ffd700; font-weight:700; font-size:16px;">Tec 9</div>
               <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['G17B'] || FALLBACK}" alt="G17B" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">G17B Xmas</div>
+              <img src="${IMAGES['T2 PMR'] || FALLBACK}" alt="T2 PMR" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
+              <div style="color:#ffd700; font-weight:700; font-size:16px;">T2 PMR</div>
               <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['XmasFNX45'] || FALLBACK}" alt="XmasFNX45" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">Xmas FNX45</div>
+              <img src="${IMAGES['G17 Switch'] || FALLBACK}" alt="G17 Switch" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
+              <div style="color:#ffd700; font-weight:700; font-size:16px;">G17 Switch</div>
               <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
             </div>
             <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['BinaryG17'] || FALLBACK}" alt="BinaryG17" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">Binary G17</div>
+              <img src="${IMAGES['T2 G40'] || FALLBACK}" alt="T2 G40" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
+              <div style="color:#ffd700; font-weight:700; font-size:16px;">T2 G40</div>
               <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
             </div>
           </div>
@@ -2434,10 +2704,10 @@ async function startChristmasSpin(){
   spinning = true;
   
   const christmasGuns = [
-    { name:'Her Tec', rarity:'legendary', category:'Christmas', img:IMAGES['Her Tec'] || FALLBACK },
-    { name:'G17B', rarity:'legendary', category:'Christmas', img:IMAGES['G17B'] || FALLBACK },
-    { name:'XmasFNX45', rarity:'legendary', category:'Christmas', img:IMAGES['XmasFNX45'] || FALLBACK },
-    { name:'BinaryG17', rarity:'legendary', category:'Christmas', img:IMAGES['BinaryG17'] || FALLBACK }
+    { name:'Tec 9', rarity:'legendary', category:'Christmas', img:IMAGES['Tec 9'] || FALLBACK },
+    { name:'T2 PMR', rarity:'legendary', category:'Christmas', img:IMAGES['T2 PMR'] || FALLBACK },
+    { name:'G17 Switch', rarity:'legendary', category:'Christmas', img:IMAGES['G17 Switch'] || FALLBACK },
+    { name:'T2 G40', rarity:'legendary', category:'Christmas', img:IMAGES['T2 G40'] || FALLBACK }
   ];
   
   // Pick random Christmas gun
