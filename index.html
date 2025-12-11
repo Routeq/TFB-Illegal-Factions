@@ -1168,6 +1168,17 @@ const IMAGES = {
   'G17B': 'images/G17B Xmas.png',
   'XmasFNX45': 'images/FNX45 Binary.png',
   'BinaryG17 (Christmas)': 'images/G17 ( Christmas edition ).png',
+  
+  /* -------------------- DRUGS -------------------- */
+  'Shrooms': 'images/Shrooms.png',
+  'Xanax': 'images/Xanax.png',
+  'Perc 20s': 'images/Perc 20s.png',
+  'Perc 30s': 'images/Perc 30s.png',
+  'Green': 'images/Green.png',
+  'Tris': 'images/Tris.png',
+  'Quagen': 'images/Quagen.png',
+  'Wockhardt': 'images/Wockhardt.png',
+  'Heroin': 'images/Heroin.png',
 };
 
 const FALLBACK = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="240"%3E%3Crect fill="%23333" width="400" height="240"/%3E%3Ctext x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" fill="%23999"%3ENo Image%3C/text%3E%3C/svg%3E';
@@ -1227,14 +1238,14 @@ const ITEMS = {
   ],
   drugs: [
     { name:'Weed', rarity:'common', category:'Common', img:FALLBACK },
-    { name:'Shrooms', rarity:'common', category:'Common', img:FALLBACK },
-    { name:'Xanax', rarity:'uncommon', category:'Uncommon', img:FALLBACK },
-    { name:'Perc 20s', rarity:'uncommon', category:'Uncommon', img:FALLBACK },
-    { name:'Perc 30s', rarity:'rare', category:'Rare', img:FALLBACK },
-    { name:'Green', rarity:'rare', category:'Rare', img:FALLBACK },
-    { name:'Tris', rarity:'epic', category:'Epic', img:FALLBACK },
-    { name:'Quagen', rarity:'epic', category:'Epic', img:FALLBACK },
-    { name:'Wockhardt', rarity:'legendary', category:'Legendary', img:FALLBACK },
+    { name:'Shrooms', rarity:'common', category:'Common', img:IMAGES['Shrooms'] || FALLBACK },
+    { name:'Xanax', rarity:'uncommon', category:'Uncommon', img:IMAGES['Xanax'] || FALLBACK },
+    { name:'Perc 20s', rarity:'uncommon', category:'Uncommon', img:IMAGES['Perc 20s'] || FALLBACK },
+    { name:'Perc 30s', rarity:'rare', category:'Rare', img:IMAGES['Perc 30s'] || FALLBACK },
+    { name:'Green', rarity:'rare', category:'Rare', img:IMAGES['Green'] || FALLBACK },
+    { name:'Tris', rarity:'epic', category:'Epic', img:IMAGES['Tris'] || FALLBACK },
+    { name:'Quagen', rarity:'epic', category:'Epic', img:IMAGES['Quagen'] || FALLBACK },
+    { name:'Wockhardt', rarity:'legendary', category:'Legendary', img:IMAGES['Wockhardt'] || FALLBACK },
     { name:'PCP', rarity:'legendary', category:'Legendary', img:FALLBACK }
   ],
   tier1: [
