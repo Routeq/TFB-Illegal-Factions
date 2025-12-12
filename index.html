@@ -1149,7 +1149,6 @@ const IMAGES = {
   'G26': 'images/G26.png',
   'G2C T1': 'images/G2C T1.png',
   'G41 Tier 1': 'images/G41 Tier 1.png',
-  'G43': 'images/G43.png',
   'S XD9': 'images/S XD9.png',
   'TP9': 'images/TP9.png',
   'Taurus Civilian': 'images/Taurus Civilian.png',
@@ -1159,12 +1158,13 @@ const IMAGES = {
   'G22': 'images/G22.png',
   'MP9': 'images/MP9.png',
   'Hellcat': 'images/Hellcat.png',
+  'XDM': 'images/XDM.png',
   
   /* -------------------- TIER 2 LEGENDARY GUNS -------------------- */
   'T2 PMR': 'images/T2 PMR.png',
   'Tec 9': 'images/Tec 9.png',
   'G17 Switch': 'images/G17 Switch.png',
-  'T2 G40': 'images/T2 G40.png',
+  'T2 G40': 'images/T2 G4O.png',
   'Gflex': 'images/Gflex.png',
   'MPA 30': 'images/MPA 30.png',
   
@@ -1196,7 +1196,6 @@ const WEAPON_STATS = {
   'G26': { damage: 25, fire: 740, ammo: '9mm', magStd: 10, magExt: 20 },
   'G2C T1': { damage: 25, fire: 750, ammo: '9mm', magStd: 12, magExt: 24 },
   'G41 Tier 1': { damage: 25, fire: 760, ammo: '.45 ACP', magStd: 13, magExt: 26 },
-  'G43': { damage: 25, fire: 710, ammo: '9mm', magStd: 10, magExt: 20 },
   'S XD9': { damage: 25, fire: 730, ammo: '9mm', magStd: 16, magExt: 32 },
   'TP9': { damage: 25, fire: 740, ammo: '9mm', magStd: 18, magExt: 36 },
   'Taurus Civilian': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
@@ -1206,6 +1205,7 @@ const WEAPON_STATS = {
   'G22': { damage: 27, fire: 680, ammo: '.40 S&W', magStd: 15, magExt: 30 },
   'MP9': { damage: 25, fire: 800, ammo: '9mm', magStd: 30, magExt: 42 },
   'Hellcat': { damage: 26, fire: 720, ammo: '9mm', magStd: 13, magExt: 26 },
+  'XDM': { damage: 26, fire: 740, ammo: '9mm', magStd: 16, magExt: 32 },
   
   /* ---------------- TIER 2 LEGENDARY GUNS ---------------- */
   'T2 PMR': { damage: 33, fire: 800, ammo: '9mm', magStd: 15, magExt: 30 },
@@ -1243,10 +1243,16 @@ const ITEMS = {
     { name:'G26', rarity:'common', category:'Pistols', img:IMAGES['G26'] || FALLBACK },
     { name:'G2C T1', rarity:'common', category:'Pistols', img:IMAGES['G2C T1'] || FALLBACK },
     { name:'G41 Tier 1', rarity:'common', category:'Pistols', img:IMAGES['G41 Tier 1'] || FALLBACK },
-    { name:'G43', rarity:'common', category:'Pistols', img:IMAGES['G43'] || FALLBACK },
     { name:'S XD9', rarity:'common', category:'Pistols', img:IMAGES['S XD9'] || FALLBACK },
     { name:'TP9', rarity:'common', category:'Pistols', img:IMAGES['TP9'] || FALLBACK },
-    { name:'Taurus Civilian', rarity:'common', category:'Pistols', img:IMAGES['Taurus Civilian'] || FALLBACK }
+    { name:'Taurus Civilian', rarity:'common', category:'Pistols', img:IMAGES['Taurus Civilian'] || FALLBACK },
+    { name:'GH', rarity:'common', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
+    { name:'G17 G', rarity:'common', category:'Pistols', img:IMAGES['G17 G'] || FALLBACK },
+    { name:'G19 Flex', rarity:'common', category:'Pistols', img:IMAGES['G19 Flex'] || FALLBACK },
+    { name:'G22', rarity:'common', category:'Pistols', img:IMAGES['G22'] || FALLBACK },
+    { name:'MP9', rarity:'common', category:'Pistols', img:IMAGES['MP9'] || FALLBACK },
+    { name:'Hellcat', rarity:'common', category:'Pistols', img:IMAGES['Hellcat'] || FALLBACK },
+    { name:'XDM', rarity:'common', category:'Pistols', img:IMAGES['XDM'] || FALLBACK }
   ],
   drugs: [
     { name:'Weed', rarity:'common', category:'Common', img:FALLBACK },
@@ -1265,7 +1271,6 @@ const ITEMS = {
     { name:'G26', rarity:'common', category:'Pistols', img:IMAGES['G26'] || FALLBACK },
     { name:'G2C T1', rarity:'common', category:'Pistols', img:IMAGES['G2C T1'] || FALLBACK },
     { name:'G41 Tier 1', rarity:'common', category:'Pistols', img:IMAGES['G41 Tier 1'] || FALLBACK },
-    { name:'G43', rarity:'common', category:'Pistols', img:IMAGES['G43'] || FALLBACK },
     { name:'S XD9', rarity:'common', category:'Pistols', img:IMAGES['S XD9'] || FALLBACK },
     { name:'TP9', rarity:'common', category:'Pistols', img:IMAGES['TP9'] || FALLBACK },
     { name:'Taurus Civilian', rarity:'common', category:'Pistols', img:IMAGES['Taurus Civilian'] || FALLBACK },
@@ -1274,7 +1279,8 @@ const ITEMS = {
     { name:'G19 Flex', rarity:'common', category:'Pistols', img:IMAGES['G19 Flex'] || FALLBACK },
     { name:'G22', rarity:'common', category:'Pistols', img:IMAGES['G22'] || FALLBACK },
     { name:'MP9', rarity:'common', category:'Pistols', img:IMAGES['MP9'] || FALLBACK },
-    { name:'Hellcat', rarity:'common', category:'Pistols', img:IMAGES['Hellcat'] || FALLBACK }
+    { name:'Hellcat', rarity:'common', category:'Pistols', img:IMAGES['Hellcat'] || FALLBACK },
+    { name:'XDM', rarity:'common', category:'Pistols', img:IMAGES['XDM'] || FALLBACK }
   ],
   tier2: [
     { name:'T2 PMR', rarity:'legendary', category:'Pistols', img:IMAGES['T2 PMR'] || FALLBACK },
