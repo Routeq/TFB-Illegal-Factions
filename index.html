@@ -8,9 +8,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<!-- Supabase Client -->
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+<!-- Supabase Client (deferred) -->
+<script defer src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <style>
 :root{
@@ -1176,6 +1176,12 @@ const IMAGES = {
   'XmasFNX45': 'images/FNX45 Binary.png',
   'G17 Christmas': 'images/G17C.png',
   
+  /* -------------------- AMMO -------------------- */
+  '9mm Ammo': 'images/9mm Ammo.png',
+  '.45 ACP Ammo': 'images/.45 ACP Ammo.png',
+  '.40 S&W Ammo': 'images/.40 S&W Ammo.png',
+  'Ammo Box': 'images/Ammo Box.png',
+  
   /* -------------------- DRUGS -------------------- */
   'Shrooms': 'images/Shrooms.png',
   'Xanax': 'images/Xanax.png',
@@ -1255,7 +1261,8 @@ const ITEMS = {
     { name:'MP9', rarity:'common', category:'Pistols', img:IMAGES['MP9'] || FALLBACK },
     { name:'Hellcat', rarity:'common', category:'Pistols', img:IMAGES['Hellcat'] || FALLBACK },
     { name:'XDM', rarity:'common', category:'Pistols', img:IMAGES['XDM'] || FALLBACK },
-    { name:'G30', rarity:'common', category:'Pistols', img:IMAGES['G30'] || FALLBACK }
+    { name:'G30', rarity:'common', category:'Pistols', img:IMAGES['G30'] || FALLBACK },
+    { name:'T2 G40', rarity:'rare', category:'Pistols', img:IMAGES['T2 G40'] || FALLBACK }
   ],
   drugs: [
     { name:'Weed', rarity:'common', category:'Common', img:FALLBACK },
@@ -1284,7 +1291,8 @@ const ITEMS = {
     { name:'MP9', rarity:'common', category:'Pistols', img:IMAGES['MP9'] || FALLBACK },
     { name:'Hellcat', rarity:'common', category:'Pistols', img:IMAGES['Hellcat'] || FALLBACK },
     { name:'XDM', rarity:'common', category:'Pistols', img:IMAGES['XDM'] || FALLBACK },
-    { name:'G30', rarity:'common', category:'Pistols', img:IMAGES['G30'] || FALLBACK }
+    { name:'G30', rarity:'common', category:'Pistols', img:IMAGES['G30'] || FALLBACK },
+    { name:'T2 G40', rarity:'rare', category:'Pistols', img:IMAGES['T2 G40'] || FALLBACK }
   ],
   tier2: [
     { name:'T2 PMR', rarity:'legendary', category:'Pistols', img:IMAGES['T2 PMR'] || FALLBACK },
@@ -1301,8 +1309,8 @@ const ITEMS = {
 
 /* weights */
 const DEFAULT_WEIGHTS = {
-  testdrops: { common:100 },
-  tier1: { common:100 },
+  testdrops: { common:95, rare:5 },
+  tier1: { common:95, rare:5 },
   tier2: { legendary:100 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
@@ -1385,76 +1393,6 @@ async function getThreadsFromDB() {
 }
 
 // Forums are read-only - no save/update operations needed
-
-async function updateThreadInDB(threadId, updates) {
-  // Read-only forums - no updates
-  return;
-}
-
-async function deleteThreadFromDB(threadId) {
-  if (!useSupabase) {
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    const filtered = threads.filter(t => t.id !== threadId);
-    localStorage.setItem('forum_threads', JSON.stringify(filtered));
-    threadCache = null; // Clear cache
-    return;
-  }
-  
-  try {
-    const { error } = await supabase
-      .from('threads')
-      .delete()
-      .eq('id', threadId);
-    
-    if (error) throw error;
-  } catch (e) {
-    console.error('Error deleting thread:', e);
-    const threads = JSON.parse(localStorage.getItem('forum_threads') || '[]');
-    const filtered = threads.filter(t => t.id !== threadId);
-    localStorage.setItem('forum_threads', JSON.stringify(filtered));
-    threadCache = null; // Clear cache
-  }
-}
-
-async function getUsersFromDB() {
-  if (!useSupabase) {
-    return JSON.parse(localStorage.getItem('forum_users') || '[]');
-  }
-  
-  try {
-    const { data, error } = await supabase
-      .from('users')
-      .select('*');
-    
-    if (error) throw error;
-    return data || [];
-  } catch (e) {
-    console.error('Error fetching users:', e);
-    return JSON.parse(localStorage.getItem('forum_users') || '[]');
-  }
-}
-
-async function saveUserToDB(user) {
-  if (!useSupabase) {
-    const users = JSON.parse(localStorage.getItem('forum_users') || '[]');
-    users.push(user);
-    localStorage.setItem('forum_users', JSON.stringify(users));
-    return;
-  }
-  
-  try {
-    const { error } = await supabase
-      .from('users')
-      .insert([user]);
-    
-    if (error) throw error;
-  } catch (e) {
-    console.error('Error saving user:', e);
-    const users = JSON.parse(localStorage.getItem('forum_users') || '[]');
-    users.push(user);
-    localStorage.setItem('forum_users', JSON.stringify(users));
-  }
-}
 
 /* ---------- user profile ---------- */
 function updateUserProfile(){
@@ -2708,15 +2646,26 @@ async function startChristmasSpin(){
   if(spinning) return;
   spinning = true;
   
-  const christmasGuns = [
+  const christmasItems = [
     { name:'Her Tec', rarity:'legendary', category:'Christmas', img:IMAGES['Her Tec'] || FALLBACK },
     { name:'G17B', rarity:'legendary', category:'Christmas', img:IMAGES['G17B'] || FALLBACK },
     { name:'XmasFNX45', rarity:'legendary', category:'Christmas', img:IMAGES['XmasFNX45'] || FALLBACK },
-    { name:'G17 Christmas', rarity:'legendary', category:'Christmas', img:IMAGES['G17 Christmas'] || FALLBACK }
+    { name:'G17 Christmas', rarity:'legendary', category:'Christmas', img:IMAGES['G17 Christmas'] || FALLBACK },
+    { name:'Beretta', rarity:'common', category:'Testdrop', img:IMAGES['Beretta'] || FALLBACK },
+    { name:'G26', rarity:'common', category:'Testdrop', img:IMAGES['G26'] || FALLBACK },
+    { name:'G2C T1', rarity:'common', category:'Testdrop', img:IMAGES['G2C T1'] || FALLBACK },
+    { name:'G41 Tier 1', rarity:'common', category:'Testdrop', img:IMAGES['G41 Tier 1'] || FALLBACK },
+    { name:'S XD9', rarity:'common', category:'Testdrop', img:IMAGES['S XD9'] || FALLBACK },
+    { name:'TP9', rarity:'common', category:'Testdrop', img:IMAGES['TP9'] || FALLBACK },
+    { name:'9mm Ammo', rarity:'common', category:'Ammo', img:IMAGES['9mm Ammo'] || FALLBACK },
+    { name:'.45 ACP Ammo', rarity:'common', category:'Ammo', img:IMAGES['.45 ACP Ammo'] || FALLBACK },
+    { name:'.40 S&W Ammo', rarity:'uncommon', category:'Ammo', img:IMAGES['.40 S&W Ammo'] || FALLBACK },
+    { name:'Ammo Box', rarity:'rare', category:'Ammo', img:IMAGES['Ammo Box'] || FALLBACK }
   ];
   
-  // Pick random Christmas gun
-  const wonGun = christmasGuns[Math.floor(Math.random() * christmasGuns.length)];
+  // Pick random Christmas item
+  const wonItem = christmasItems[Math.floor(Math.random() * christmasItems.length)];
+  const wonGun = wonItem;
   
   // Show a victory modal
   const modal = document.createElement('div');
