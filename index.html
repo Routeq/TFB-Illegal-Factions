@@ -479,7 +479,6 @@ select:focus{
   position:absolute; 
   left:16px; 
   bottom:16px; 
-  background:linear-gradient(135deg, rgba(30,144,255,.8), rgba(13,17,23,.8)); 
   padding:8px 14px; 
   border-radius:8px; 
   font-weight:900; 
@@ -488,6 +487,12 @@ select:focus{
   font-size:11px; 
   text-transform:uppercase;
   letter-spacing:1px;
+}
+.badge.common{background:linear-gradient(135deg, rgba(255,255,255,.8), rgba(200,200,200,.8));color:#000;}
+.badge.uncommon{background:linear-gradient(135deg, rgba(34,177,76,.8), rgba(13,17,23,.8));}
+.badge.rare{background:linear-gradient(135deg, rgba(255,193,7,.8), rgba(13,17,23,.8));}
+.badge.epic{background:linear-gradient(135deg, rgba(255,87,34,.8), rgba(13,17,23,.8));}
+.badge.legendary{background:linear-gradient(135deg, rgba(244,67,54,.8), rgba(13,17,23,.8));}
   box-shadow:0 4px 12px rgba(0,0,0,.4);
   z-index:2;
 }
@@ -944,6 +949,7 @@ select:focus{
         <div class="topnav" id="mainNav">
           <div class="cat active" data-tab="testdrops"><i class="fa-solid fa-bullseye"></i>&nbsp;Test Drops</div>
           <div class="cat" data-tab="tier1"><i class="fa-solid fa-gun"></i>&nbsp;Tier 1 Weaponry</div>
+          <div class="cat" data-tab="tier1_5"><i class="fa-solid fa-star"></i>&nbsp;Tier 1.5</div>
           <div class="cat" data-tab="tier2"><i class="fa-solid fa-shield-alt"></i>&nbsp;Tier 2 Weaponry</div>
           <div class="cat" data-tab="drugs"><i class="fa-solid fa-capsules"></i>&nbsp;Drugs</div>
           <div class="cat" data-tab="forums"><i class="fa-solid fa-comments"></i>&nbsp;Forums</div>
@@ -1589,11 +1595,12 @@ function itemsForTab(tab){
 function createCard(item){
   const el = document.createElement('div');
   el.className = 'card';
+  const rarity = (item.rarity||'common').toLowerCase();
   el.innerHTML = `
     <div class="top-row"><div class="name">${item.name}</div></div>
     <div class="img-wrap"><img loading="lazy" src="${item.img}" alt="${item.name}" onerror="this.src='${FALLBACK}'"></div>
     <div style="height:8px"></div>
-    <div class="badge">${(item.rarity||'common').toUpperCase()}</div>
+    <div class="badge ${rarity}">${rarity.toUpperCase()}</div>
   `;
   el.addEventListener('click', ()=> openWeaponPopupFromCard(item));
   return el;
