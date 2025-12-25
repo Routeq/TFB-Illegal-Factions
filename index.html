@@ -462,7 +462,8 @@ select:focus{
   min-height:140px; 
   position:relative;
   z-index:1;
-  border:1px solid rgba(255,255,255,.05);
+  border: 2px solid rgba(30,144,255,.4);
+  box-shadow: inset 0 0 12px rgba(30,144,255,.2), 0 0 16px rgba(30,144,255,.3);
 }
 .img-wrap img{ 
   width:100%; 
@@ -470,6 +471,7 @@ select:focus{
   object-fit:contain; 
   display:block; 
   filter:drop-shadow(0 4px 12px rgba(0,0,0,.5));
+  border-radius: 8px;
 }
 
 /* rarity badge - Forum Tag Style */
@@ -1145,72 +1147,72 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL.includes('.supabase.co')) 
 const IMAGES = {
 
   /* -------------------- COMMON GUNS (WHITE) -------------------- */
-  'M_P9': 'Gunimage/M_P9.png',
-  'g45': 'Gunimage/g45.png',
-  'TI_11s': 'Gunimage/TI_11s.png',
-  'g23': 'Gunimage/g23.png',
-  'g20': 'Gunimage/g20.png',
-  'black_p80': 'Gunimage/black_p80.png',
-  'artic_heat': 'Gunimage/artic_heat.png',
-  'g41x': 'Gunimage/g41x.png',
-  'sig_p320': 'Gunimage/sig_p320.png',
-  'G41': 'Gunimage/G41.png',
-  'g45_45': 'Gunimage/g45_45.png',
-  'g44': 'Gunimage/g44.png',
-  'g43_gold': 'Gunimage/g43_gold.png',
-  'sig_p320_ammo': 'Gunimage/sig_p320_ammo.png',
-  'luger_gpp': 'Gunimage/luger_gpp.png',
+  'M_P9': 'Gunimage/M_P9.svg',
+  'g45': 'Gunimage/g45.svg',
+  'TI_11s': 'Gunimage/TI_11s.svg',
+  'g23': 'Gunimage/g23.svg',
+  'g20': 'Gunimage/g20.svg',
+  'black_p80': 'Gunimage/black_p80.svg',
+  'artic_heat': 'Gunimage/artic_heat.svg',
+  'g41x': 'Gunimage/g41x.svg',
+  'sig_p320': 'Gunimage/sig_p320.svg',
+  'G41': 'Gunimage/G41.svg',
+  'g45_45': 'Gunimage/g45_45.svg',
+  'g44': 'Gunimage/g44.svg',
+  'g43_gold': 'Gunimage/g43_gold.svg',
+  'sig_p320_ammo': 'Gunimage/sig_p320_ammo.svg',
+  'luger_gpp': 'Gunimage/luger_gpp.svg',
   
   /* -------------------- UNCOMMON GUNS (GREEN) -------------------- */
-  'deagle': 'Gunimage/deagle.png',
-  'j21': 'Gunimage/j21.png',
-  'g70_watch': 'Gunimage/g70_watch.png',
-  'g110_forearms': 'Gunimage/g110_forearms.png',
-  'g17_armor': 'Gunimage/g17_armor.png',
-  'fi45_45': 'Gunimage/fi45_45.png',
+  'deagle': 'Gunimage/deagle.svg',
+  'j21': 'Gunimage/j21.svg',
+  'g70_watch': 'Gunimage/g70_watch.svg',
+  'g110_forearms': 'Gunimage/g110_forearms.svg',
+  'g17_armor': 'Gunimage/g17_armor.svg',
+  'fi45_45': 'Gunimage/fi45_45.svg',
   
   /* -------------------- RARE GUNS (YELLOW) -------------------- */
-  'ru47_47': 'Gunimage/ru47_47.png',
-  'ru97_97': 'Gunimage/ru97_97.png',
-  'ru23_23': 'Gunimage/ru23_23.png',
-  'mac10': 'Gunimage/mac10.png',
-  'hellcat': 'Gunimage/hellcat.png',
-  'taurus_24c7': 'Gunimage/taurus_24c7.png',
-  'taurus_opsc': 'Gunimage/taurus_opsc.png',
-  'fia45_pink': 'Gunimage/fia45_pink.png',
-  'fia45_blue': 'Gunimage/fia45_blue.png',
-  'tarkos_opsc': 'Gunimage/tarkos_opsc.png',
-  'pia_dagger': 'Gunimage/pia_dagger.png',
-  'g19_flx_png': 'Gunimage/g19_flx_png.png',
-  'mac11_37': 'Gunimage/mac11_37.png',
+  'ru47_47': 'Gunimage/ru47_47.svg',
+  'ru97_97': 'Gunimage/ru97_97.svg',
+  'ru23_23': 'Gunimage/ru23_23.svg',
+  'mac10': 'Gunimage/mac10.svg',
+  'hellcat': 'Gunimage/hellcat.svg',
+  'taurus_24c7': 'Gunimage/taurus_24c7.svg',
+  'taurus_opsc': 'Gunimage/taurus_opsc.svg',
+  'fia45_pink': 'Gunimage/fia45_pink.svg',
+  'fia45_blue': 'Gunimage/fia45_blue.svg',
+  'tarkos_opsc': 'Gunimage/tarkos_opsc.svg',
+  'pia_dagger': 'Gunimage/pia_dagger.svg',
+  'g19_flx_png': 'Gunimage/g19_flx_png.svg',
+  'mac11_37': 'Gunimage/mac11_37.svg',
   
   /* -------------------- EPIC GUNS (ORANGE) -------------------- */
-  '3dprnted_pink': 'Gunimage/3dprnted_pink.png',
-  '3dprnted_blue': 'Gunimage/3dprnted_blue.png',
-  'tarkos_opsc_37': 'Gunimage/tarkos_opsc_37.png',
-  'pia_dagger_37': 'Gunimage/pia_dagger_37.png',
-  'g15_fl5_png': 'Gunimage/g15_fl5_png.png',
-  'g13_switch': 'Gunimage/g13_switch.png',
-  'fia_forearms': 'Gunimage/fia_forearms.png',
-  'mac10_37': 'Gunimage/mac10_37.png',
-  'pia_4': 'Gunimage/pia_4.png',
-  'tec9_37': 'Gunimage/tec9_37.png',
-  'fia11_png': 'Gunimage/fia11_png.png',
-  'g1919_flx_png': 'Gunimage/g1919_flx_png.png',
+  '3dprnted_pink': 'Gunimage/3dprnted_pink.svg',
+  '3dprnted_blue': 'Gunimage/3dprnted_blue.svg',
+  'tarkos_opsc_37': 'Gunimage/tarkos_opsc_37.svg',
+  'pia_dagger_37': 'Gunimage/pia_dagger_37.svg',
+  'g15_fl5_png': 'Gunimage/g15_fl5_png.svg',
+  'g13_switch': 'Gunimage/g13_switch.svg',
+  'fia_forearms': 'Gunimage/fia_forearms.svg',
+  'mac10_37': 'Gunimage/mac10_37.svg',
+  'pia_4': 'Gunimage/pia_4.svg',
+  'tec9_37': 'Gunimage/tec9_37.svg',
+  'fia11_png': 'Gunimage/fia11_png.svg',
+  'g1919_flx_png': 'Gunimage/g1919_flx_png.svg',
   
   /* -------------------- LEGENDARY GUNS (RED) -------------------- */
-  'tec9_legend': 'Gunimage/tec9_legend.png',
-  'g17_switch_red': 'Gunimage/g17_switch_red.png',
-  'g40_legend': 'Gunimage/g40_legend.png',
-  'gflex_legend': 'Gunimage/gflex_legend.png',
-  'mpa_30_legend': 'Gunimage/mpa_30_legend.png',
-  'tommy_gun': 'Gunimage/tommy_gun.png',
-  'ar15_legend': 'Gunimage/ar15_legend.png',
-  'ak47_legend': 'Gunimage/ak47_legend.png',
-  'uzi_legend': 'Gunimage/uzi_legend.png',
-  'mac11_legend': 'Gunimage/mac11_legend.png',
-  'g17_gold_legend': 'Gunimage/g17_gold_legend.png',
-  'deagle_legend': 'Gunimage/deagle_legend.png',
+  'tec9_legend': 'Gunimage/tec9_legend.svg',
+  'g17_switch_red': 'Gunimage/g17_switch_red.svg',
+  'g40_legend': 'Gunimage/g40_legend.svg',
+  'gflex_legend': 'Gunimage/gflex_legend.svg',
+  'mpa_30_legend': 'Gunimage/mpa_30_legend.svg',
+  'tommy_gun': 'Gunimage/tommy_gun.svg',
+  'ar15_legend': 'Gunimage/ar15_legend.svg',
+  'ak47_legend': 'Gunimage/ak47_legend.svg',
+  'uzi_legend': 'Gunimage/uzi_legend.svg',
+  'mac11_legend': 'Gunimage/mac11_legend.svg',
+  'g17_gold_legend': 'Gunimage/g17_gold_legend.svg',
+  'deagle_legend': 'Gunimage/deagle_legend.svg',
   
   /* -------------------- AMMO -------------------- */
   '9mm Ammo': 'https://media.discordapp.net/attachments/1442278653823156367/1449717079891644436/BC228C06-E46A-421E-844C-1681BE3AFC04.png?ex=694486fe&is=6943357e&hm=2b7c89980afc7c300852049ac8eeba6392fbc2c928347932acc816ba2a6b95ed&=&format=webp&quality=lossless&width=1589&height=1589',
