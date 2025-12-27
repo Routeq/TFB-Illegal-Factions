@@ -1201,16 +1201,16 @@ const IMAGES = {
   'tec9': BASE_PATH + '/Gunimage/tec9.png',
   
   // Drug images
-  'Weed': BASE_PATH + '/Gunimage/Weed.png',
-  'Shrooms': BASE_PATH + '/Gunimage/Shrooms.png',
-  'Xanax': BASE_PATH + '/Gunimage/Xanax.png',
-  'Perc 20s': BASE_PATH + '/Gunimage/Perc_20s.png',
-  'Perc 30s': BASE_PATH + '/Gunimage/Perc_30s.png',
-  'Green': BASE_PATH + '/Gunimage/Green.png',
-  'Tris': BASE_PATH + '/Gunimage/Tris.png',
-  'Quagen': BASE_PATH + '/Gunimage/Quagen.png',
-  'Wockhardt': BASE_PATH + '/Gunimage/Wockhardt.png',
-  'PCP': BASE_PATH + '/Gunimage/PCP.png'
+  'Weed': BASE_PATH + '/Gunimage/weed.png',
+  'Shrooms': BASE_PATH + '/Gunimage/shrooms.png',
+  'Xanax': BASE_PATH + '/Gunimage/xanax.png',
+  'Perc 20s': BASE_PATH + '/Gunimage/perc20.png',
+  'Perc 30s': BASE_PATH + '/Gunimage/perc30.png',
+  'Green': BASE_PATH + '/Gunimage/green.png',
+  'Tris': BASE_PATH + '/Gunimage/tris.png',
+  'Quagen': BASE_PATH + '/Gunimage/quagen.png',
+  'Wockhardt': BASE_PATH + '/Gunimage/wockhardt.png',
+  'PCP': BASE_PATH + '/Gunimage/pcp.png'
 };
 
 /* ---------------- FALLBACK IMAGE ---- */
@@ -1418,7 +1418,7 @@ const DEFAULT_WEIGHTS = {
   testdrops: { common:40, uncommon:50, rare:10 },
   tier1: { common:30, uncommon:40, rare:30 },
   tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
-  tier2: { common:10, uncommon:10, rare:30, epic:30, legendary:20 },
+  tier2: { common:20, uncommon:10, rare:30, epic:30, legendary:10 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
 
@@ -2823,7 +2823,7 @@ spinStartBtn.addEventListener('click', async ()=>{
   landedGunDisplay.style.display = 'none';
   
   // Determine drop count
-  const itemCount = activeTab === 'tier1' ? 4 : activeTab === 'tier2' ? 6 : 2;
+  const itemCount = activeTab === 'tier1' ? 4 : activeTab === 'tier2' ? 6 : activeTab === 'tier1_5' ? 5 : 2;
   const pickedItems = [];
   const steps = 15;
   const duration = 1000;
