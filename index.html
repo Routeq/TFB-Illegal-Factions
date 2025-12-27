@@ -1198,7 +1198,19 @@ const IMAGES = {
   'sr40': BASE_PATH + '/Gunimage/sr40.png',
   'tan_19x': BASE_PATH + '/Gunimage/tan_19x.png',
   'tarkov_gspc': BASE_PATH + '/Gunimage/tarkov_gspc.png',
-  'tec9': BASE_PATH + '/Gunimage/tec9.png'
+  'tec9': BASE_PATH + '/Gunimage/tec9.png',
+  
+  // Drug images
+  'Weed': BASE_PATH + '/Gunimage/Weed.png',
+  'Shrooms': BASE_PATH + '/Gunimage/Shrooms.png',
+  'Xanax': BASE_PATH + '/Gunimage/Xanax.png',
+  'Perc 20s': BASE_PATH + '/Gunimage/Perc_20s.png',
+  'Perc 30s': BASE_PATH + '/Gunimage/Perc_30s.png',
+  'Green': BASE_PATH + '/Gunimage/Green.png',
+  'Tris': BASE_PATH + '/Gunimage/Tris.png',
+  'Quagen': BASE_PATH + '/Gunimage/Quagen.png',
+  'Wockhardt': BASE_PATH + '/Gunimage/Wockhardt.png',
+  'PCP': BASE_PATH + '/Gunimage/PCP.png'
 };
 
 /* ---------------- FALLBACK IMAGE ---- */
@@ -1333,11 +1345,13 @@ const ITEMS = {
     { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
     { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
     
-    // Rare (Yellow background) - 4
+    // Rare (Yellow background) - 6
     { name:'1911', rarity:'rare', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
     { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
     { name:'g30', rarity:'rare', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
+    { name:'Tri_11s', rarity:'rare', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
+    { name:'M_P9', rarity:'rare', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
     
     // Epic (Orange background) - 9
     { name:'g19_foregrip', rarity:'epic', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
@@ -1386,7 +1400,7 @@ const ITEMS = {
   ],
   
   drugs: [
-    { name:'Weed', rarity:'common', category:'Common', img:FALLBACK },
+    { name:'Weed', rarity:'common', category:'Common', img:IMAGES['Weed'] || FALLBACK },
     { name:'Shrooms', rarity:'common', category:'Common', img:IMAGES['Shrooms'] || FALLBACK },
     { name:'Xanax', rarity:'uncommon', category:'Uncommon', img:IMAGES['Xanax'] || FALLBACK },
     { name:'Perc 20s', rarity:'uncommon', category:'Uncommon', img:IMAGES['Perc 20s'] || FALLBACK },
@@ -1395,7 +1409,7 @@ const ITEMS = {
     { name:'Tris', rarity:'epic', category:'Epic', img:IMAGES['Tris'] || FALLBACK },
     { name:'Quagen', rarity:'epic', category:'Epic', img:IMAGES['Quagen'] || FALLBACK },
     { name:'Wockhardt', rarity:'legendary', category:'Legendary', img:IMAGES['Wockhardt'] || FALLBACK },
-    { name:'PCP', rarity:'legendary', category:'Legendary', img:FALLBACK }
+    { name:'PCP', rarity:'legendary', category:'Legendary', img:IMAGES['PCP'] || FALLBACK }
   ]
 };
 
@@ -1404,7 +1418,7 @@ const DEFAULT_WEIGHTS = {
   testdrops: { common:40, uncommon:50, rare:10 },
   tier1: { common:30, uncommon:40, rare:30 },
   tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
-  tier2: { common:10, uncommon:30, rare:30, epic:20, legendary:10 },
+  tier2: { common:10, uncommon:10, rare:30, epic:30, legendary:20 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
 
