@@ -1292,7 +1292,10 @@ const ITEMS = {
     { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
     { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
-    { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK }
+    { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    
+    // Rare (Yellow background) - 1
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK }
   ],
   
   tier1: [
@@ -1314,7 +1317,7 @@ const ITEMS = {
     { name:'gg45', rarity:'uncommon', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
     { name:'g45x', rarity:'uncommon', category:'Pistols', img:IMAGES['g45x'] || FALLBACK },
     
-    // Rare (Yellow background) - 9
+    // Rare (Yellow background) - 8
     { name:'g30', rarity:'rare', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
     { name:'1911', rarity:'rare', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
@@ -1322,7 +1325,6 @@ const ITEMS = {
     { name:'M_P9', rarity:'rare', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
     { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
     { name:'Tri_11s', rarity:'rare', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
-    { name:'g17_arma', rarity:'rare', category:'Pistols', img:IMAGES['g17_arma'] || FALLBACK },
     { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK }
   ],
   
@@ -1331,9 +1333,11 @@ const ITEMS = {
     { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
     { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
     
-    // Rare (Yellow background) - 2
+    // Rare (Yellow background) - 4
     { name:'1911', rarity:'rare', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
     { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'g30', rarity:'rare', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
     
     // Epic (Orange background) - 9
     { name:'g19_foregrip', rarity:'epic', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
@@ -1344,7 +1348,10 @@ const ITEMS = {
     { name:'g40', rarity:'epic', category:'Pistols', img:IMAGES['g40'] || FALLBACK },
     { name:'tec9', rarity:'epic', category:'SMG', img:IMAGES['tec9'] || FALLBACK },
     { name:'mac10', rarity:'epic', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
-    { name:'sr40', rarity:'epic', category:'Pistols', img:IMAGES['sr40'] || FALLBACK }
+    { name:'sr40', rarity:'epic', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
+    
+    // Legendary (Red background) - 1
+    { name:'deagle', rarity:'legendary', category:'Pistols', img:IMAGES['deagle'] || FALLBACK }
   ],
   
   tier2: [
@@ -1395,8 +1402,8 @@ const ITEMS = {
 /* weights */
 const DEFAULT_WEIGHTS = {
   testdrops: { common:40, uncommon:50, rare:10 },
-  tier1: { common:30, uncommon:40, rare:20, epic:10 },
-  tier1_5: { common:20, uncommon:30, rare:20, epic:20, legendary:10 },
+  tier1: { common:30, uncommon:40, rare:30 },
+  tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
   tier2: { common:10, uncommon:30, rare:30, epic:20, legendary:10 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
