@@ -2835,7 +2835,6 @@ spinStartBtn.addEventListener('click', async ()=>{
     
     const item = pickWeightedItem(activeTab);
     pickedItems.push(item);
-    addAcquired(item);
     
     renderSpinStrip();
     
@@ -2855,6 +2854,9 @@ spinStartBtn.addEventListener('click', async ()=>{
     
     await tick(spinIndex < itemCount - 1 ? 800 : 500);
   }
+  
+  // Add items to acquired AFTER all spins complete
+  pickedItems.forEach(item => addAcquired(item));
   
   sendWebhook({ action:'spin', tier:activeTab, result:`${itemCount} items`, ts:new Date().toISOString() });
   playSFX('win');
