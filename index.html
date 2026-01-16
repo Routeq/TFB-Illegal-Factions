@@ -1149,7 +1149,10 @@ if (SUPABASE_URL && SUPABASE_ANON_KEY && SUPABASE_URL.includes('.supabase.co')) 
 /* =========================================================
    BASE PATH — GITHUB PAGES COMPATIBILITY
    ========================================================= */
-const BASE_PATH = '/TFB-Illegal-Factions';
+// Automatically detect if running locally or on GitHub Pages
+const BASE_PATH = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:' 
+  ? '.' 
+  : '/TFB-Illegal-Factions';
 
 /* =========================================================
    IMAGE MAP — VALID GUNS ONLY (39 TOTAL)
