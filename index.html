@@ -1154,6 +1154,9 @@ const BASE_PATH = window.location.hostname === 'localhost' || window.location.ho
   ? '.' 
   : '/TFB-Illegal-Factions';
 
+console.log('BASE_PATH:', BASE_PATH);
+console.log('Location:', window.location.hostname, window.location.protocol);
+
 /* =========================================================
    IMAGE MAP — VALID GUNS ONLY (39 TOTAL)
    ========================================================= */
@@ -1252,6 +1255,12 @@ const IMAGES = {
   'Wockhardt': BASE_PATH + '/Gunimage/Wock.png',
   'PCP': BASE_PATH + '/Gunimage/pcp.png'
 };
+
+// Debug: Log some image paths
+console.log('Sample image paths:');
+console.log('callious:', IMAGES['callious']);
+console.log('g17g5:', IMAGES['g17g5']);
+console.log('dracoz:', IMAGES['dracoz']);
 
 /* ---------------- FALLBACK IMAGE ---- */
 const FALLBACK =
@@ -1521,6 +1530,11 @@ const ITEMS = {
     { name:'PCP', rarity:'legendary', category:'Legendary', img:IMAGES['PCP'] || FALLBACK }
   ]
 };
+
+// Debug: Check what's in the testdrops
+console.log('ITEMS.testdrops count:', ITEMS.testdrops.length);
+console.log('First 5 testdrops:', ITEMS.testdrops.slice(0, 5));
+console.log('Last 5 testdrops:', ITEMS.testdrops.slice(-5));
 
 /* weights */
 const DEFAULT_WEIGHTS = {
