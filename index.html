@@ -2779,8 +2779,8 @@ spinStartBtn.addEventListener('click', async ()=>{
   // Determine drop count
   const itemCount = activeTab === 'tier1' ? 4 : activeTab === 'tier2' ? 6 : activeTab === 'tier1_5' ? 5 : 2;
   const pickedItems = [];
-  const steps = 8;
-  const duration = 400;
+  const steps = 12;
+  const duration = 700;
   const delays = computeDelays(duration, steps);
   
   // Spin for each item
@@ -2792,12 +2792,15 @@ spinStartBtn.addEventListener('click', async ()=>{
     
     renderSpinStrip();
     
-    // Animate wheel
+    // Animate wheel - show the gun landing
     for (let i = 0; i < steps; i++){
       const first = spinStrip.firstElementChild;
       if(first) spinStrip.appendChild(first);
       await tick(delays[i]);
     }
+    
+    // Ensure the selected item is visible in the center
+    await tick(100);
     
     // Show landed item
     landedGunImage.src = item.img || FALLBACK;
@@ -2806,7 +2809,7 @@ spinStartBtn.addEventListener('click', async ()=>{
     landedGunRarity.style.color = getRarityColor(item.rarity);
     landedGunDisplay.style.display = 'block';
     
-    await tick(spinIndex < itemCount - 1 ? 400 : 300);
+    await tick(spinIndex < itemCount - 1 ? 600 : 400);
   }
   
   // Add items to acquired AFTER all spins complete
