@@ -2779,8 +2779,8 @@ spinStartBtn.addEventListener('click', async ()=>{
   // Determine drop count
   const itemCount = activeTab === 'tier1' ? 4 : activeTab === 'tier2' ? 6 : activeTab === 'tier1_5' ? 5 : 2;
   const pickedItems = [];
-  const steps = 15;
-  const duration = 1000;
+  const steps = 8;
+  const duration = 400;
   const delays = computeDelays(duration, steps);
   
   // Spin for each item
@@ -2806,7 +2806,7 @@ spinStartBtn.addEventListener('click', async ()=>{
     landedGunRarity.style.color = getRarityColor(item.rarity);
     landedGunDisplay.style.display = 'block';
     
-    await tick(spinIndex < itemCount - 1 ? 800 : 500);
+    await tick(spinIndex < itemCount - 1 ? 400 : 300);
   }
   
   // Add items to acquired AFTER all spins complete
