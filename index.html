@@ -1170,7 +1170,6 @@ const IMAGES = {
   'artic_hcat': BASE_PATH + '/Gunimage/artic_hcat.png',
   'bape_glock': BASE_PATH + '/Gunimage/bape_glock.png',
   'black_p80': BASE_PATH + '/Gunimage/black_p80.png',
-  'canik': BASE_PATH + '/Gunimage/canik.png',
   'fn57': BASE_PATH + '/Gunimage/fn57.png',
   'fnx45': BASE_PATH + '/Gunimage/fnx45.png',
   'g17_arma': BASE_PATH + '/Gunimage/g17_arma.png',
@@ -1196,7 +1195,6 @@ const IMAGES = {
   'mac10': BASE_PATH + '/Gunimage/mac10.png',
   'psa_dagger': BASE_PATH + '/Gunimage/psa_dagger.png',
   'ruger57': BASE_PATH + '/Gunimage/ruger57.png',
-  'ruger_lcp': BASE_PATH + '/Gunimage/ruger_lcp.png',
   'sig_p320': BASE_PATH + '/Gunimage/sig_p320.png',
   'sr40': BASE_PATH + '/Gunimage/sr40.png',
   'tan_19x': BASE_PATH + '/Gunimage/tan_19x.png',
@@ -1297,7 +1295,6 @@ const WEAPON_STATS = {
   'g45x': { damage: 25, fire: 700, ammo: '9mm', magStd: 14, magExt: 28 },
   
   /* ---- RARE (Yellow old + Pink/Purple new) ---- */
-  'canik': { damage: 26, fire: 670, ammo: '9mm', magStd: 18, magExt: 36 },
   'fnx45': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 15, magExt: 30 },
   'g19_flex': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
   'g20_switch': { damage: 27, fire: 680, ammo: '10mm', magStd: 15, magExt: 30 },
@@ -1307,7 +1304,6 @@ const WEAPON_STATS = {
   'mac10': { damage: 28, fire: 1050, ammo: '.45 ACP', magStd: 30, magExt: 42 },
   'psa_dagger': { damage: 32, fire: 850, ammo: '9mm', magStd: 20, magExt: 40 },
   'ruger57': { damage: 23, fire: 620, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
-  'ruger_lcp': { damage: 20, fire: 500, ammo: '.380 ACP', magStd: 6, magExt: 12 },
   'sr40': { damage: 27, fire: 700, ammo: '.40 S&W', magStd: 15, magExt: 30 },
   'tan_19x': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
   'tarkov_gspc': { damage: 31, fire: 800, ammo: '9mm', magStd: 18, magExt: 36 },
@@ -1374,14 +1370,13 @@ const ITEMS = {
   
   tier1: [
     // Common - Green background (new olive green guns)
-    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK },
     { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
     { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
     { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
     { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
     { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
-    { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
     { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
+    { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
     { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
     { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
@@ -1389,7 +1384,6 @@ const ITEMS = {
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
     
     // Rare - All old yellow guns
-    { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
     { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
     { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
@@ -1399,15 +1393,17 @@ const ITEMS = {
     { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
     { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
     { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
-    { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
     { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
     { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
     { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK }
   ],
   
   tier1_5: [
+    // Common - 2 green guns
+    { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
+    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
+    
     // Rare - All old yellow guns
-    { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
     { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
     { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
@@ -1417,7 +1413,6 @@ const ITEMS = {
     { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
     { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
     { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
-    { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
     { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
     { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
     { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
@@ -1472,7 +1467,7 @@ console.log('Last 5 testdrops:', ITEMS.testdrops.slice(-5));
 /* weights */
 const DEFAULT_WEIGHTS = {
   testdrops: { common:40, uncommon:60 },
-  tier1: { common:48, uncommon:49, rare:3 },
+  tier1: { common:97, uncommon:0, rare:3 },
   tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
   tier2: { common:10, uncommon:30, rare:30, epic:20, legendary:10 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
