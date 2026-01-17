@@ -1346,23 +1346,18 @@ const DRUG_PRICES = {
 const ITEMS = {
   testdrops: [
     // Common - Green background (new olive green guns)
-    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK },
     { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
     { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
     { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
     { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
     { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
-    { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
     { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
     { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
     { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
     // Uncommon - Black/White background (old guns only)
-    { name:'1911', rarity:'uncommon', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
     { name:'38_revolver', rarity:'uncommon', category:'Pistols', img:IMAGES['38_revolver'] || FALLBACK },
     { name:'GH', rarity:'uncommon', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
-    { name:'M_P9', rarity:'uncommon', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
-    { name:'Tri_11s', rarity:'uncommon', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
     { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
     { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
     { name:'g23', rarity:'uncommon', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
@@ -1371,10 +1366,6 @@ const ITEMS = {
     { name:'hellcat', rarity:'uncommon', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
     { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
-    { name:'g19_foregrip', rarity:'uncommon', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
-    { name:'g21', rarity:'uncommon', category:'Pistols', img:IMAGES['g21'] || FALLBACK },
-    { name:'g30', rarity:'uncommon', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
-    { name:'gflex', rarity:'uncommon', category:'Pistols', img:IMAGES['gflex'] || FALLBACK },
     { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
     { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
     { name:'gg45', rarity:'uncommon', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
@@ -2602,51 +2593,11 @@ async function renderGrid(forceRefresh = false){
     return;
   }
 
-  // Special handling for Tier 1 with Christmas Spin
-  if(activeTab === 'tier1'){
+  // Normal rendering for all tabs including tier1
+  if(false){
+    // Removed Christmas Spin feature
     contentArea.innerHTML = `
       <div style="max-width:1100px; margin:0 auto; padding:24px;">
-        <!-- Christmas Spin Section -->
-        <div style="background:linear-gradient(135deg, rgba(139, 0, 0, 0.3) 0%, rgba(0, 100, 0, 0.3) 100%); border:3px solid rgba(255, 215, 0, 0.4); border-radius:20px; padding:32px; margin-bottom:32px; backdrop-filter:blur(12px); box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3); position:relative; overflow:hidden;">
-          <div style="position:absolute; inset:0; padding:3px; border-radius:20px; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.6; pointer-events:none;"></div>
-          
-          <h2 style="color:#ffd700; font-weight:900; font-size:32px; margin-bottom:20px; text-align:center; text-shadow: 0 0 20px rgba(255, 215, 0, 0.5), 0 0 40px rgba(30, 144, 255, 0.3); position:relative; z-index:1;">
-            <i class="fa-solid fa-gift"></i> Christmas Spin
-          </h2>
-          
-          <div style="text-align:center; color:#e0e0e0; margin-bottom:24px; font-size:16px; position:relative; z-index:1;">
-            Special Holiday Event! Spin to win exclusive Christmas weapons!
-          </div>
-          
-          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:16px; margin-bottom:24px; position:relative; z-index:1;">
-            <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['Her Tec'] || FALLBACK}" alt="Tec" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">Her Tec</div>
-              <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['G17B'] || FALLBACK}" alt="G17B" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">G17B</div>
-              <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['XmasFNX45'] || FALLBACK}" alt="XmasFNX45" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">XmasFNX45</div>
-              <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
-            </div>
-            <div style="background:rgba(0,0,0,0.5); border:2px solid rgba(255, 215, 0, 0.3); border-radius:12px; padding:16px; text-align:center;">
-              <img src="${IMAGES['G17 Christmas'] || FALLBACK}" alt="G17 Christmas" style="width:100%; height:120px; object-fit:contain; margin-bottom:8px;" onerror="this.src='${FALLBACK}'">
-              <div style="color:#ffd700; font-weight:700; font-size:16px;">G17 Christmas</div>
-              <div style="color:#ff0000; font-size:12px; margin-top:4px;">LEGENDARY</div>
-            </div>
-          </div>
-          
-          <button onclick="startChristmasSpin()" class="btn drop" style="width:100%; padding:16px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700; position:relative; z-index:1;">
-            <i class="fa-solid fa-snowflake"></i> SPIN FOR CHRISTMAS GUN
-          </button>
-        </div>
-        
-        <!-- Regular Tier 1 Weapons -->
         <h3 style="color:var(--accent); font-weight:900; font-size:24px; margin-bottom:20px; text-align:center;">
           <i class="fa-solid fa-gun"></i> Tier 1 Weaponry
         </h3>
@@ -2819,56 +2770,7 @@ function renderSpinStrip(){
 }
 
 /* ---------- Christmas Spin Function ---------- */
-async function startChristmasSpin(){
-  if(spinning) return;
-  spinning = true;
-  
-  const christmasItems = [
-    { name:'Her Tec', rarity:'legendary', category:'Christmas', img:IMAGES['Her Tec'] || FALLBACK },
-    { name:'G17B', rarity:'legendary', category:'Christmas', img:IMAGES['G17B'] || FALLBACK },
-    { name:'XmasFNX45', rarity:'legendary', category:'Christmas', img:IMAGES['XmasFNX45'] || FALLBACK },
-    { name:'G17 Christmas', rarity:'legendary', category:'Christmas', img:IMAGES['G17 Christmas'] || FALLBACK },
-    { name:'Beretta', rarity:'common', category:'Testdrop', img:IMAGES['Beretta'] || FALLBACK },
-    { name:'G26', rarity:'common', category:'Testdrop', img:IMAGES['G26'] || FALLBACK },
-    { name:'G2C T1', rarity:'common', category:'Testdrop', img:IMAGES['G2C T1'] || FALLBACK },
-    { name:'G41 Tier 1', rarity:'common', category:'Testdrop', img:IMAGES['G41 Tier 1'] || FALLBACK },
-    { name:'S XD9', rarity:'common', category:'Testdrop', img:IMAGES['S XD9'] || FALLBACK },
-    { name:'TP9', rarity:'common', category:'Testdrop', img:IMAGES['TP9'] || FALLBACK },
-    { name:'Ammo Box', rarity:'rare', category:'Ammo', img:IMAGES['Ammo Box'] || FALLBACK }
-  ];
-  
-  // Pick random Christmas item
-  const wonItem = christmasItems[Math.floor(Math.random() * christmasItems.length)];
-  const wonGun = wonItem;
-  
-  // Show a victory modal
-  const modal = document.createElement('div');
-  modal.className = 'victory-overlay';
-  modal.style.cssText = 'position:fixed; inset:0; background:rgba(0,0,0,0.85); z-index:10000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);';
-  modal.innerHTML = `
-    <div style="background:linear-gradient(135deg, rgba(139, 0, 0, 0.95) 0%, rgba(0, 100, 0, 0.95) 100%); border:3px solid #ffd700; border-radius:24px; padding:48px; max-width:600px; text-align:center; box-shadow: 0 20px 60px rgba(255, 215, 0, 0.5); position:relative; overflow:hidden;">
-      <div style="position:absolute; inset:0; padding:3px; border-radius:24px; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:0.8; pointer-events:none;"></div>
-      
-      <div style="position:relative; z-index:1;">
-        <div style="font-size:64px; margin-bottom:16px;">🎄</div>
-        <h2 style="color:#ffd700; font-weight:900; font-size:36px; margin-bottom:24px; text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);">
-          MERRY CHRISTMAS!
-        </h2>
-        <img src="${wonGun.img}" alt="${wonGun.name}" style="width:100%; max-width:300px; height:200px; object-fit:contain; margin:24px auto; border-radius:12px; background:rgba(0,0,0,0.3); padding:16px;" onerror="this.src='${FALLBACK}'">
-        <div style="color:#fff; font-size:28px; font-weight:800; margin-bottom:8px;">${wonGun.name}</div>
-        <div style="color:#ff0000; font-size:20px; font-weight:700; margin-bottom:32px;">LEGENDARY CHRISTMAS EDITION</div>
-        <button onclick="this.closest('.victory-overlay').remove(); spinning=false;" class="btn drop" style="padding:16px 32px; font-size:18px; font-weight:800; background:linear-gradient(135deg, #1e90ff 0%, #228b22 50%, #ffd700 100%); border:2px solid #ffd700;">
-          <i class="fa-solid fa-check"></i> CLAIM WEAPON
-        </button>
-      </div>
-    </div>
-  `;
-  document.body.appendChild(modal);
-  
-  // Add to acquired
-  addAcquired(wonGun);
-  playSFX('victory');
-}
+// Christmas spin removed
 
 function computeDelays(durationMs, steps){
   // produce delays (ms) per step using easing (i/n)^2 weights and normalize to duration
