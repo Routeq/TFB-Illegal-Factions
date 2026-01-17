@@ -1369,7 +1369,7 @@ const DRUG_PRICES = {
 /* ------------ ITEMS DATASET (39 VALID GUNS ONLY) ------------ */
 const ITEMS = {
   testdrops: [
-    // Common (Light Blue/White background) - New Common Weapons
+    // Common (Black & White background) - New Common Weapons
     { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK }, // 1911
     { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
     { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
@@ -1381,35 +1381,35 @@ const ITEMS = {
     { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK }, // Walther P88
     { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK }, // Glock 45x
     
-    // Uncommon (Green background) - Kept existing for compatibility
-    { name:'g23', rarity:'uncommon', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
-    { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
-    { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
+    // Old Common (White background) - Re-added
+    { name:'1911', rarity:'common', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
+    { name:'38_revolver', rarity:'common', category:'Pistols', img:IMAGES['38_revolver'] || FALLBACK },
+    { name:'GH', rarity:'common', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
+    { name:'M_P9', rarity:'common', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
+    { name:'Tri_11s', rarity:'common', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
+    { name:'bape_glock', rarity:'common', category:'Pistols', img:IMAGES['bape_glock'] || FALLBACK },
+    { name:'black_p80', rarity:'common', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
+    { name:'g20', rarity:'common', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
+    { name:'g23', rarity:'common', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
+    { name:'g43x', rarity:'common', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
+    { name:'g45', rarity:'common', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
+    { name:'g48', rarity:'common', category:'Pistols', img:IMAGES['g48'] || FALLBACK },
+    { name:'hellcat', rarity:'common', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
+    { name:'sig_p320', rarity:'common', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    
+    // Uncommon (Green background) - All uncommon guns
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
-    { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
-    { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    { name:'deagle', rarity:'uncommon', category:'Pistols', img:IMAGES['deagle'] || FALLBACK },
+    { name:'fn57', rarity:'uncommon', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
+    { name:'g19_foregrip', rarity:'uncommon', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
+    { name:'g21', rarity:'uncommon', category:'Pistols', img:IMAGES['g21'] || FALLBACK },
+    { name:'g30', rarity:'uncommon', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
+    { name:'gflex', rarity:'uncommon', category:'Pistols', img:IMAGES['gflex'] || FALLBACK },
+    { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
+    { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
     
-    // Rare (Pink/Purple background) - New Rare Weapons
-    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK }, // .45 ACP FN 57
-    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK }, // G45
-    { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK }, // G26 Switch
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK }, // FN 57 (.50 AE)
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK }, // Glock 19X
-    
-    // Epic (Orange background) - New Epic Weapons
-    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK }, // G23 Switch
-    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK }, // G45 MOS
-    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK }, // G43 MOS
-    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK }, // G19 Switch
-    { name:'mac10_new', rarity:'epic', category:'SMG', img:IMAGES['mac10_new'] || FALLBACK },
-    { name:'fnx45_new', rarity:'epic', category:'Pistols', img:IMAGES['fnx45_new'] || FALLBACK },
-    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK }, // Alt Skin
-    
-    // Legendary (Red background) - New Legendary Weapons
-    { name:'dracoz', rarity:'legendary', category:'Rifles', img:IMAGES['dracoz'] || FALLBACK },
-    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK }, // Olive Draco
-    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK } // ARP Binary
+    // Rare - Add g40
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK }
   ],
   
   tier1: [
@@ -1521,10 +1521,10 @@ console.log('Last 5 testdrops:', ITEMS.testdrops.slice(-5));
 
 /* weights */
 const DEFAULT_WEIGHTS = {
-  testdrops: { common:35, uncommon:25, rare:25, epic:10, legendary:5 },
-  tier1: { common:40, uncommon:30, rare:30 },
-  tier1_5: { common:0, uncommon:10, rare:35, epic:35, legendary:20 },
-  tier2: { common:0, uncommon:10, rare:35, epic:35, legendary:20 },
+  testdrops: { common:40, uncommon:50, rare:10 },
+  tier1: { common:30, uncommon:40, rare:30 },
+  tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
+  tier2: { common:10, uncommon:30, rare:30, epic:20, legendary:10 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
 };
 
