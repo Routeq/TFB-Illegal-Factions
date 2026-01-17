@@ -2734,7 +2734,7 @@ enableBGM();
 setTimeout(()=> { const mp = localStorage.getItem('qc_music_on'); setMusicOn(mp !== '0'); }, 100);
 
 /* spinner modal logic: 1 second spin with easing */
-function renderSpinStrip(){
+function renderSpinStrip(targetItem = null){
   const pool = ITEMS[activeTab];
   if(!pool || pool.length === 0){ 
     spinStrip.innerHTML = '<div style="color:var(--muted)">No items in this category.</div>'; 
@@ -2745,7 +2745,8 @@ function renderSpinStrip(){
   const tileStyle = 'min-width:140px;height:120px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(255,255,255,0));border:1px solid rgba(255,255,255,.04);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px;contain:layout style paint;';
   
   for(let i=0;i<15;i++){
-    const it = pool[Math.floor(Math.random() * poolLen)];
+    // Place target item at the end position where it will land after animation
+    const it = (targetItem && i === 14) ? targetItem : pool[Math.floor(Math.random() * poolLen)];
     const tile = document.createElement('div');
     tile.className = 'spin-tile';
     tile.style.cssText = tileStyle;
@@ -2790,7 +2791,7 @@ spinStartBtn.addEventListener('click', async ()=>{
     const item = pickWeightedItem(activeTab);
     pickedItems.push(item);
     
-    renderSpinStrip();
+    renderSpinStrip(item);
     
     // Animate wheel - show the gun landing
     for (let i = 0; i < steps; i++){
