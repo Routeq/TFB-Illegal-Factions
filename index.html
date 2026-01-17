@@ -1369,19 +1369,7 @@ const DRUG_PRICES = {
 /* ------------ ITEMS DATASET (39 VALID GUNS ONLY) ------------ */
 const ITEMS = {
   testdrops: [
-    // Common (Black & White background) - New Common Weapons
-    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK }, // 1911
-    { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
-    { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
-    { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
-    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK }, // G19X
-    { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
-    { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
-    { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK }, // SIG P320
-    { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK }, // Walther P88
-    { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK }, // Glock 45x
-    
-    // Old Common (White background) - Re-added
+    // Common - Old white/black background guns (original common guns)
     { name:'1911', rarity:'common', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
     { name:'38_revolver', rarity:'common', category:'Pistols', img:IMAGES['38_revolver'] || FALLBACK },
     { name:'GH', rarity:'common', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
@@ -1397,7 +1385,7 @@ const ITEMS = {
     { name:'hellcat', rarity:'common', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
     { name:'sig_p320', rarity:'common', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
     
-    // Uncommon (Green background) - All uncommon guns
+    // Uncommon - Old white/black background guns (original uncommon guns)
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
     { name:'deagle', rarity:'uncommon', category:'Pistols', img:IMAGES['deagle'] || FALLBACK },
     { name:'fn57', rarity:'uncommon', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
@@ -1408,96 +1396,192 @@ const ITEMS = {
     { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
     { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
     
-    // Rare - Add g40
+    // Rare - g40 only
     { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK }
   ],
   
   tier1: [
-    // Common (Light Blue/White background) - New Common Weapons
-    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK }, // 1911
+    // Common - New olive green guns (new common guns with black/white background)
+    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK },
     { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
     { name:'hk45', rarity:'common', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
     { name:'g43g', rarity:'common', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
-    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK }, // G19X
+    { name:'dcomb', rarity:'common', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
     { name:'g233', rarity:'common', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
     { name:'g40_common', rarity:'common', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
-    { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK }, // SIG P320
-    { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK }, // Walther P88
-    { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK }, // Glock 45x
+    { name:'sigcb', rarity:'common', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
+    { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
+    { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
-    // Uncommon (Green background) - Mix of old + new
-    { name:'g23', rarity:'uncommon', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
-    { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
-    { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
+    // Common - Old light green guns (old common guns)
+    { name:'1911', rarity:'common', category:'Pistols', img:IMAGES['1911'] || FALLBACK },
+    { name:'38_revolver', rarity:'common', category:'Pistols', img:IMAGES['38_revolver'] || FALLBACK },
+    { name:'GH', rarity:'common', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
+    { name:'M_P9', rarity:'common', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
+    { name:'Tri_11s', rarity:'common', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
+    { name:'bape_glock', rarity:'common', category:'Pistols', img:IMAGES['bape_glock'] || FALLBACK },
+    { name:'black_p80', rarity:'common', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
+    { name:'g20', rarity:'common', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
+    { name:'g23', rarity:'common', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
+    { name:'g43x', rarity:'common', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
+    { name:'g45', rarity:'common', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
+    { name:'g48', rarity:'common', category:'Pistols', img:IMAGES['g48'] || FALLBACK },
+    { name:'hellcat', rarity:'common', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
+    { name:'sig_p320', rarity:'common', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    
+    // Uncommon - All black/white and green uncommon guns
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
-    { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
-    { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
+    { name:'deagle', rarity:'uncommon', category:'Pistols', img:IMAGES['deagle'] || FALLBACK },
+    { name:'fn57', rarity:'uncommon', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
+    { name:'g19_foregrip', rarity:'uncommon', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
+    { name:'g21', rarity:'uncommon', category:'Pistols', img:IMAGES['g21'] || FALLBACK },
+    { name:'g30', rarity:'uncommon', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
+    { name:'gflex', rarity:'uncommon', category:'Pistols', img:IMAGES['gflex'] || FALLBACK },
+    { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
+    { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
     { name:'gg45', rarity:'uncommon', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
     { name:'g45x', rarity:'uncommon', category:'Pistols', img:IMAGES['g45x'] || FALLBACK },
     
-    // Rare (Pink/Purple background) - New Rare Weapons
-    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK }, // .45 ACP FN 57
-    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK }, // G45
+    // Rare - All old yellow guns
+    { name:'3dprinted_blue', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_blue'] || FALLBACK },
+    { name:'3dprinted_pink', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_pink'] || FALLBACK },
+    { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
+    { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
+    { name:'g26_switch', rarity:'rare', category:'Pistols', img:IMAGES['g26_switch'] || FALLBACK },
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK },
+    { name:'keltec', rarity:'rare', category:'Pistols', img:IMAGES['keltec'] || FALLBACK },
+    { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
+    { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
+    { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
+    { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
+    { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
+    
+    // Rare - Keep new pink/purple rare guns
+    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
+    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
     { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK }, // G26 Switch
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK }, // FN 57 (.50 AE)
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK } // Glock 19X
+    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK },
+    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK },
+    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK }
   ],
   
   tier1_5: [
-    // Uncommon (Green background) - 2 random
-    { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
-    { name:'g43x', rarity:'uncommon', category:'Pistols', img:IMAGES['g43x'] || FALLBACK },
+    // Uncommon - Olive green (new common guns, but as uncommon tier here)
+    { name:'callous', rarity:'uncommon', category:'Pistols', img:IMAGES['callous'] || FALLBACK },
+    { name:'g17g5', rarity:'uncommon', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
+    { name:'hk45', rarity:'uncommon', category:'Pistols', img:IMAGES['hk45'] || FALLBACK },
+    { name:'g43g', rarity:'uncommon', category:'Pistols', img:IMAGES['g43g'] || FALLBACK },
+    { name:'dcomb', rarity:'uncommon', category:'Pistols', img:IMAGES['dcomb'] || FALLBACK },
+    { name:'g233', rarity:'uncommon', category:'Pistols', img:IMAGES['g233'] || FALLBACK },
+    { name:'g40_common', rarity:'uncommon', category:'Pistols', img:IMAGES['g40_common'] || FALLBACK },
+    { name:'sigcb', rarity:'uncommon', category:'Pistols', img:IMAGES['sigcb'] || FALLBACK },
+    { name:'p88p', rarity:'uncommon', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
+    { name:'cpt', rarity:'uncommon', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
-    // Rare (Pink/Purple background) - New Rare Weapons
-    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK }, // .45 ACP FN 57
-    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK }, // G45
+    // Rare - All old yellow guns
+    { name:'3dprinted_blue', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_blue'] || FALLBACK },
+    { name:'3dprinted_pink', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_pink'] || FALLBACK },
+    { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
+    { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
+    { name:'g26_switch', rarity:'rare', category:'Pistols', img:IMAGES['g26_switch'] || FALLBACK },
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK },
+    { name:'keltec', rarity:'rare', category:'Pistols', img:IMAGES['keltec'] || FALLBACK },
+    { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
+    { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
+    { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
+    { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
+    { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
+    
+    // Rare - New pink/purple rare guns
+    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
+    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
     { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK }, // G26 Switch
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK }, // FN 57 (.50 AE)
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK }, // Glock 19X
+    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK },
+    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK },
+    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK },
     
-    // Epic (Orange background) - New Epic Weapons
-    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK }, // G23 Switch
-    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK }, // G45 MOS
-    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK }, // G43 MOS
-    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK }, // G19 Switch
+    // Epic - All old orange guns (if any exist)
+    { name:'gg45', rarity:'epic', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
+    { name:'psa_dagger', rarity:'epic', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    
+    // Epic - All new orange guns
+    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
+    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK },
+    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK },
+    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK },
     { name:'mac10_new', rarity:'epic', category:'SMG', img:IMAGES['mac10_new'] || FALLBACK },
     { name:'fnx45_new', rarity:'epic', category:'Pistols', img:IMAGES['fnx45_new'] || FALLBACK },
-    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK }, // Alt Skin
+    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK },
     
-    // Legendary (Red background) - New Legendary Weapons
+    // Legendary - Old red guns
+    { name:'tec9', rarity:'legendary', category:'Pistols', img:IMAGES['tec9'] || FALLBACK },
+    
+    // Legendary - New red guns
     { name:'dracoz', rarity:'legendary', category:'Rifles', img:IMAGES['dracoz'] || FALLBACK },
-    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK }, // Olive Draco
-    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK } // ARP Binary
+    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK },
+    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK }
   ],
   
   tier2: [
-    // Uncommon (Green background) - 2 random
-    { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
-    { name:'tan_19x', rarity:'uncommon', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    // Common - 2 Olive green random
+    { name:'callous', rarity:'common', category:'Pistols', img:IMAGES['callous'] || FALLBACK },
+    { name:'g17g5', rarity:'common', category:'Pistols', img:IMAGES['g17g5'] || FALLBACK },
     
-    // Rare (Pink/Purple background) - New Rare Weapons
-    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK }, // .45 ACP FN 57
-    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK }, // G45
+    // Uncommon - 2 Yellow guns random
+    { name:'3dprinted_blue', rarity:'uncommon', category:'Pistols', img:IMAGES['3dprinted_blue'] || FALLBACK },
+    { name:'canik', rarity:'uncommon', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
+    
+    // Rare - All old yellow guns
+    { name:'3dprinted_pink', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_pink'] || FALLBACK },
+    { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
+    { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
+    { name:'g20_switch', rarity:'rare', category:'Pistols', img:IMAGES['g20_switch'] || FALLBACK },
+    { name:'g26_switch', rarity:'rare', category:'Pistols', img:IMAGES['g26_switch'] || FALLBACK },
+    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK },
+    { name:'keltec', rarity:'rare', category:'Pistols', img:IMAGES['keltec'] || FALLBACK },
+    { name:'mac10', rarity:'rare', category:'SMG', img:IMAGES['mac10'] || FALLBACK },
+    { name:'psa_dagger', rarity:'rare', category:'Pistols', img:IMAGES['psa_dagger'] || FALLBACK },
+    { name:'ruger57', rarity:'rare', category:'Pistols', img:IMAGES['ruger57'] || FALLBACK },
+    { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
+    { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
+    { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
+    
+    // Rare - New pink/purple rare guns
+    { name:'fn57', rarity:'rare', category:'Pistols', img:IMAGES['fn57'] || FALLBACK },
+    { name:'g45', rarity:'rare', category:'Pistols', img:IMAGES['g45'] || FALLBACK },
     { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK }, // G26 Switch
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK }, // FN 57 (.50 AE)
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK }, // Glock 19X
+    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK },
+    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK },
+    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK },
     
-    // Epic (Orange background) - New Epic Weapons
-    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK }, // G23 Switch
-    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK }, // G45 MOS
-    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK }, // G43 MOS
-    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK }, // G19 Switch
+    // Epic - All old orange guns
+    { name:'gg45', rarity:'epic', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
+    
+    // Epic - All new orange guns
+    { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
+    { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK },
+    { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK },
+    { name:'19switch', rarity:'epic', category:'Pistols', img:IMAGES['19switch'] || FALLBACK },
     { name:'mac10_new', rarity:'epic', category:'SMG', img:IMAGES['mac10_new'] || FALLBACK },
     { name:'fnx45_new', rarity:'epic', category:'Pistols', img:IMAGES['fnx45_new'] || FALLBACK },
-    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK }, // Alt Skin
+    { name:'g40_epic', rarity:'epic', category:'Pistols', img:IMAGES['g40_epic'] || FALLBACK },
     
-    // Legendary (Red background) - New Legendary Weapons
+    // Legendary - Old red guns
+    { name:'tec9', rarity:'legendary', category:'Pistols', img:IMAGES['tec9'] || FALLBACK },
+    
+    // Legendary - New red guns
     { name:'dracoz', rarity:'legendary', category:'Rifles', img:IMAGES['dracoz'] || FALLBACK },
-    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK }, // Olive Draco
-    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK } // ARP Binary
+    { name:'draco2', rarity:'legendary', category:'Rifles', img:IMAGES['draco2'] || FALLBACK },
+    { name:'arpsh', rarity:'legendary', category:'Rifles', img:IMAGES['arpsh'] || FALLBACK }
   ],
   
   drugs: [
