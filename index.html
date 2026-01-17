@@ -1164,8 +1164,6 @@ console.log('Location:', window.location.hostname, window.location.protocol);
 const IMAGES = {
   '1911': BASE_PATH + '/Gunimage/1911.png',
   '38_revolver': BASE_PATH + '/Gunimage/38_revolver.png',
-  '3dprinted_blue': BASE_PATH + '/Gunimage/3dprinted_blue.png',
-  '3dprinted_pink': BASE_PATH + '/Gunimage/3dprinted_pink.png',
   'GH': BASE_PATH + '/Gunimage/GH.png',
   'M_P9': BASE_PATH + '/Gunimage/M_P9.png',
   'Tri_11s': BASE_PATH + '/Gunimage/Tri_11s.png',
@@ -1173,7 +1171,6 @@ const IMAGES = {
   'bape_glock': BASE_PATH + '/Gunimage/bape_glock.png',
   'black_p80': BASE_PATH + '/Gunimage/black_p80.png',
   'canik': BASE_PATH + '/Gunimage/canik.png',
-  'deagle': BASE_PATH + '/Gunimage/deagle.png',
   'fn57': BASE_PATH + '/Gunimage/fn57.png',
   'fnx45': BASE_PATH + '/Gunimage/fnx45.png',
   'g17_arma': BASE_PATH + '/Gunimage/g17_arma.png',
@@ -1221,10 +1218,6 @@ const IMAGES = {
   // New Weapons - Rare (Pink / Purple)
   'fn57': BASE_PATH + '/Gunimage/WEAPON_FFN.png', // .45 ACP FN 57
   'g45': BASE_PATH + '/Gunimage/WEAPON_OLIVEG19.png', // G45 (renamed from oliveg19)
-  'g45s': BASE_PATH + '/Gunimage/WEAPON_G45S.png',
-  'g26s': BASE_PATH + '/Gunimage/WEAPON_G26S.png', // G26 Switch
-  'fn': BASE_PATH + '/Gunimage/WEAPON_FN.png', // FN 57 (.50 AE)
-  'mglock19': BASE_PATH + '/Gunimage/WEAPON_MGLOCK19.png', // Glock 19X
   
   // New Weapons - Epic (Orange)
   'ap3': BASE_PATH + '/Gunimage/WEAPON_AP3.png', // G23 Switch
@@ -1293,7 +1286,6 @@ const WEAPON_STATS = {
   'hellcat': { damage: 24, fire: 700, ammo: '9mm', magStd: 11, magExt: 22 },
   'sig_p320': { damage: 25, fire: 770, ammo: '9mm', magStd: 17, magExt: 34 },
   'artic_hcat': { damage: 25, fire: 720, ammo: '9mm', magStd: 15, magExt: 30 },
-  'deagle': { damage: 28, fire: 650, ammo: '.50 AE', magStd: 7, magExt: 14 },
   'fn57': { damage: 21, fire: 600, ammo: '5.7x28mm', magStd: 20, magExt: 40 },
   'g19_foregrip': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
   'g21': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 13, magExt: 26 },
@@ -1305,8 +1297,6 @@ const WEAPON_STATS = {
   'g45x': { damage: 25, fire: 700, ammo: '9mm', magStd: 14, magExt: 28 },
   
   /* ---- RARE (Yellow old + Pink/Purple new) ---- */
-  '3dprinted_blue': { damage: 30, fire: 850, ammo: '9mm', magStd: 20, magExt: 40 },
-  '3dprinted_pink': { damage: 30, fire: 850, ammo: '9mm', magStd: 20, magExt: 40 },
   'canik': { damage: 26, fire: 670, ammo: '9mm', magStd: 18, magExt: 36 },
   'fnx45': { damage: 27, fire: 680, ammo: '.45 ACP', magStd: 15, magExt: 30 },
   'g19_flex': { damage: 25, fire: 700, ammo: '9mm', magStd: 15, magExt: 30 },
@@ -1321,10 +1311,6 @@ const WEAPON_STATS = {
   'sr40': { damage: 27, fire: 700, ammo: '.40 S&W', magStd: 15, magExt: 30 },
   'tan_19x': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
   'tarkov_gspc': { damage: 31, fire: 800, ammo: '9mm', magStd: 18, magExt: 36 },
-  'g45s': { damage: 25, fire: 740, ammo: '9mm', magStd: 10, magExt: 20 },
-  'g26s': { damage: 24, fire: 680, ammo: '9mm', magStd: 10, magExt: 20 },
-  'fn': { damage: 28, fire: 650, ammo: '.50 AE', magStd: 7, magExt: 14 },
-  'mglock19': { damage: 25, fire: 700, ammo: '9mm', magStd: 19, magExt: 38 },
   
   /* ---- EPIC (Orange background) ---- */
   'ap3': { damage: 30, fire: 850, ammo: '.40 S&W', magStd: 13, magExt: 26 },
@@ -1377,7 +1363,6 @@ const ITEMS = {
     { name:'GH', rarity:'uncommon', category:'Pistols', img:IMAGES['GH'] || FALLBACK },
     { name:'M_P9', rarity:'uncommon', category:'Pistols', img:IMAGES['M_P9'] || FALLBACK },
     { name:'Tri_11s', rarity:'uncommon', category:'Pistols', img:IMAGES['Tri_11s'] || FALLBACK },
-    { name:'bape_glock', rarity:'uncommon', category:'Pistols', img:IMAGES['bape_glock'] || FALLBACK },
     { name:'black_p80', rarity:'uncommon', category:'Pistols', img:IMAGES['black_p80'] || FALLBACK },
     { name:'g20', rarity:'uncommon', category:'Pistols', img:IMAGES['g20'] || FALLBACK },
     { name:'g23', rarity:'uncommon', category:'Pistols', img:IMAGES['g23'] || FALLBACK },
@@ -1386,7 +1371,6 @@ const ITEMS = {
     { name:'hellcat', rarity:'uncommon', category:'Pistols', img:IMAGES['hellcat'] || FALLBACK },
     { name:'sig_p320', rarity:'uncommon', category:'Pistols', img:IMAGES['sig_p320'] || FALLBACK },
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
-    { name:'deagle', rarity:'uncommon', category:'Pistols', img:IMAGES['deagle'] || FALLBACK },
     { name:'g19_foregrip', rarity:'uncommon', category:'Pistols', img:IMAGES['g19_foregrip'] || FALLBACK },
     { name:'g21', rarity:'uncommon', category:'Pistols', img:IMAGES['g21'] || FALLBACK },
     { name:'g30', rarity:'uncommon', category:'Pistols', img:IMAGES['g30'] || FALLBACK },
@@ -1394,10 +1378,7 @@ const ITEMS = {
     { name:'hipoint', rarity:'uncommon', category:'Pistols', img:IMAGES['hipoint'] || FALLBACK },
     { name:'m9', rarity:'uncommon', category:'Pistols', img:IMAGES['m9'] || FALLBACK },
     { name:'gg45', rarity:'uncommon', category:'Pistols', img:IMAGES['gg45'] || FALLBACK },
-    { name:'g45x', rarity:'uncommon', category:'Pistols', img:IMAGES['g45x'] || FALLBACK },
-    
-    // Rare - g40 only
-    { name:'g40', rarity:'rare', category:'Pistols', img:IMAGES['g40'] || FALLBACK }
+    { name:'g45x', rarity:'uncommon', category:'Pistols', img:IMAGES['g45x'] || FALLBACK }
   ],
   
   tier1: [
@@ -1413,14 +1394,10 @@ const ITEMS = {
     { name:'p88p', rarity:'common', category:'Pistols', img:IMAGES['p88p'] || FALLBACK },
     { name:'cpt', rarity:'common', category:'Pistols', img:IMAGES['cpt'] || FALLBACK },
     
-    // Uncommon - 3 random uncommon guns
+    // Uncommon - 1 random uncommon gun
     { name:'artic_hcat', rarity:'uncommon', category:'Pistols', img:IMAGES['artic_hcat'] || FALLBACK },
-    { name:'deagle', rarity:'uncommon', category:'Pistols', img:IMAGES['deagle'] || FALLBACK },
-    { name:'g21', rarity:'uncommon', category:'Pistols', img:IMAGES['g21'] || FALLBACK },
     
     // Rare - All old yellow guns
-    { name:'3dprinted_blue', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_blue'] || FALLBACK },
-    { name:'3dprinted_pink', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_pink'] || FALLBACK },
     { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
     { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
@@ -1434,19 +1411,11 @@ const ITEMS = {
     { name:'ruger_lcp', rarity:'rare', category:'Pistols', img:IMAGES['ruger_lcp'] || FALLBACK },
     { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
     { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
-    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
-    
-    // Rare - New pink/purple guns
-    { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK },
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK },
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK }
+    { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK }
   ],
   
   tier1_5: [
     // Rare - All old yellow guns
-    { name:'3dprinted_blue', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_blue'] || FALLBACK },
-    { name:'3dprinted_pink', rarity:'rare', category:'Pistols', img:IMAGES['3dprinted_pink'] || FALLBACK },
     { name:'canik', rarity:'rare', category:'Pistols', img:IMAGES['canik'] || FALLBACK },
     { name:'fnx45', rarity:'rare', category:'Pistols', img:IMAGES['fnx45'] || FALLBACK },
     { name:'g19_flex', rarity:'rare', category:'Pistols', img:IMAGES['g19_flex'] || FALLBACK },
@@ -1461,12 +1430,6 @@ const ITEMS = {
     { name:'sr40', rarity:'rare', category:'Pistols', img:IMAGES['sr40'] || FALLBACK },
     { name:'tan_19x', rarity:'rare', category:'Pistols', img:IMAGES['tan_19x'] || FALLBACK },
     { name:'tarkov_gspc', rarity:'rare', category:'Pistols', img:IMAGES['tarkov_gspc'] || FALLBACK },
-    
-    // Rare - New pink/purple guns
-    { name:'g45s', rarity:'rare', category:'Pistols', img:IMAGES['g45s'] || FALLBACK },
-    { name:'g26s', rarity:'rare', category:'Pistols', img:IMAGES['g26s'] || FALLBACK },
-    { name:'fn', rarity:'rare', category:'Pistols', img:IMAGES['fn'] || FALLBACK },
-    { name:'mglock19', rarity:'rare', category:'Pistols', img:IMAGES['mglock19'] || FALLBACK },
     
     // Epic - All orange guns (old + new)
     { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
@@ -1480,6 +1443,7 @@ const ITEMS = {
   
   tier2: [
     // Epic - All orange guns (old + new)
+    { name:'bape_glock', rarity:'epic', category:'Pistols', img:IMAGES['bape_glock'] || FALLBACK },
     { name:'ap3', rarity:'epic', category:'Pistols', img:IMAGES['ap3'] || FALLBACK },
     { name:'45mos', rarity:'epic', category:'Pistols', img:IMAGES['45mos'] || FALLBACK },
     { name:'43mos', rarity:'epic', category:'Pistols', img:IMAGES['43mos'] || FALLBACK },
@@ -1516,8 +1480,8 @@ console.log('Last 5 testdrops:', ITEMS.testdrops.slice(-5));
 
 /* weights */
 const DEFAULT_WEIGHTS = {
-  testdrops: { common:40, uncommon:50, rare:10 },
-  tier1: { common:30, uncommon:40, rare:30 },
+  testdrops: { common:40, uncommon:60 },
+  tier1: { common:48, uncommon:49, rare:3 },
   tier1_5: { common:0, uncommon:15, rare:35, epic:35, legendary:15 },
   tier2: { common:10, uncommon:30, rare:30, epic:20, legendary:10 },
   drugs: { common:35, uncommon:25, rare:25, epic:15 }
